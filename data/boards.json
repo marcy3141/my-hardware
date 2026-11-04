@@ -3,7 +3,24 @@
   "id": "pcchips-m756mrt",
   "brand": "PCChips",
   "model": "M756MRT",
+  "rev": "1.21",
+  "ff": "mATX",
   "socket": "Slot 1 + Socket 370",
+  "chipset": "SiS 630",
+  "fsb": [
+   "66",
+   "100",
+   "133"
+  ],
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 2
+   }
+  ],
+  "onboard": [
+   "CMI8738"
+  ],
   "warning": {
    "it": "Non ha un vero slot AGP: l'add-in slot ha la stessa forma ma è elettricamente incompatibile. Inserire una scheda AGP la danneggia.",
    "en": "No real AGP slot: the add-in slot has the same shape but is electrically incompatible. Inserting an AGP card will damage it."
@@ -58,6 +75,33 @@
    "it": "Niente divisore 1/2 AGP. A FSB133 serve una scheda AGP che regga 89MHz.",
    "en": "No 1/2 divider for AGP. An 89MHz capable AGP card is required while running at FSB133"
   },
+  "photos": []
+ },
+ {
+  "id": "ecs-k7s5a-pro",
+  "brand": "ECS",
+  "model": "K7S5A PRO",
+  "rev": "5.0",
+  "ff": "ATX",
+  "socket": "Socket 462",
+  "chipset": "SiS 735",
+  "fsb": [
+   "200",
+   "266"
+  ],
+  "bios": "CheepoBIOS 0120",
+  "ramslots": [
+   {
+    "n": "DDR1",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "SDRAM",
+    "c": 2
+   }
+  ],
   "photos": []
  }
 ]

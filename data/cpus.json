@@ -1,1 +1,72 @@
-[{"id":"intel-celeron-1000a","brand":"Intel","model":"Celeron 1000A","family":"Tualatin","socket":"Socket 370","mhz":1000,"photos":[]}]
+[
+ {
+  "id": "intel-celeron-1000a",
+  "brand": "Intel",
+  "model": "Celeron 1000A",
+  "family": "Tualatin",
+  "socket": "Socket 370",
+  "mhz": 1000,
+  "fsb": "100",
+  "vcore": "1.475",
+  "notes": {
+   "it": "Tollera FSB133 a voltaggi stock.",
+   "en": "Tolerates FSB133 with stock voltage."
+  },
+  "photos": []
+ },
+ {
+  "id": "amd-1300",
+  "brand": "AMD",
+  "model": "Duron 1300",
+  "family": "Morgan",
+  "socket": "462",
+  "mhz": 1300,
+  "fsb": "100",
+  "vcore": "1.65V",
+  "sspec": "DHD1300AMT1B",
+  "notes": {
+   "it": "Da fare ponticelli L1 per sbloccare il moltiplicatore.",
+   "en": "To do: bridge L1 pins to unlock multiplier."
+  },
+  "photos": [
+   {
+    "f": "mw2981go-0.webp"
+   }
+  ]
+ },
+ {
+  "id": "intel-celeron-1100a",
+  "brand": "Intel",
+  "model": "Celeron 1100A",
+  "family": "Tualatin",
+  "socket": "Socket 370",
+  "mhz": 1100,
+  "fsb": "100",
+  "vcore": "1.475V",
+  "sspec": "SL5VQ",
+  "notes": {
+   "it": "Non tollera più FSB133.",
+   "en": "Doesn't tolerate FSB133 anymore."
+  },
+  "photos": []
+ },
+ {
+  "id": "amd-k6-2",
+  "brand": "AMD",
+  "model": "K6-2",
+  "family": "K6",
+  "socket": "Socket 7",
+  "fsb": "100",
+  "vcore": "2.2V",
+  "sspec": "?",
+  "warning": {
+   "it": "De-liddato. Raffreddare adeguatamente.",
+   "en": "Delidded. Cool adequately."
+  },
+  "notes": {
+   "it": "Moltiplicatore di fabbrica sconosciuto.",
+   "en": "Unknown factory multiplier."
+  },
+  "photos": []
+ }
+]

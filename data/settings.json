@@ -1,5 +1,7 @@
 {
  "theme": "win98",
  "bg": "",
- "backgrounds": []
+ "backgrounds": [],
+ "title": "Hardware",
+ "icon": ""
 }

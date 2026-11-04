@@ -1,1 +1,30 @@
-[{"id":"pov-fx5500","brand":"Point of View","model":"GeForce FX 5500","vram":"256 MB","bus":"AGP","photos":[]}]
+[
+ {
+  "id": "pov-fx5500",
+  "brand": "Point of View",
+  "model": "GeForce FX 5500",
+  "vram": "256 MB",
+  "bus": "AGP",
+  "photos": []
+ },
+ {
+  "id": "pny-geforce-6600le",
+  "brand": "PNY",
+  "model": "Geforce 6600LE",
+  "chip": "NV43",
+  "vram": "256MB",
+  "ramtype": "TSOP DDR",
+  "bus": "AGP",
+  "agpv": "1.5V 3.3V",
+  "out": [
+   "VGA",
+   "DVI",
+   "S-VIDEO"
+  ],
+  "notes": {
+   "it": "Variante con il bridge HSI. Forse ha 4 pipeline sbloccabili.",
+   "en": "HSI bridge variant. Maybe has 4 unlockable pipelines."
+  },
+  "photos": []
+ }
+]
