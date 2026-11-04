@@ -1,19 +1,36 @@
+@font-face{font-family:"IBM VGA";src:url(../fonts/ibm_vga_8x16.woff2) format("woff2")}
 :root{--bg:#000}
-body{font:14px/1.25 "Perfect DOS VGA 437","Px437 IBM VGA8","Lucida Console","Courier New",monospace;color:#aaa}
-.win{background:#00a;border:3px double #aaa;padding:2px;color:#aaa}
-.title{background:#aaa;color:#00a;font:inherit;font-weight:normal;text-shadow:none;padding:0 4px;min-height:1.4em}
-.title>span:first-child{flex:1;text-align:center;padding:0}
-nav,main,#ft{background:#00a}
-button{border:0;border-radius:0;background:#aaa;color:#000;padding:0 10px;box-shadow:2px 2px #000}
+html{font-size:16px}
+@media(min-width:1300px){html{font-size:32px}}
+*{font:inherit;letter-spacing:0;font-kerning:none}
+body{margin:0;padding:1lh 0;font:1em/1 "IBM VGA",monospace;color:#aaa;-webkit-font-smoothing:none;font-smooth:never;text-rendering:optimizeSpeed}
+.win{width:min(100vw - 2ch,120ch);width:round(down,min(100vw - 2ch,120ch),1ch);margin:0 auto;padding:0;background:#00a;color:#aaa;border:solid transparent;border-width:1lh 1ch;border-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='48' shape-rendering='crispEdges' fill='%23fff'><rect x='3' y='6' width='5' height='1'/><rect x='3' y='6' width='1' height='10'/><rect x='5' y='10' width='3' height='1'/><rect x='5' y='10' width='1' height='6'/><rect x='8' y='6' width='8' height='1'/><rect x='8' y='10' width='8' height='1'/><rect x='16' y='6' width='5' height='1'/><rect x='20' y='6' width='1' height='10'/><rect x='16' y='10' width='3' height='1'/><rect x='18' y='10' width='1' height='6'/><rect x='3' y='16' width='1' height='16'/><rect x='5' y='16' width='1' height='16'/><rect x='20' y='16' width='1' height='16'/><rect x='18' y='16' width='1' height='16'/><rect x='3' y='32' width='1' height='11'/><rect x='3' y='42' width='5' height='1'/><rect x='5' y='32' width='1' height='7'/><rect x='5' y='38' width='3' height='1'/><rect x='8' y='38' width='8' height='1'/><rect x='8' y='42' width='8' height='1'/><rect x='20' y='32' width='1' height='11'/><rect x='16' y='42' width='5' height='1'/><rect x='18' y='32' width='1' height='7'/><rect x='16' y='38' width='3' height='1'/></svg>") 16 8/1lh 1ch stretch}
+.title{background:#aaa;color:#000;padding:0 1ch;height:1lh;align-items:center;text-shadow:none}
+.title>span:first-child{flex:1;text-align:center}
+#tb{gap:1ch}
+.title button{background:#000;color:#aaa;padding:0 1ch;height:1lh;min-height:0}
+nav{background:#00a;padding:1lh 1ch 0;gap:1ch}
+main{background:#00a;padding:1lh 1ch}
+button{border:0;border-radius:0;background:#aaa;color:#000;padding:0 1ch;height:1lh;line-height:1;box-shadow:none}
 button:hover{background:#fff}
-button:active,button.on{border:0;background:#0aa;box-shadow:none}
-input,select,textarea{background:#000;color:#aaa;border:1px solid #aaa;border-radius:0;font:inherit}
+button:active,button.on{border:0;background:#0aa;color:#000}
+input,select,textarea{height:1lh;line-height:1;padding:0 1ch;border:0;border-radius:0;background:#000;color:#aaa}
+textarea{height:auto}
+input[type=search]{width:20ch}
+select{appearance:none;padding-right:3ch;background:#000 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'><path d='M3 6h10l-5 5z' fill='%23aaa'/></svg>") right/2ch 1lh no-repeat}
 option{background:#000;color:#aaa}
-.tw{background:#00a;border:1px solid #aaa;color:#aaa}
-th{background:#00a;color:#ff5;border-bottom:1px solid #aaa;border-right:0}
-td{border-bottom:1px solid #24c}
+.bar{gap:0 1ch;margin-bottom:1lh}
+.tw{background:#00a;border:0}
+table{border-spacing:0}
+th,td{padding:0 1ch;height:1lh;line-height:1;border:0;white-space:nowrap}
+th{background:#00a;color:#ff5}
 tr:hover td{background:#0aa;color:#000}tr:hover a{color:#000}
-a{color:#5ff}.dim{color:#88f}h2,h3{color:#fff;font-weight:normal}
-.dl{background:#00a;border:1px solid #aaa}.dl dt{color:#ff5}
-.warn{background:#a00;color:#fff;border:1px solid #fff}.badge{background:#a00}
-.ph img{border:1px solid #aaa}
+a{color:#5ff}.dim{color:#88f}
+h2,h3,p,ul,dl,figure{margin:0 0 1lh;padding:0}ul{padding-left:2ch}
+h2,h3{color:#fff}
+.dl{display:grid;gap:0 2ch;background:#00a;padding:0;margin:0 0 1lh}.dl dt{color:#ff5}
+.warn{background:#a00;color:#fff;border:0;padding:0 1ch;margin:0 0 1lh}
+.badge{background:#a00;color:#fff;padding:0 1ch;margin-left:1ch}
+.fm label{margin:0 0 1lh}.fm fieldset{border:0;padding:0;margin:0 0 1lh}.fm legend{padding:0}
+.ph{gap:1ch;margin:0 0 1lh}.ph img{height:calc(12*1lh);width:auto;max-width:100%;border:0}
+#ft{padding:0 1ch;font-size:inherit}

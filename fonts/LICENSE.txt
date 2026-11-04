@@ -1,1 +1,2 @@
 Font "MS Sans Serif" (FontStruction by "lou", https://fontstruct.com/fontstructions/show/1384746), licenza CC BY-SA 3.0: http://creativecommons.org/licenses/by-sa/3.0/
+Font "IBM VGA 8x16": conversione in WOFF2 di iv8x16u.bdf da https://github.com/farsil/ibmfonts (farsil, 2016), licenza CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/ (file modificato: bitmap vettorializzata)
