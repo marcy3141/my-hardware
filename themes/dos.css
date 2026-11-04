@@ -1,0 +1,19 @@
+:root{--bg:#000}
+body{font:14px/1.25 "Perfect DOS VGA 437","Px437 IBM VGA8","Lucida Console","Courier New",monospace;color:#aaa}
+.win{background:#00a;border:3px double #aaa;padding:2px;color:#aaa}
+.title{background:#aaa;color:#00a;font:inherit;font-weight:normal;text-shadow:none;padding:0 4px;min-height:1.4em}
+.title>span:first-child{flex:1;text-align:center;padding:0}
+nav,main,#ft{background:#00a}
+button{border:0;border-radius:0;background:#aaa;color:#000;padding:0 10px;box-shadow:2px 2px #000}
+button:hover{background:#fff}
+button:active,button.on{border:0;background:#0aa;box-shadow:none}
+input,select,textarea{background:#000;color:#aaa;border:1px solid #aaa;border-radius:0;font:inherit}
+option{background:#000;color:#aaa}
+.tw{background:#00a;border:1px solid #aaa;color:#aaa}
+th{background:#00a;color:#ff5;border-bottom:1px solid #aaa;border-right:0}
+td{border-bottom:1px solid #24c}
+tr:hover td{background:#0aa;color:#000}tr:hover a{color:#000}
+a{color:#5ff}.dim{color:#88f}h2,h3{color:#fff;font-weight:normal}
+.dl{background:#00a;border:1px solid #aaa}.dl dt{color:#ff5}
+.warn{background:#a00;color:#fff;border:1px solid #fff}.badge{background:#a00}
+.ph img{border:1px solid #aaa}

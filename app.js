@@ -38,7 +38,7 @@ $("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${
 (w?`<div class="warn"><b>${esc(t("warning"))}:</b> ${esc(w.x)}${mk(w.m)}</div>`:"")+
 `<dl class="dl">${F.filter(f=>f.t!=="long"&&val(f,x[f.k])!=="").map(f=>`<dt>${esc(f[lang])}</dt><dd>${esc(val(f,x[f.k]))}</dd>`).join("")}</dl>`+
 (n?`<h3>${esc(t("notes"))}${mk(n.m)}</h3>${md(n.x)}`:"")+
-`<div class="ph">${(x.photos||[]).map(p=>`<figure><img loading="lazy" src="photos/${r.sec}/${encodeURIComponent(x.id)}/${encodeURIComponent(p.f)}" alt="${esc(tr(p.c).x)}"><figcaption>${esc(tr(p.c).x)}</figcaption></figure>`).join("")}</div>`}
+`<div class="ph">${(x.photos||[]).map(p=>`<figure><img class="zi" loading="lazy" src="photos/${r.sec}/${encodeURIComponent(x.id)}/${encodeURIComponent(p.f)}" alt="${esc(tr(p.c).x)}"><figcaption>${esc(tr(p.c).x)}</figcaption></figure>`).join("")}</div>`}
 (async()=>{cfg=await get("config.json");sch=await get("data/schema.json");
 for(const l of cfg.langs)I[l]=await get(`i18n/${l}.json`);for(const s of cfg.sections)D[s]=await get(`data/${s}.json`).catch(()=>[]);ST=await get("data/settings.json").catch(()=>({}));
 let q=new URLSearchParams(location.search).get("lang"),st;try{st=localStorage.getItem("lang")}catch(e){}
@@ -51,3 +51,9 @@ function appear(){const u=lu(),B=ST.backgrounds||[];
 $("#main").innerHTML=`<div class="bar"><label>${esc(t("theme"))} <select id="sa">${cfg.themes.map(x=>`<option value="${x.id}"${(u.t||ST.theme||"win98")===x.id?" selected":""}>${esc(x.name)}</option>`).join("")}</select></label> <label>${esc(t("bgl"))} <select id="sb"><option value="def">${esc(t("def"))}</option><option value=""${u.b===""?" selected":""}>${esc(t("none"))}</option>${B.map(b=>`<option value="${esc(b.f)}"${u.b===b.f?" selected":""}>${esc(b.n||b.f)}</option>`).join("")}</select></label></div><p><button id="bk">${esc(t("back"))}</button></p>`;
 $("#sa").onchange=$("#sb").onchange=()=>{try{localStorage.setItem("look",JSON.stringify({t:$("#sa").value,b:$("#sb").value}))}catch(e){}look()};$("#bk").onclick=render}
 const foot=()=>{$("#ft").textContent=LC?`${t("last")}: ${new Date(LC).toLocaleString(lang,{dateStyle:"short",timeStyle:"short"})}`:""};
+
+addEventListener("click",e=>{const i=e.target;if(i.classList&&i.classList.contains("zi")){const L=[...document.querySelectorAll(".zi")];zoom(L,L.indexOf(i))}});
+function zoom(L,n){let b=$("#lb");if(!b){b=document.createElement("div");b.id="lb";document.body.appendChild(b)}const x=L[n];
+b.innerHTML=`<img src="${esc(x.src)}" alt="${esc(x.alt)}"><div><button ${n?"":"disabled"} data-d="-1">‹</button> ${esc(x.alt)} <a href="${esc(x.src)}" target="_blank" rel="noopener">${esc(t("open"))}</a> ${n+1}/${L.length} <button ${n<L.length-1?"":"disabled"} data-d="1">›</button></div>`;
+b.onclick=e=>{const g=e.target;if(g.tagName==="BUTTON"){zoom(L,n+ +g.dataset.d);return}if(g.tagName!=="A")b.remove()};
+document.onkeydown=e=>{if(!$("#lb"))return;if(e.key==="Escape")b.remove();else if(e.key==="ArrowRight"&&n<L.length-1)zoom(L,n+1);else if(e.key==="ArrowLeft"&&n>0)zoom(L,n-1)}}

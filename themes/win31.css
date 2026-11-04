@@ -1,0 +1,15 @@
+:root{--bg:#808080;--face:#c0c0c0}
+.win{background:#c0c0c0;border:1px solid #000;padding:4px;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080}
+.title{background:#000080;color:#fff;border:1px solid #000;padding:2px 4px;font-weight:bold}
+.title>span:first-child{flex:1;text-align:center;padding:0}
+nav{background:#fff;border:1px solid #000;border-top:0;padding:2px 4px;gap:0}
+nav button{border:0;background:transparent;box-shadow:none;padding:2px 8px}
+nav button:hover,nav button.on{background:#000080;color:#fff;border:0}
+main{background:#fff;border:1px solid #000;border-top:0;margin-top:0}
+button,select,input{border-radius:0}
+button{background:#c0c0c0;border:1px solid #000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080}
+button:active{border-color:#000;box-shadow:inset 1px 1px #808080}
+input,select{border:1px solid #000;background:#fff}
+.tw{border:1px solid #000}
+th{background:#c0c0c0;border:1px solid #000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080}
+tr:hover td{background:#000080;color:#fff}tr:hover a{color:#fff}
