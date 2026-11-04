@@ -1,1 +1,1 @@
-{"langs":["it","en"],"sections":["boards","gpus","cpus"]}
+{"langs": ["it", "en"], "sections": ["boards", "gpus", "cpus"], "themes": [{"id": "win98", "name": "Windows 98"}, {"id": "xp", "name": "Windows XP", "css": "themes/xp.css"}]}

@@ -21,3 +21,5 @@ th{background:var(--face);cursor:pointer;white-space:nowrap}tr:hover td{backgrou
 @font-face{font-family:"Pixelated MS Sans Serif";font-weight:700;src:url(fonts/ms_sans_serif_bold.woff2) format("woff2")}
 .title span{padding-left:3px}.title button{padding:1px 8px;min-height:0}
 .fm label{display:block;margin:6px 0}.fm input[type=text],.fm textarea{display:block;width:100%}.fm input[type=number]{display:block}
+.fm .bar input[type=text]{display:inline-block;width:auto}.fm fieldset{margin:6px 0}
+body{background-size:cover;background-attachment:fixed;background-position:center}.title #tb{padding-left:0;display:flex;gap:4px}

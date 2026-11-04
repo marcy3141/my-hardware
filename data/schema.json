@@ -1,34 +1,267 @@
-{"boards":[
-{"k":"brand","t":"text","it":"Marca","en":"Brand","f":1,"c":1},
-{"k":"model","t":"text","it":"Modello","en":"Model","c":1},
-{"k":"rev","t":"text","it":"Revisione PCB","en":"PCB revision"},
-{"k":"ff","t":"text","it":"Form factor","en":"Form factor","f":1},
-{"k":"socket","t":"text","it":"Socket/Slot","en":"Socket/Slot","f":1,"c":1},
-{"k":"chipset","t":"text","it":"Chipset","en":"Chipset","f":1,"c":1},
-{"k":"bios","t":"text","it":"BIOS","en":"BIOS"},
-{"k":"ram","t":"text","it":"RAM","en":"RAM"},
-{"k":"slots","t":"tags","it":"Slot","en":"Slots","f":1},
-{"k":"onboard","t":"tags","it":"Onboard","en":"Onboard"},
-{"k":"warning","t":"long","tr":1,"it":"Attenzione","en":"Warning"},
-{"k":"notes","t":"long","tr":1,"it":"Note","en":"Notes"}],
-"gpus":[
-{"k":"brand","t":"text","it":"Marca","en":"Brand","f":1,"c":1},
-{"k":"model","t":"text","it":"Modello","en":"Model","c":1},
-{"k":"chip","t":"text","it":"Chip","en":"Chip","f":1,"c":1},
-{"k":"vram","t":"text","it":"VRAM","en":"VRAM","c":1},
-{"k":"bus","t":"text","it":"Bus","en":"Bus","f":1,"c":1},
-{"k":"agpv","t":"text","it":"Tensione AGP","en":"AGP voltage","f":1},
-{"k":"out","t":"tags","it":"Uscite","en":"Outputs","f":1},
-{"k":"warning","t":"long","tr":1,"it":"Attenzione","en":"Warning"},
-{"k":"notes","t":"long","tr":1,"it":"Note","en":"Notes"}],
-"cpus":[
-{"k":"brand","t":"text","it":"Marca","en":"Brand","f":1,"c":1},
-{"k":"model","t":"text","it":"Modello","en":"Model","c":1},
-{"k":"family","t":"text","it":"Famiglia","en":"Family","f":1},
-{"k":"socket","t":"text","it":"Socket/Slot","en":"Socket/Slot","f":1,"c":1},
-{"k":"mhz","t":"number","it":"MHz","en":"MHz","c":1},
-{"k":"fsb","t":"text","it":"FSB","en":"FSB"},
-{"k":"vcore","t":"text","it":"Vcore","en":"Vcore"},
-{"k":"sspec","t":"text","it":"S-spec","en":"S-spec"},
-{"k":"warning","t":"long","tr":1,"it":"Attenzione","en":"Warning"},
-{"k":"notes","t":"long","tr":1,"it":"Note","en":"Notes"}]}
+{
+ "boards": [
+  {
+   "k": "brand",
+   "t": "text",
+   "it": "Marca",
+   "en": "Brand",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "model",
+   "t": "text",
+   "it": "Modello",
+   "en": "Model",
+   "c": 1
+  },
+  {
+   "k": "rev",
+   "t": "text",
+   "it": "Revisione PCB",
+   "en": "PCB revision"
+  },
+  {
+   "k": "ff",
+   "t": "text",
+   "it": "Form factor",
+   "en": "Form factor",
+   "f": 1
+  },
+  {
+   "k": "socket",
+   "t": "text",
+   "it": "Socket/Slot",
+   "en": "Socket/Slot",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "chipset",
+   "t": "text",
+   "it": "Chipset",
+   "en": "Chipset",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "fsb",
+   "t": "tags",
+   "it": "FSB supportati (MHz)",
+   "en": "Supported FSB (MHz)",
+   "f": 1
+  },
+  {
+   "k": "bios",
+   "t": "text",
+   "it": "BIOS",
+   "en": "BIOS"
+  },
+  {
+   "k": "ram",
+   "t": "text",
+   "it": "RAM",
+   "en": "RAM"
+  },
+  {
+   "k": "slots",
+   "t": "counts",
+   "it": "Slot",
+   "en": "Slots",
+   "f": 1,
+   "o": [
+    "AGP",
+    "PCI",
+    "ISA",
+    "VLB",
+    "AMR",
+    "CNR",
+    "ACR"
+   ]
+  },
+  {
+   "k": "onboard",
+   "t": "tags",
+   "it": "Onboard",
+   "en": "Onboard"
+  },
+  {
+   "k": "warning",
+   "t": "long",
+   "tr": 1,
+   "it": "Attenzione",
+   "en": "Warning"
+  },
+  {
+   "k": "notes",
+   "t": "long",
+   "tr": 1,
+   "it": "Note",
+   "en": "Notes"
+  }
+ ],
+ "gpus": [
+  {
+   "k": "brand",
+   "t": "text",
+   "it": "Marca",
+   "en": "Brand",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "model",
+   "t": "text",
+   "it": "Modello",
+   "en": "Model",
+   "c": 1
+  },
+  {
+   "k": "chip",
+   "t": "text",
+   "it": "Chip",
+   "en": "Chip",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "vram",
+   "t": "text",
+   "it": "VRAM",
+   "en": "VRAM",
+   "c": 1
+  },
+  {
+   "k": "core",
+   "t": "number",
+   "it": "Clock core (MHz)",
+   "en": "Core clock (MHz)"
+  },
+  {
+   "k": "mem",
+   "t": "number",
+   "it": "Clock RAM (MHz)",
+   "en": "RAM clock (MHz)"
+  },
+  {
+   "k": "ramtype",
+   "t": "text",
+   "it": "Tipo RAM",
+   "en": "RAM type",
+   "f": 1,
+   "o": [
+    "SDR",
+    "SGRAM",
+    "TSOP DDR",
+    "BGA DDR"
+   ]
+  },
+  {
+   "k": "bus",
+   "t": "text",
+   "it": "Bus",
+   "en": "Bus",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "agpv",
+   "t": "text",
+   "it": "Tensione AGP",
+   "en": "AGP voltage",
+   "f": 1
+  },
+  {
+   "k": "out",
+   "t": "tags",
+   "it": "Uscite",
+   "en": "Outputs",
+   "f": 1
+  },
+  {
+   "k": "warning",
+   "t": "long",
+   "tr": 1,
+   "it": "Attenzione",
+   "en": "Warning"
+  },
+  {
+   "k": "notes",
+   "t": "long",
+   "tr": 1,
+   "it": "Note",
+   "en": "Notes"
+  }
+ ],
+ "cpus": [
+  {
+   "k": "brand",
+   "t": "text",
+   "it": "Marca",
+   "en": "Brand",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "model",
+   "t": "text",
+   "it": "Modello",
+   "en": "Model",
+   "c": 1
+  },
+  {
+   "k": "family",
+   "t": "text",
+   "it": "Famiglia",
+   "en": "Family",
+   "f": 1
+  },
+  {
+   "k": "socket",
+   "t": "text",
+   "it": "Socket/Slot",
+   "en": "Socket/Slot",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "mhz",
+   "t": "number",
+   "it": "MHz",
+   "en": "MHz",
+   "c": 1
+  },
+  {
+   "k": "fsb",
+   "t": "text",
+   "it": "FSB",
+   "en": "FSB"
+  },
+  {
+   "k": "vcore",
+   "t": "text",
+   "it": "Vcore",
+   "en": "Vcore"
+  },
+  {
+   "k": "sspec",
+   "t": "text",
+   "it": "S-spec",
+   "en": "S-spec"
+  },
+  {
+   "k": "warning",
+   "t": "long",
+   "tr": 1,
+   "it": "Attenzione",
+   "en": "Warning"
+  },
+  {
+   "k": "notes",
+   "t": "long",
+   "tr": 1,
+   "it": "Note",
+   "en": "Notes"
+  }
+ ]
+}
