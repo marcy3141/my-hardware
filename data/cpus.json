@@ -39,6 +39,7 @@
   "brand": "Intel",
   "model": "Celeron 1100A",
   "family": "Tualatin",
+  "stepping": "A1",
   "socket": "Socket 370",
   "mhz": 1100,
   "fsb": "100",
@@ -74,6 +75,27 @@
   "photos": [
    {
     "f": "mw2b81mx-0.webp"
+   }
+  ]
+ },
+ {
+  "id": "amd-sempron-2800",
+  "brand": "AMD",
+  "model": "Sempron 2800+",
+  "family": "Thorton",
+  "stepping": "A2",
+  "socket": "Socket 462",
+  "mhz": 2000,
+  "fsb": "333",
+  "vcore": "1.6V",
+  "sspec": "SDC2800DUT3D",
+  "notes": {
+   "it": "Ponticellare L2 per sbloccare la cache sul die.",
+   "en": "Bridge L2 pins to unlock hidden on-die cache."
+  },
+  "photos": [
+   {
+    "f": "mw2jwh6f-0.webp"
    }
   ]
  }

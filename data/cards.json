@@ -1,1 +1,24 @@
-[]
+[
+ {
+  "id": "generic-usb-2-0",
+  "brand": "[generic]",
+  "model": "USB 2.0",
+  "type": "USB",
+  "chip": "Via VT6212L",
+  "slot": "PCI",
+  "photos": []
+ },
+ {
+  "id": "labway-xwave-t20",
+  "brand": "Labway",
+  "model": "Xwave T20",
+  "type": "Sound",
+  "chip": "ESS ES1989S",
+  "slot": "PCI",
+  "notes": {
+   "it": "Ha molti header per feature mancanti. Probabilmente alcune possono essere riattivate",
+   "en": "Has many headers for missing features. Probably can be re-enabled."
+  },
+  "photos": []
+ }
+]

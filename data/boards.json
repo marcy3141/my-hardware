@@ -103,5 +103,50 @@
    }
   ],
   "photos": []
+ },
+ {
+  "id": "asus-a7a266-e",
+  "brand": "ASUS",
+  "model": "A7A266-E",
+  "rev": "1.10",
+  "ff": "ATX",
+  "socket": "Socket 462",
+  "chipset": "ALi MAGiK 1",
+  "fsb": [
+   "200",
+   "266"
+  ],
+  "ramslots": [
+   {
+    "n": "DDR",
+    "c": 2
+   },
+   {
+    "n": "SDRAM",
+    "c": 3
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP Pro",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "AMR",
+    "c": 1
+   }
+  ],
+  "chip": [
+   "C-Media CMI8738"
+  ],
+  "notes": {
+   "it": "Ha avuto un po' di corrosione. Alcune saldature andrebbero rifatte.\nCon scatola originale.",
+   "en": "Has suffered some corrosion. Some joints should get a reflow. \nWith original box."
+  },
+  "photos": []
  }
 ]
