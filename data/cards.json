@@ -6,7 +6,14 @@
   "type": "USB",
   "chip": "Via VT6212L",
   "slot": "PCI",
-  "photos": []
+  "photos": [
+   {
+    "f": "mw2kspri-0.webp"
+   },
+   {
+    "f": "mw2ksqbc-1.webp"
+   }
+  ]
  },
  {
   "id": "labway-xwave-t20",
@@ -19,6 +26,10 @@
    "it": "Ha molti header per feature mancanti. Probabilmente alcune possono essere riattivate",
    "en": "Has many headers for missing features. Probably can be re-enabled."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw2kt104-0.webp"
+   }
+  ]
  }
 ]

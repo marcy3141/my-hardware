@@ -22,9 +22,16 @@
    "S-VIDEO"
   ],
   "notes": {
-   "it": "Variante con il bridge HSI. Forse ha 4 pipeline sbloccabili.",
-   "en": "HSI bridge variant. Maybe has 4 unlockable pipelines."
+   "it": "Variante con il bridge HSI. Forse ha 4 pipeline sbloccabili.\nVentola non originale (ovviamente).\nRicappata.",
+   "en": "HSI bridge variant. Maybe has 4 unlockable pipelines.\nNon-OEM fan (obviously)\nRecapped."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw2ks7ar-0.webp"
+   },
+   {
+    "f": "mw2ks7q4-1.webp"
+   }
+  ]
  }
 ]
