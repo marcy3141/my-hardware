@@ -4,17 +4,31 @@
   "brand": "PCChips",
   "model": "M756MRT",
   "socket": "Slot 1 + Socket 370",
-  "photos": [],
   "warning": {
-   "it": "Non ha un vero slot AGP: l'add-in slot ha la stessa forma ma è elettricamente incompatibile. Inserirci una scheda AGP la danneggia.",
+   "it": "Non ha un vero slot AGP: l'add-in slot ha la stessa forma ma è elettricamente incompatibile. Inserire una scheda AGP la danneggia.",
    "en": "No real AGP slot: the add-in slot has the same shape but is electrically incompatible. Inserting an AGP card will damage it."
-  }
+  },
+  "photos": []
  },
  {
   "id": "asus-tuv4x",
   "brand": "ASUS",
   "model": "TUV4X",
+  "ff": "ATX",
   "socket": "Socket 370",
+  "chipset": "Via Apollo 133T",
+  "bios": "1006 beta 002",
+  "ram": "SDRAM",
+  "slots": [
+   {
+    "n": "AGP Pro",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 6
+   }
+  ],
   "photos": []
  },
  {
@@ -27,9 +41,20 @@
   "bios": "1014 beta 003",
   "ram": "SDRAM",
   "slots": [
-   "AGP PCI ISA"
+   {
+    "n": "AGP 3.3v",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "ISA 16-bit",
+    "c": 1
+   }
   ],
-  "warning": {
+  "notes": {
    "it": "Niente divisore 1/2 AGP. A FSB133 serve una scheda AGP che regga 89MHz.",
    "en": "No 1/2 divider for AGP. An 89MHz capable AGP card is required while running at FSB133"
   },
