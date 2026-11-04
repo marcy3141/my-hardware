@@ -99,5 +99,39 @@
     "f": "mw2jwh6f-0.webp"
    }
   ]
+ },
+ {
+  "id": "intel-celeron-433",
+  "brand": "Intel",
+  "model": "Celeron 433",
+  "family": "Mendocino",
+  "stepping": "B0",
+  "socket": "Socket 370",
+  "mhz": 433,
+  "fsb": "66",
+  "vcore": "2.0V",
+  "sspec": "SL3BA",
+  "photos": [
+   {
+    "f": "mw2on7ji-0.webp"
+   }
+  ]
+ },
+ {
+  "id": "intel-celeron-500",
+  "brand": "Intel",
+  "model": "Celeron 500",
+  "family": "Mendocino",
+  "stepping": "B0",
+  "socket": "Socket 370",
+  "mhz": 500,
+  "fsb": "66",
+  "vcore": "2.0V",
+  "sspec": "SL3FY",
+  "photos": [
+   {
+    "f": "mw2ootnl-0.webp"
+   }
+  ]
  }
 ]

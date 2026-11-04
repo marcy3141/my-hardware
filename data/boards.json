@@ -155,5 +155,40 @@
     "f": "mw2kjhv5-1.webp"
    }
   ]
+ },
+ {
+  "id": "asus-cuv4x-c",
+  "brand": "ASUS",
+  "model": "CUV4X-C",
+  "rev": "1.02",
+  "ff": "ATX",
+  "socket": "Socket 370",
+  "chipset": "Via Apollo 133",
+  "fsb": [
+   "66",
+   "100",
+   "133"
+  ],
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "Universal AGP",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "AMR",
+    "c": 1
+   }
+  ],
+  "photos": []
  }
 ]
