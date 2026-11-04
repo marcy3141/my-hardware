@@ -40,7 +40,7 @@ $("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${
 (n?`<h3>${esc(t("notes"))}${mk(n.m)}</h3>${md(n.x)}`:"")+
 `<div class="ph">${(x.photos||[]).map(p=>`<figure><img loading="lazy" src="photos/${r.sec}/${encodeURIComponent(x.id)}/${encodeURIComponent(p.f)}" alt="${esc(tr(p.c).x)}"><figcaption>${esc(tr(p.c).x)}</figcaption></figure>`).join("")}</div>`}
 (async()=>{cfg=await get("config.json");sch=await get("data/schema.json");
-for(const l of cfg.langs)I[l]=await get(`i18n/${l}.json`);for(const s of cfg.sections)D[s]=await get(`data/${s}.json`);ST=await get("data/settings.json").catch(()=>({}));
+for(const l of cfg.langs)I[l]=await get(`i18n/${l}.json`);for(const s of cfg.sections)D[s]=await get(`data/${s}.json`).catch(()=>[]);ST=await get("data/settings.json").catch(()=>({}));
 let q=new URLSearchParams(location.search).get("lang"),st;try{st=localStorage.getItem("lang")}catch(e){}
 lang=[q,st,navigator.language.slice(0,2)].find(l=>cfg.langs.includes(l))||cfg.langs[0];addEventListener("hashchange",render);look();render();fetch(`https://api.github.com/repos/${cfg.repo||location.hostname.split(".")[0]+"/"+location.pathname.split("/")[1]}/commits?per_page=1`).then(r=>r.json()).then(c=>{LC=c[0].commit.committer.date;foot()}).catch(()=>{})})();
 

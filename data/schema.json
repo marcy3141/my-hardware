@@ -89,10 +89,11 @@
    ]
   },
   {
-   "k": "onboard",
-   "t": "tags",
-   "it": "Onboard",
-   "en": "Onboard"
+   "k": "chip",
+   "t": "list",
+   "it": "Chip onboard",
+   "en": "Onboard chips",
+   "f": 1
   },
   {
    "k": "warning",
@@ -226,6 +227,14 @@
    "f": 1
   },
   {
+   "k": "stepping",
+   "t": "text",
+   "it": "Stepping",
+   "en": "Stepping",
+   "f": 1,
+   "c": 1
+  },
+  {
    "k": "socket",
    "t": "text",
    "it": "Socket/Slot",
@@ -257,6 +266,83 @@
    "t": "text",
    "it": "S-spec",
    "en": "S-spec"
+  },
+  {
+   "k": "warning",
+   "t": "long",
+   "tr": 1,
+   "it": "Attenzione",
+   "en": "Warning"
+  },
+  {
+   "k": "notes",
+   "t": "long",
+   "tr": 1,
+   "it": "Note",
+   "en": "Notes"
+  }
+ ],
+ "cards": [
+  {
+   "k": "brand",
+   "t": "text",
+   "it": "Marca",
+   "en": "Brand",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "model",
+   "t": "text",
+   "it": "Modello",
+   "en": "Model",
+   "c": 1
+  },
+  {
+   "k": "type",
+   "t": "text",
+   "it": "Tipo",
+   "en": "Type",
+   "f": 1,
+   "c": 1,
+   "o": [
+    "Sound",
+    "USB",
+    "LAN",
+    "Modem",
+    "SCSI",
+    "I/O"
+   ]
+  },
+  {
+   "k": "chip",
+   "t": "text",
+   "it": "Chip",
+   "en": "Chip",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "slot",
+   "t": "text",
+   "it": "Slot",
+   "en": "Slot",
+   "f": 1,
+   "c": 1,
+   "o": [
+    "ISA 8",
+    "ISA 16",
+    "PCI",
+    "AGP",
+    "VLB",
+    "PCIe x1"
+   ]
+  },
+  {
+   "k": "features",
+   "t": "list",
+   "it": "Caratteristiche",
+   "en": "Features"
   },
   {
    "k": "warning",
