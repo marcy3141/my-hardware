@@ -48,7 +48,11 @@
    "it": "Non tollera più FSB133.",
    "en": "Doesn't tolerate FSB133 anymore."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw2b4xuz-0.webp"
+   }
+  ]
  },
  {
   "id": "amd-k6-2",
@@ -67,6 +71,10 @@
    "it": "Moltiplicatore di fabbrica sconosciuto.",
    "en": "Unknown factory multiplier."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw2b81mx-0.webp"
+   }
+  ]
  }
 ]
