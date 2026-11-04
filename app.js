@@ -10,7 +10,7 @@ function setLang(l){lang=l;try{localStorage.setItem("lang",l)}catch(e){}render()
 function render(){const r=route();document.documentElement.lang=lang;
 $("#nav").innerHTML=cfg.sections.map(s=>`<button class="${s===r.sec?"on":""}" onclick="location.hash='#/${s}'">${esc(t(s))}</button>`).join("");
 const o=cfg.langs.find(l=>l!==lang);$("#lang").textContent=o.toUpperCase();$("#lang").onclick=()=>setLang(o);
-r.id?detail(r):list(r)}
+r.id?detail(r):list(r);window.ed&&ed(r)}
 function list(r){const F=sch[r.sec],rows=D[r.sec];S={sec:r.sec,q:r.qs.get("q")||"",s:r.qs.get("s")||"",d:r.qs.get("d")||"a",f:{}};
 F.filter(f=>f.f).forEach(f=>S.f[f.k]=r.qs.get("f."+f.k)||"");
 const sel=F.filter(f=>f.f).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));

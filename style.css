@@ -1,8 +1,8 @@
 :root{--bg:#008080;--face:#c0c0c0;--hi:#fff;--sh:#808080;--dk:#000;--ac:#000080;--wr:#a00000}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);font:13px Tahoma,Verdana,sans-serif;padding:12px}
+body{margin:0;background:var(--bg);font:11px "Pixelated MS Sans Serif",Tahoma,sans-serif;-webkit-font-smoothing:none;padding:12px}
 .win{max-width:1100px;margin:auto;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);padding:3px}
-.title{background:linear-gradient(90deg,var(--ac),#1084d0);color:#fff;font-weight:bold;padding:3px 6px;display:flex;justify-content:space-between;align-items:center}
+.title{background:linear-gradient(90deg,var(--ac),#1084d0);color:#fff;font-weight:bold;padding:3px;display:flex;justify-content:space-between;align-items:center}
 button,select,input{font:inherit;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);padding:3px 8px}
 input,select{background:#fff;border-color:var(--sh) var(--hi) var(--hi) var(--sh)}
 button{cursor:pointer}button:active,button.on{border-color:var(--dk) var(--hi) var(--hi) var(--dk)}
@@ -17,3 +17,7 @@ th{background:var(--face);cursor:pointer;white-space:nowrap}tr:hover td{backgrou
 .dl{display:grid;grid-template-columns:max-content 1fr;gap:3px 14px;background:#fff;padding:8px}.dl dt{font-weight:bold}.dl dd{margin:0}
 .ph{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.ph figure{margin:0}.ph img{max-width:300px;max-height:220px;border:2px solid var(--sh)}
 .dim{color:var(--sh)}
+@font-face{font-family:"Pixelated MS Sans Serif";font-weight:400;src:url(fonts/ms_sans_serif.woff2) format("woff2")}
+@font-face{font-family:"Pixelated MS Sans Serif";font-weight:700;src:url(fonts/ms_sans_serif_bold.woff2) format("woff2")}
+.title span{padding-left:3px}.title button{padding:1px 8px;min-height:0}
+.fm label{display:block;margin:6px 0}.fm input[type=text],.fm textarea{display:block;width:100%}.fm input[type=number]{display:block}
