@@ -46,7 +46,7 @@
   },
   {
    "k": "fsb",
-   "t": "tags",
+   "t": "list",
    "it": "FSB supportati (MHz)",
    "en": "Supported FSB (MHz)",
    "f": 1
@@ -58,10 +58,19 @@
    "en": "BIOS"
   },
   {
-   "k": "ram",
-   "t": "text",
-   "it": "RAM",
-   "en": "RAM"
+   "k": "ramslots",
+   "t": "counts",
+   "it": "Slot RAM",
+   "en": "RAM slots",
+   "f": 1,
+   "o": [
+    "SDRAM",
+    "DDR",
+    "DDR2",
+    "RDRAM",
+    "EDO",
+    "FPM"
+   ]
   },
   {
    "k": "slots",

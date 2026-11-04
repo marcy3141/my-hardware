@@ -1,16 +1,16 @@
 const $=s=>document.querySelector(s),get=u=>fetch(u).then(r=>r.json());
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let cfg,sch,I={},D={},lang,S,ST={};
+let cfg,sch,I={},D={},lang,S,ST={},LC;
 const t=k=>I[lang][k]||k;
 const tr=v=>{if(!v||typeof v!=="object"||Array.isArray(v))return{x:v??"",m:0};if(v[lang])return{x:v[lang],m:0};const o=cfg.langs.find(l=>v[l]);return{x:o?v[o]:"",m:!!o}};
 const cn=i=>typeof i==="string"?{n:i,c:1}:i;
 const val=(f,v)=>f.t==="counts"?(v||[]).map(cn).map(i=>i.c+"× "+i.n).join(", "):Array.isArray(v)?v.join(", "):f.tr?tr(v).x:v??"";
-const flat=(f,v)=>f.t==="counts"?(v||[]).map(i=>cn(i).n):f.t==="tags"?(v||[]):(v===undefined||v===""?[]:[String(v)]);
+const flat=(f,v)=>f.t==="counts"?(v||[]).map(i=>cn(i).n):f.t==="tags"||f.t==="list"?(v||[]):(v===undefined||v===""?[]:[String(v)]);
 function route(){const[p,q]=(location.hash.slice(1)||"/boards").split("?"),[,s,id]=p.split("/");return{sec:cfg.sections.includes(s)?s:cfg.sections[0],id:id&&decodeURIComponent(id),qs:new URLSearchParams(q||"")}}
 function setLang(l){lang=l;try{localStorage.setItem("lang",l)}catch(e){}render()}
 function render(){const r=route();document.documentElement.lang=lang;
 $("#nav").innerHTML=cfg.sections.map(s=>`<button class="${s===r.sec?"on":""}" onclick="location.hash='#/${s}'">${esc(t(s))}</button>`).join("");
-const o=cfg.langs.find(l=>l!==lang);$("#lang").textContent=o.toUpperCase();$("#lang").onclick=()=>setLang(o);$("#lk").textContent=t("look");$("#lk").onclick=appear;
+const o=cfg.langs.find(l=>l!==lang);$("#lang").textContent=o.toUpperCase();$("#lang").onclick=()=>setLang(o);$("#lk").textContent=t("look");$("#lk").onclick=appear;foot();
 r.id?detail(r):list(r);window.ed&&ed(r)}
 function list(r){const F=sch[r.sec],rows=D[r.sec];S={sec:r.sec,q:r.qs.get("q")||"",s:r.qs.get("s")||"",d:r.qs.get("d")||"a",f:{}};
 F.filter(f=>f.f).forEach(f=>S.f[f.k]=r.qs.get("f."+f.k)||"");
@@ -42,11 +42,12 @@ $("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${
 (async()=>{cfg=await get("config.json");sch=await get("data/schema.json");
 for(const l of cfg.langs)I[l]=await get(`i18n/${l}.json`);for(const s of cfg.sections)D[s]=await get(`data/${s}.json`);ST=await get("data/settings.json").catch(()=>({}));
 let q=new URLSearchParams(location.search).get("lang"),st;try{st=localStorage.getItem("lang")}catch(e){}
-lang=[q,st,navigator.language.slice(0,2)].find(l=>cfg.langs.includes(l))||cfg.langs[0];addEventListener("hashchange",render);look();render()})();
+lang=[q,st,navigator.language.slice(0,2)].find(l=>cfg.langs.includes(l))||cfg.langs[0];addEventListener("hashchange",render);look();render();fetch(`https://api.github.com/repos/${cfg.repo||location.hostname.split(".")[0]+"/"+location.pathname.split("/")[1]}/commits?per_page=1`).then(r=>r.json()).then(c=>{LC=c[0].commit.committer.date;foot()}).catch(()=>{})})();
 
 const lu=()=>{try{return JSON.parse(localStorage.getItem("look")||"{}")}catch(e){return{}}};
-function look(){const u=lu(),th=u.t||ST.theme||"win98",bg=u.b===undefined||u.b==="def"?ST.bg:u.b,c=(cfg.themes.find(x=>x.id===th)||{}).css,l=$("#th");
+function look(){document.title=ST.title||"my-hardware";document.querySelector(".title>span").textContent=ST.title||"my-hardware";{let i=$("#ic");if(!i){i=document.createElement("link");i.id="ic";i.rel="icon";document.head.appendChild(i)}ST.icon?i.setAttribute("href","icons/"+ST.icon):i.removeAttribute("href")}const u=lu(),th=u.t||ST.theme||"win98",bg=u.b===undefined||u.b==="def"?ST.bg:u.b,c=(cfg.themes.find(x=>x.id===th)||{}).css,l=$("#th");
 c?l.setAttribute("href",c):l.removeAttribute("href");document.body.style.backgroundImage=bg?`url("backgrounds/${encodeURIComponent(bg)}")`:"none"}
 function appear(){const u=lu(),B=ST.backgrounds||[];
 $("#main").innerHTML=`<div class="bar"><label>${esc(t("theme"))} <select id="sa">${cfg.themes.map(x=>`<option value="${x.id}"${(u.t||ST.theme||"win98")===x.id?" selected":""}>${esc(x.name)}</option>`).join("")}</select></label> <label>${esc(t("bgl"))} <select id="sb"><option value="def">${esc(t("def"))}</option><option value=""${u.b===""?" selected":""}>${esc(t("none"))}</option>${B.map(b=>`<option value="${esc(b.f)}"${u.b===b.f?" selected":""}>${esc(b.n||b.f)}</option>`).join("")}</select></label></div><p><button id="bk">${esc(t("back"))}</button></p>`;
 $("#sa").onchange=$("#sb").onchange=()=>{try{localStorage.setItem("look",JSON.stringify({t:$("#sa").value,b:$("#sb").value}))}catch(e){}look()};$("#bk").onclick=render}
+const foot=()=>{$("#ft").textContent=LC?`${t("last")}: ${new Date(LC).toLocaleString(lang,{dateStyle:"short",timeStyle:"short"})}`:""};

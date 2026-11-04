@@ -6,7 +6,7 @@ addEventListener("beforeunload",e=>{if(np()){e.preventDefault();e.returnValue=""
 const gh=async(p,m="GET",b)=>{const r=await fetch(`https://api.github.com/repos/${rp()}${p?"/"+p:""}`,{method:m,headers:{Authorization:"Bearer "+TK,Accept:"application/vnd.github+json"},body:b&&JSON.stringify(b)});if(!r.ok)throw new Error("GitHub "+r.status);return r.json()};
 const fresh=async()=>{for(const s of cfg.sections){const r=await fetch(`https://api.github.com/repos/${rp()}/contents/data/${s}.json`,{headers:{Authorization:"Bearer "+TK,Accept:"application/vnd.github.raw+json"}});if(r.ok)D[s]=await r.json()}const q=await fetch(`https://api.github.com/repos/${rp()}/contents/data/settings.json`,{headers:{Authorization:"Bearer "+TK,Accept:"application/vnd.github.raw+json"}});if(q.ok){ST=await q.json();look()}};
 const slug=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-const shrink=f=>new Promise((ok,ko)=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1600/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);c.toBlob(b=>{const r=new FileReader();r.onload=()=>ok(r.result.split(",")[1]);r.readAsDataURL(b)},"image/webp",.82)};i.onerror=ko;i.src=URL.createObjectURL(f)});
+const shrink=(f,mx=1600,ty="image/webp")=>new Promise((ok,ko)=>{const i=new Image();i.onload=()=>{const k=Math.min(1,mx/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);c.toBlob(b=>{const r=new FileReader();r.onload=()=>ok(r.result.split(",")[1]);r.readAsDataURL(b)},ty,.82)};i.onerror=ko;i.src=URL.createObjectURL(f)});
 const mark=(k,op)=>{const o=P.l[k];if(op==="-"&&o==="+")delete P.l[k];else P.l[k]=o==="+"?"+":op};
 const unph=p=>{if(p in P.a)delete P.a[p];else P.d.add(p)};
 async function enter(){try{await fresh()}catch(e){}EM=1;render()}
@@ -19,18 +19,18 @@ else{m.insertAdjacentHTML("afterbegin",`<p><button id="b1">+ ${xt("nw")}</button
 function login(){if(TK)return enter();
 $("#main").innerHTML=`<p>${xt("tok")}</p><div class="bar"><input id="tk" type="password" autocomplete="off"><button id="go">${xt("login")}</button></div><p id="er"></p>`;
 $("#go").onclick=async()=>{TK=$("#tk").value.trim();try{await gh("");try{sessionStorage.setItem("tk",TK)}catch(e){}enter()}catch(e){TK="";$("#er").textContent=xt("bad")}}}
-const crow=(f,r)=>`<div class="bar"><input class="cn" list="dl_${f.k}" type="text" placeholder="${xt("nm")}" value="${esc(r.n||"")}"><input class="cc" type="number" min="1" value="${r.c||1}" style="width:60px"><button type="button" class="x">×</button></div>`;
+const crow=(f,r)=>`<div class="bar"><input class="cn" list="dl_${f.k}" type="text" placeholder="${xt("nm")}" value="${esc(r.n||"")}">${f.t==="list"?"":`<input class="cc" type="number" min="1" value="${r.c||1}" style="width:60px">`}<button type="button" class="x">×</button></div>`;
 function form(sec,x){const F=sch[sec],nw=!x;x=x||{photos:[]};
 const dl=f=>`<datalist id="dl_${f.k}">${[...new Set([...(f.o||[]),...D[sec].flatMap(e=>flat(f,e[f.k]))])].map(o=>`<option value="${esc(o)}">`).join("")}</datalist>`;
 const inp=f=>{const id="f_"+f.k,v=x[f.k];
-if(f.t==="counts")return`<fieldset id="cr_${f.k}"><legend>${esc(f[lang])}</legend><div>${(v||[]).map(cn).map(r=>crow(f,r)).join("")}</div><button type="button" data-add="${f.k}">+</button>${dl(f)}</fieldset>`;
+if(f.t==="counts"||f.t==="list")return`<fieldset id="cr_${f.k}"><legend>${esc(f[lang])}</legend><div>${(v||[]).map(cn).map(r=>crow(f,r)).join("")}</div><button type="button" data-add="${f.k}">+</button>${dl(f)}</fieldset>`;
 if(f.tr)return cfg.langs.map(l=>`<label>${esc(f[lang])} (${l.toUpperCase()})<textarea id="${id}_${l}" rows="3">${esc((v&&v[l])||"")}</textarea></label>`).join("");
 return`<label>${esc(f[lang])}<input id="${id}" ${f.f||f.o?`list="dl_${f.k}"`:""} type="${f.t==="number"?"number":"text"}" value="${esc(Array.isArray(v)?v.join(", "):v??"")}"></label>${f.f||f.o?dl(f):""}`};
 $("#main").innerHTML=`<form id="fm" class="fm">${F.map(inp).join("")}${x.photos.map(p=>`<label><input type="checkbox" data-f="${esc(p.f)}"> ${xt("rm")} ${esc(p.f)}</label>`).join("")}<label>${xt("ph")}<input id="ph" type="file" accept="image/*" multiple></label><p><button type="submit">${xt("save")}</button> <button type="button" id="cn">${xt("cancel")}</button> <span id="er"></span></p></form>`;
 $("#cn").onclick=render;
 $("#fm").onclick=e=>{const t=e.target;if(t.classList.contains("x"))t.parentNode.remove();if(t.dataset.add){const f=F.find(f=>f.k===t.dataset.add);t.previousElementSibling.insertAdjacentHTML("beforeend",crow(f,{}))}};
 $("#fm").onsubmit=async e=>{e.preventDefault();const o={id:x.id};
-F.forEach(f=>{if(f.t==="counts"){const a=[...document.querySelectorAll(`#cr_${f.k} .bar`)].map(b=>({n:b.querySelector(".cn").value.trim(),c:+b.querySelector(".cc").value||1})).filter(i=>i.n);if(a.length)o[f.k]=a}
+F.forEach(f=>{if(f.t==="counts"||f.t==="list"){const a=[...document.querySelectorAll(`#cr_${f.k} .bar`)].map(b=>({n:b.querySelector(".cn").value.trim(),c:+(b.querySelector(".cc")||{}).value||1})).filter(i=>i.n).map(i=>f.t==="list"?i.n:i);if(a.length)o[f.k]=a}
 else if(f.tr){const t={};cfg.langs.forEach(l=>{const v=$(`#f_${f.k}_${l}`).value.trim();if(v)t[l]=v});if(Object.keys(t).length)o[f.k]=t}
 else{const v=$("#f_"+f.k).value.trim();if(v!=="")o[f.k]=f.t==="tags"?v.split(",").map(s=>s.trim()).filter(Boolean):f.t==="number"?+v:v}});
 if(!o.brand||!o.model){$("#er").textContent=xt("req");return}
@@ -57,8 +57,10 @@ await gh(`git/refs/heads/${br}`,"PATCH",{sha:c.sha})}
 Object.assign(X.it,{sett:"Impostazioni sito",th:"Tema predefinito",bg:"Sfondo predefinito",no:"Nessuno",addbg:"Aggiungi sfondi"});
 Object.assign(X.en,{sett:"Site settings",th:"Default theme",bg:"Default background",no:"None",addbg:"Add backgrounds"});
 function sett(){const B=ST.backgrounds||[];
-$("#main").innerHTML=`<form id="fs" class="fm"><label>${xt("th")}<select id="s_t">${cfg.themes.map(x=>`<option value="${x.id}"${ST.theme===x.id?" selected":""}>${esc(x.name)}</option>`).join("")}</select></label><label>${xt("bg")}<select id="s_b"><option value="">${xt("no")}</option>${B.map(b=>`<option value="${esc(b.f)}"${ST.bg===b.f?" selected":""}>${esc(b.n||b.f)}</option>`).join("")}</select></label>${B.map(b=>`<label><input type="checkbox" data-f="${esc(b.f)}"> ${xt("rm")} ${esc(b.n||b.f)}</label>`).join("")}<label>${xt("addbg")}<input id="s_f" type="file" accept="image/*" multiple></label><p><button type="submit">${xt("save")}</button> <button type="button" id="cn">${xt("cancel")}</button></p></form>`;
+$("#main").innerHTML=`<form id="fs" class="fm"><label>${xt("ti")}<input id="s_ti" type="text" value="${esc(ST.title||"")}"></label><label>${xt("ic")}<input id="s_ic" type="file" accept="image/*"></label><label>${xt("th")}<select id="s_t">${cfg.themes.map(x=>`<option value="${x.id}"${ST.theme===x.id?" selected":""}>${esc(x.name)}</option>`).join("")}</select></label><label>${xt("bg")}<select id="s_b"><option value="">${xt("no")}</option>${B.map(b=>`<option value="${esc(b.f)}"${ST.bg===b.f?" selected":""}>${esc(b.n||b.f)}</option>`).join("")}</select></label>${B.map(b=>`<label><input type="checkbox" data-f="${esc(b.f)}"> ${xt("rm")} ${esc(b.n||b.f)}</label>`).join("")}<label>${xt("addbg")}<input id="s_f" type="file" accept="image/*" multiple></label><p><button type="submit">${xt("save")}</button> <button type="button" id="cn">${xt("cancel")}</button></p></form>`;
 $("#cn").onclick=render;
 $("#fs").onsubmit=async e=>{e.preventDefault();const gone=[...document.querySelectorAll("#fs input[type=checkbox]:checked")].map(i=>i.dataset.f),B2=B.filter(b=>!gone.includes(b.f));gone.forEach(f=>unph("backgrounds/"+f));
 for(const[i,fl]of[...$("#s_f").files].entries()){const nm=`${Date.now().toString(36)}-${i}.webp`;P.a["backgrounds/"+nm]=await shrink(fl);B2.push({f:nm,n:fl.name.replace(/\.[^.]+$/,"")})}
-let bg=$("#s_b").value;if(gone.includes(bg))bg="";ST={...ST,theme:$("#s_t").value,bg,backgrounds:B2};P.st=1;mark("settings","~");look();render()}}
+const ic=$("#s_ic").files[0];let icon=ST.icon||"";if(ic){if(icon)unph("icons/"+icon);icon="ico-"+Date.now().toString(36)+".png";P.a["icons/"+icon]=await shrink(ic,64,"image/png")}
+let bg=$("#s_b").value;if(gone.includes(bg))bg="";ST={...ST,title:$("#s_ti").value.trim(),icon,theme:$("#s_t").value,bg,backgrounds:B2};P.st=1;mark("settings","~");look();render()}}
+Object.assign(X.it,{ti:"Titolo (finestra e scheda del browser)",ic:"Icona della scheda (favicon)"});Object.assign(X.en,{ti:"Title (window and browser tab)",ic:"Tab icon (favicon)"});
