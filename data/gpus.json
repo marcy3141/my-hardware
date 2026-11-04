@@ -3,8 +3,11 @@
   "id": "pov-fx5500",
   "brand": "Point of View",
   "model": "GeForce FX 5500",
+  "chip": "NV34",
   "vram": "256 MB",
+  "ramtype": "TSOP DDR",
   "bus": "AGP",
+  "agpv": "1.5V 3.3V",
   "photos": []
  },
  {

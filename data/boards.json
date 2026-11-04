@@ -37,9 +37,13 @@
   "model": "TUV4X",
   "ff": "ATX",
   "socket": "Socket 370",
-  "chipset": "Via Apollo 133T",
+  "chipset": "Via Apollo Pro 133T",
+  "fsb": [
+   "66",
+   "100",
+   "133"
+  ],
   "bios": "1006 beta 002",
-  "ram": "SDRAM",
   "slots": [
    {
     "n": "AGP Pro",
@@ -48,6 +52,10 @@
    {
     "n": "PCI",
     "c": 6
+   },
+   {
+    "n": "AMR",
+    "c": 1
    }
   ],
   "photos": []
@@ -58,7 +66,7 @@
   "model": "P2B-F",
   "ff": "ATX",
   "socket": "Slot 1",
-  "chipset": "440BX",
+  "chipset": "Intel i440BX",
   "bios": "1014 beta 003",
   "slots": [
    {
@@ -102,16 +110,35 @@
   "bios": "CheepoBIOS 0120",
   "ramslots": [
    {
-    "n": "DDR1",
+    "n": "DDR",
     "c": 2
-   }
-  ],
-  "slots": [
+   },
    {
     "n": "SDRAM",
     "c": 2
    }
   ],
+  "slots": [
+   {
+    "n": "AMR",
+    "c": 1
+   },
+   {
+    "n": "Universal AGP",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   }
+  ],
+  "chip": [
+   "C-Media CMI9738"
+  ],
+  "notes": {
+   "it": "Questa scheda aveva tutte le porte USB rotte. ECS aveva utilizzato un piccolo nucleo di ferrite, rotto anche lui, al posto di un induttore per risparmiare sui costi. Due delle quattro porte sono state ripristinate. Manca il jack combo RJ45 + 2 USB.\nÈ stato aggiunto anche un vero polyfuse da 1.1A al posto del nucleo di ferrite.",
+   "en": "This board had all USB ports broken.To lower costs, ECS used just a ferrite core instead of a proper fuse for these ports, and it predictably blew. Two out of the four ports were restored. The board's missing the combo jack with both USB and RJ45.\nA proper 1.1A polyfuse was bodged instead of the ferrite core."
+  },
   "photos": [
    {
     "f": "mw2oyxee-0.webp"
@@ -180,7 +207,7 @@
   "rev": "1.02",
   "ff": "ATX",
   "socket": "Socket 370",
-  "chipset": "Via Apollo 133",
+  "chipset": "Via Apollo Pro 133A",
   "fsb": [
    "66",
    "100",
