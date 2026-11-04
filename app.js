@@ -1,0 +1,44 @@
+const $=s=>document.querySelector(s),get=u=>fetch(u).then(r=>r.json());
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let cfg,sch,I={},D={},lang,S;
+const t=k=>I[lang][k]||k;
+const tr=v=>{if(!v||typeof v!=="object"||Array.isArray(v))return{x:v??"",m:0};if(v[lang])return{x:v[lang],m:0};const o=cfg.langs.find(l=>v[l]);return{x:o?v[o]:"",m:!!o}};
+const val=(f,v)=>Array.isArray(v)?v.join(", "):f.tr?tr(v).x:v??"";
+const flat=(f,v)=>f.t==="tags"?(v||[]):(v===undefined||v===""?[]:[String(v)]);
+function route(){const[p,q]=(location.hash.slice(1)||"/boards").split("?"),[,s,id]=p.split("/");return{sec:cfg.sections.includes(s)?s:cfg.sections[0],id:id&&decodeURIComponent(id),qs:new URLSearchParams(q||"")}}
+function setLang(l){lang=l;try{localStorage.setItem("lang",l)}catch(e){}render()}
+function render(){const r=route();document.documentElement.lang=lang;
+$("#nav").innerHTML=cfg.sections.map(s=>`<button class="${s===r.sec?"on":""}" onclick="location.hash='#/${s}'">${esc(t(s))}</button>`).join("");
+const o=cfg.langs.find(l=>l!==lang);$("#lang").textContent=o.toUpperCase();$("#lang").onclick=()=>setLang(o);
+r.id?detail(r):list(r)}
+function list(r){const F=sch[r.sec],rows=D[r.sec];S={sec:r.sec,q:r.qs.get("q")||"",s:r.qs.get("s")||"",d:r.qs.get("d")||"a",f:{}};
+F.filter(f=>f.f).forEach(f=>S.f[f.k]=r.qs.get("f."+f.k)||"");
+const sel=F.filter(f=>f.f).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+return`<select data-k="${f.k}" aria-label="${esc(f[lang])}"><option value="">${esc(f[lang])}: ${esc(t("all"))}</option>${vs.map(v=>`<option${S.f[f.k]===v?" selected":""}>${esc(v)}</option>`).join("")}</select>`}).join("");
+$("#main").innerHTML=`<div class="bar"><input id="q" type="search" placeholder="${esc(t("search"))}" value="${esc(S.q)}">${sel}<button id="rs">${esc(t("reset"))}</button><span class="dim" id="n"></span></div><div class="tw"><table><thead></thead><tbody></tbody></table></div>`;
+$("#q").oninput=e=>{S.q=e.target.value;upd()};
+document.querySelectorAll("select").forEach(e=>e.onchange=()=>{S.f[e.dataset.k]=e.value;upd()});
+$("#rs").onclick=()=>{S.q="";Object.keys(S.f).forEach(k=>S.f[k]="");$("#q").value="";document.querySelectorAll("select").forEach(e=>e.value="");upd()};upd()}
+function upd(){const F=sch[S.sec],C=F.filter(f=>f.c);let rows=D[S.sec].filter(x=>{
+if(S.q&&!JSON.stringify(x).toLowerCase().includes(S.q.toLowerCase()))return false;
+return F.every(f=>!S.f[f.k]||flat(f,x[f.k]).includes(S.f[f.k]))});
+const sf=C.find(f=>f.k===S.s);if(sf){const m=S.d==="a"?1:-1;rows=[...rows].sort((a,b)=>m*(sf.t==="number"?(a[sf.k]||0)-(b[sf.k]||0):String(val(sf,a[sf.k])).localeCompare(String(val(sf,b[sf.k])),undefined,{numeric:true})))}
+$("thead").innerHTML="<tr>"+C.map(f=>`<th data-k="${f.k}">${esc(f[lang])}${S.s===f.k?(S.d==="a"?" ▲":" ▼"):""}</th>`).join("")+"</tr>";
+document.querySelectorAll("th").forEach(h=>h.onclick=()=>{S.d=S.s===h.dataset.k&&S.d==="a"?"d":"a";S.s=h.dataset.k;upd()});
+$("tbody").innerHTML=rows.length?rows.map(x=>"<tr>"+C.map(f=>{let v=esc(val(f,x[f.k]));if(f.k==="model")v=`<a href="#/${S.sec}/${encodeURIComponent(x.id)}">${v}</a>`+(tr(x.warning).x?`<span class="badge" title="${esc(tr(x.warning).x)}">!</span>`:"");return`<td>${v}</td>`}).join("")+"</tr>").join(""):`<tr><td colspan="${C.length}">${esc(t("empty"))}</td></tr>`;
+$("#n").textContent=`${rows.length}/${D[S.sec].length}`;
+const p=new URLSearchParams();if(S.q)p.set("q",S.q);if(S.s){p.set("s",S.s);p.set("d",S.d)}Object.entries(S.f).forEach(([k,v])=>v&&p.set("f."+k,v));
+history.replaceState(null,"","#/"+S.sec+(p.toString()?"?"+p:""))}
+const md=s=>esc(s).split(/\n{2,}/).map(p=>"<p>"+p.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/\n/g,"<br>")+"</p>").join("");
+function detail(r){const x=D[r.sec].find(e=>e.id===r.id),F=sch[r.sec];if(!x){location.hash="#/"+r.sec;return}
+const long=k=>{const f=F.find(f=>f.k===k),v=tr(x[k]);return v.x?{...v,l:f[lang]}:null},w=long("warning"),n=long("notes");
+const mk=m=>m?` <span class="dim">(${esc(t("missing"))})</span>`:"";
+$("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${esc(x.brand)} ${esc(x.model)}</h2>`+
+(w?`<div class="warn"><b>${esc(t("warning"))}:</b> ${esc(w.x)}${mk(w.m)}</div>`:"")+
+`<dl class="dl">${F.filter(f=>f.t!=="long"&&val(f,x[f.k])!=="").map(f=>`<dt>${esc(f[lang])}</dt><dd>${esc(val(f,x[f.k]))}</dd>`).join("")}</dl>`+
+(n?`<h3>${esc(t("notes"))}${mk(n.m)}</h3>${md(n.x)}`:"")+
+`<div class="ph">${(x.photos||[]).map(p=>`<figure><img loading="lazy" src="photos/${r.sec}/${encodeURIComponent(x.id)}/${encodeURIComponent(p.f)}" alt="${esc(tr(p.c).x)}"><figcaption>${esc(tr(p.c).x)}</figcaption></figure>`).join("")}</div>`}
+(async()=>{cfg=await get("config.json");sch=await get("data/schema.json");
+for(const l of cfg.langs)I[l]=await get(`i18n/${l}.json`);for(const s of cfg.sections)D[s]=await get(`data/${s}.json`);
+let q=new URLSearchParams(location.search).get("lang"),st;try{st=localStorage.getItem("lang")}catch(e){}
+lang=[q,st,navigator.language.slice(0,2)].find(l=>cfg.langs.includes(l))||cfg.langs[0];addEventListener("hashchange",render);render()})();
