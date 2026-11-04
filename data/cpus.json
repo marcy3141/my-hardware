@@ -19,10 +19,11 @@
   "brand": "AMD",
   "model": "Duron 1300",
   "family": "Morgan",
-  "socket": "462",
+  "stepping": "1",
+  "socket": "Socket 462",
   "mhz": 1300,
   "fsb": "100",
-  "vcore": "1.65V",
+  "vcore": "1.75V",
   "sspec": "DHD1300AMT1B",
   "notes": {
    "it": "Da fare ponticelli L1 per sbloccare il moltiplicatore.",
