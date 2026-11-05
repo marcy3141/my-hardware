@@ -1,0 +1,3 @@
+Sfondi CDE (SkyLight, Paver): dal Common Desktop Environment (https://sourceforge.net/projects/cdesktopenv/), licenza CC BY-SA 3.0 come indicato nel NOTICE di https://github.com/usr-wwelsh/cde-wallpaper. Convertiti in PNG: https://creativecommons.org/licenses/by-sa/3.0/
+
+Sfondi aggiuntivi (Mesh, Spotty, Lattice, Sand Waves, Crochet, Pebbles, Sprinkles, Corduroy): stessa fonte e licenza CC BY-SA 3.0; i pattern XBM sono colorati con una tinta blu-grigia.

@@ -1,19 +1,23 @@
-:root{--bg:linear-gradient(#a3b1c1,#7f94ae);--face:#c4b0a8}
-body{font:12px "Lucida Sans","DejaVu Sans",Helvetica,Arial,sans-serif;-webkit-font-smoothing:auto;color:#000}
-.win{background:#e9a062;border:2px solid;border-color:#f3c9a1 #a56a38 #a56a38 #f3c9a1;padding:3px}
-.title{background:#e9a062;color:#000;font-weight:normal;text-shadow:none;border:0;padding:1px 4px 4px}
+/* sfondi CDE: CC BY-SA 3.0, vedi themes/cde/LICENSE.txt */
+:root{--bg:#7f94ae}
+@font-face{font-family:"X11 Times 12";src:url(../fonts/times_r12.woff2) format("woff2")}
+body{font:14px/16px "X11 Times 12","Times New Roman",Times,serif;-webkit-font-smoothing:none;text-rendering:optimizeSpeed;color:#000}
+.win{background-color:#eda770;border:2px solid;border-color:#f6cfa8 #9c6330 #9c6330 #f6cfa8;padding:5px;background-image:linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330),linear-gradient(#9c6330,#9c6330);background-position:left 22px top 0,right 22px top 0,left 22px bottom 0,right 22px bottom 0,left 0 top 22px,right 0 top 22px,left 0 bottom 22px,right 0 bottom 22px;background-size:1px 7px,1px 7px,1px 7px,1px 7px,7px 1px,7px 1px,7px 1px,7px 1px;background-repeat:no-repeat;background-origin:border-box}
+.title{background:#eda770;color:#fff;font-weight:normal;text-shadow:none;border:0;padding:0 4px 5px}
+.title::before{content:"";flex:none;width:18px;height:16px;margin:0 8px 0 0;background:linear-gradient(#000,#000) center/8px 2px no-repeat,#eda770;border:2px solid;border-color:#f6cfa8 #9c6330 #9c6330 #f6cfa8}
 .title>span:first-child{flex:1;text-align:center;padding:0}
-nav{background:#4a93a6;padding:2px 6px;gap:2px}
-nav button{background:transparent;border:0;box-shadow:none;padding:2px 8px}
-nav button:hover,nav button.on{background:#3b7d8f;border:0}
-main{background:#a89a94;border:2px solid;border-color:#7a6c66 #dccdc7 #dccdc7 #7a6c66;padding:8px;margin-top:3px}
+nav{background:#4a90a5;padding:3px 8px;gap:4px}
+nav button{background:transparent;border:0;box-shadow:none;color:#fff;padding:2px 8px}
+nav button:hover,nav button.on{background:#3b7a8d;border:0}
+main{background:#c3ada4;border:0;padding:8px;margin-top:0}
 button,select,input{border-radius:0;font:inherit;color:#000}
-button{background:#c4b0a8;border:2px solid;border-color:#dccdc7 #7a6c66 #7a6c66 #dccdc7;padding:2px 10px}
-button:active,button.on{background:#b39f97;border-color:#7a6c66 #dccdc7 #dccdc7 #7a6c66}
-.title button{padding:0 8px}
-input,select{background:#d9cbc5;border:2px solid;border-color:#7a6c66 #dccdc7 #dccdc7 #7a6c66}
-.tw{background:#a89a94;border:0}
-th{background:#c4b0a8;border:1px solid #7a6c66}
+button{background:#c3ada4;border:2px solid;border-color:#e3d1ca #7a6c66 #7a6c66 #e3d1ca;padding:2px 10px}
+button:active,button.on{background:#b39f97;border-color:#7a6c66 #e3d1ca #e3d1ca #7a6c66}
+.title button{padding:0 8px;color:#000}
+input,select{background:#e3d6d0;border:2px solid;border-color:#7a6c66 #e3d1ca #e3d1ca #7a6c66}
+.tw{background:#a89a94;border:2px solid;border-color:#7a6c66 #e3d1ca #e3d1ca #7a6c66}
+th{background:#c3ada4;border:1px solid #7a6c66;color:#000}
 td{border-bottom:1px solid #9a8c86}
-tr:hover td{background:#4a93a6;color:#fff}tr:hover a{color:#fff}
+tr:hover td{background:#4a90a5;color:#fff}tr:hover a{color:#fff}
 .dl{background:#a89a94}.dim{color:#5a4f4a}
+nav button::first-letter{text-decoration:underline}
