@@ -145,6 +145,8 @@
   "fsb": "133",
   "vcore": "1.7V",
   "sspec": "SL4CD",
+  "rarity": 0,
+  "perf": 4,
   "photos": [
    {
     "f": "mw434xgy-0.webp"
@@ -162,6 +164,9 @@
   "fsb": "1333",
   "vcore": "0.85V - 1.36V",
   "sspec": "SLB8V",
+  "rarity": 1,
+  "perf": 5,
+  "fav": true,
   "photos": []
  },
  {
@@ -175,6 +180,8 @@
   "fsb": "133",
   "vcore": "1.65V",
   "sspec": "SL3VG",
+  "rarity": 1,
+  "perf": 2,
   "photos": [
    {
     "f": "mw434nd6-0.webp"
@@ -192,6 +199,8 @@
   "fsb": "10",
   "vcore": "1.75V",
   "sspec": "SL5XQ",
+  "rarity": 3,
+  "perf": 3,
   "photos": [
    {
     "f": "mw434fds-0.webp"

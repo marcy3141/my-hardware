@@ -18,6 +18,8 @@
     "c": 2
    }
   ],
+  "rarity": 0,
+  "perf": 1,
   "warning": {
    "it": "Non ha un vero slot AGP: l'add-in slot ha la stessa forma ma è elettricamente incompatibile. Inserire una scheda AGP la danneggia.",
    "en": "No real AGP slot: the add-in slot has the same shape but is electrically incompatible. Inserting an AGP card will damage it."
@@ -44,6 +46,12 @@
    "133"
   ],
   "bios": "1006 beta 002",
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 4
+   }
+  ],
   "slots": [
    {
     "n": "AGP Pro",
@@ -58,6 +66,9 @@
     "c": 1
    }
   ],
+  "rarity": 4,
+  "perf": 4,
+  "fav": true,
   "photos": []
  },
  {
@@ -82,6 +93,9 @@
     "c": 1
    }
   ],
+  "rarity": 5,
+  "perf": 5,
+  "fav": true,
   "notes": {
    "it": "Niente divisore 1/2 AGP. A FSB133 serve una scheda AGP che regga 89MHz.",
    "en": "No 1/2 divider for AGP. An 89MHz capable AGP card is required while running at FSB133"
@@ -135,6 +149,8 @@
   "chip": [
    "C-Media CMI9738"
   ],
+  "rarity": 2,
+  "perf": 4,
   "notes": {
    "it": "Questa scheda aveva tutte le porte USB rotte. ECS aveva utilizzato un piccolo nucleo di ferrite, rotto anche lui, al posto di un induttore per risparmiare sui costi. Due delle quattro porte sono state ripristinate. Manca il jack combo RJ45 + 2 USB.\nÈ stato aggiunto anche un vero polyfuse da 1.1A al posto del nucleo di ferrite.",
    "en": "This board had all USB ports broken.To lower costs, ECS used just a ferrite core instead of a proper fuse for these ports, and it predictably blew. Two out of the four ports were restored. The board's missing the combo jack with both USB and RJ45.\nA proper 1.1A polyfuse was bodged instead of the ferrite core."
@@ -187,6 +203,8 @@
   "chip": [
    "C-Media CMI8738"
   ],
+  "rarity": 2,
+  "perf": 2,
   "notes": {
    "it": "Ha avuto un po' di corrosione. Alcune saldature andrebbero rifatte.\nCon scatola originale.",
    "en": "Has suffered some corrosion. Some joints should get a reflow. \nWith original box."
@@ -233,6 +251,8 @@
     "c": 1
    }
   ],
+  "rarity": 1,
+  "perf": 4,
   "photos": [
    {
     "f": "mw2oyk4d-0.webp"
@@ -283,6 +303,8 @@
    "Marvell 88SE6111 (IDE)",
    "LSI L-FW3227 (Firewire 400)"
   ],
+  "rarity": 4,
+  "perf": 5,
   "notes": {
    "it": "Una porta SATA integrata è rotta (SATA5).",
    "en": "Red SATA port n.5 is broken."
