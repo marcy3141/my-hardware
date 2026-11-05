@@ -96,18 +96,44 @@
    "f": 1
   },
   {
+   "k": "rarity",
+   "t": "stars",
+   "it": "Rarità/valore",
+   "en": "Rarity/value",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "perf",
+   "t": "stars",
+   "it": "Prestazioni",
+   "en": "Performance",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "fav",
+   "t": "bool",
+   "it": "Preferito",
+   "en": "Favorite",
+   "f": 1,
+   "opt": 1
+  },
+  {
    "k": "warning",
    "t": "long",
    "tr": 1,
    "it": "Attenzione",
-   "en": "Warning"
+   "en": "Warning",
+   "opt": 1
   },
   {
    "k": "notes",
    "t": "long",
    "tr": 1,
    "it": "Note",
-   "en": "Notes"
+   "en": "Notes",
+   "opt": 1
   }
  ],
  "gpus": [
@@ -189,18 +215,44 @@
    "f": 1
   },
   {
+   "k": "rarity",
+   "t": "stars",
+   "it": "Rarità/valore",
+   "en": "Rarity/value",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "perf",
+   "t": "stars",
+   "it": "Prestazioni",
+   "en": "Performance",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "fav",
+   "t": "bool",
+   "it": "Preferito",
+   "en": "Favorite",
+   "f": 1,
+   "opt": 1
+  },
+  {
    "k": "warning",
    "t": "long",
    "tr": 1,
    "it": "Attenzione",
-   "en": "Warning"
+   "en": "Warning",
+   "opt": 1
   },
   {
    "k": "notes",
    "t": "long",
    "tr": 1,
    "it": "Note",
-   "en": "Notes"
+   "en": "Notes",
+   "opt": 1
   }
  ],
  "cpus": [
@@ -268,18 +320,44 @@
    "en": "S-spec"
   },
   {
+   "k": "rarity",
+   "t": "stars",
+   "it": "Rarità/valore",
+   "en": "Rarity/value",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "perf",
+   "t": "stars",
+   "it": "Prestazioni",
+   "en": "Performance",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "fav",
+   "t": "bool",
+   "it": "Preferito",
+   "en": "Favorite",
+   "f": 1,
+   "opt": 1
+  },
+  {
    "k": "warning",
    "t": "long",
    "tr": 1,
    "it": "Attenzione",
-   "en": "Warning"
+   "en": "Warning",
+   "opt": 1
   },
   {
    "k": "notes",
    "t": "long",
    "tr": 1,
    "it": "Note",
-   "en": "Notes"
+   "en": "Notes",
+   "opt": 1
   }
  ],
  "cards": [
@@ -345,18 +423,44 @@
    "en": "Features"
   },
   {
+   "k": "rarity",
+   "t": "stars",
+   "it": "Rarità/valore",
+   "en": "Rarity/value",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "perf",
+   "t": "stars",
+   "it": "Prestazioni",
+   "en": "Performance",
+   "f": 1,
+   "c": 1
+  },
+  {
+   "k": "fav",
+   "t": "bool",
+   "it": "Preferito",
+   "en": "Favorite",
+   "f": 1,
+   "opt": 1
+  },
+  {
    "k": "warning",
    "t": "long",
    "tr": 1,
    "it": "Attenzione",
-   "en": "Warning"
+   "en": "Warning",
+   "opt": 1
   },
   {
    "k": "notes",
    "t": "long",
    "tr": 1,
    "it": "Note",
-   "en": "Notes"
+   "en": "Notes",
+   "opt": 1
   }
  ]
 }

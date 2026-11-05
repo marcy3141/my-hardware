@@ -12,8 +12,8 @@ const unph=p=>{if(p in P.a)delete P.a[p];else P.d.add(p)};
 async function enter(){try{await fresh()}catch(e){}EM=1;render()}
 function ed(r){const n=$("#nav"),m=$("#main");
 if(!EM){n.insertAdjacentHTML("beforeend",`<button id="em" style="margin-left:auto">${xt("edit")}</button>`);$("#em").onclick=login;return}
-n.insertAdjacentHTML("beforeend",`<button id="em" class="on" style="margin-left:auto">${xt("done")}</button>${np()?`<button id="pb">${xt("pend")} (${np()})</button>`:""}<button id="st">${xt("sett")}</button><button id="lo">${xt("out")}</button>`);
-$("#em").onclick=()=>{EM=0;render()};$("#lo").onclick=()=>{TK="";try{sessionStorage.removeItem("tk")}catch(e){}EM=0;render()};if(np())$("#pb").onclick=pend;$("#st").onclick=sett;
+n.insertAdjacentHTML("beforeend",`<button id="em" class="on" style="margin-left:auto">${xt("done")}</button>${np()?`<button id="pb">${xt("pend")} (${np()})</button>`:""}<button id="cm">${xt("comp")}</button><button id="st">${xt("sett")}</button><button id="lo">${xt("out")}</button>`);
+$("#em").onclick=()=>{EM=0;render()};$("#lo").onclick=()=>{TK="";try{sessionStorage.removeItem("tk")}catch(e){}EM=0;render()};if(np())$("#pb").onclick=pend;$("#st").onclick=sett;$("#cm").onclick=compl;
 if(r.id){m.insertAdjacentHTML("afterbegin",`<p><button id="b1">${xt("edit")}</button> <button id="b2">${xt("del")}</button></p>`);$("#b1").onclick=()=>form(r.sec,D[r.sec].find(e=>e.id===r.id));$("#b2").onclick=()=>rm(r.sec,r.id)}
 else{m.insertAdjacentHTML("afterbegin",`<p><button id="b1">+ ${xt("nw")}</button></p>`);$("#b1").onclick=()=>form(r.sec)}}
 function login(){if(TK)return enter();
@@ -25,17 +25,17 @@ const dl=f=>`<datalist id="dl_${f.k}">${[...new Set([...(f.o||[]),...D[sec].flat
 const inp=f=>{const id="f_"+f.k,v=x[f.k];
 if(f.t==="counts"||f.t==="list")return`<fieldset id="cr_${f.k}"><legend>${esc(f[lang])}</legend><div>${(v||[]).map(cn).map(r=>crow(f,r)).join("")}</div><button type="button" data-add="${f.k}">+</button>${dl(f)}</fieldset>`;
 if(f.tr)return cfg.langs.map(l=>`<label>${esc(f[lang])} (${l.toUpperCase()})<textarea id="${id}_${l}" rows="3">${esc((v&&v[l])||"")}</textarea></label>`).join("");
-return`<label>${esc(f[lang])}<input id="${id}" ${f.f||f.o?`list="dl_${f.k}"`:""} type="${f.t==="number"?"number":"text"}" value="${esc(Array.isArray(v)?v.join(", "):v??"")}"></label>${f.f||f.o?dl(f):""}`};
+if(f.t==="stars")return`<label>${esc(f[lang])}<select id="${id}"><option value="">—</option>${[0,1,2,3,4,5].map(n=>`<option${v===n?" selected":""}>${n}</option>`).join("")}</select></label>`;if(f.t==="bool")return`<label><input type="checkbox" id="${id}"${v?" checked":""}> ${esc(f[lang])}</label>`;return`<label>${esc(f[lang])}<input id="${id}" ${f.f||f.o?`list="dl_${f.k}"`:""} type="${f.t==="number"?"number":"text"}" value="${esc(Array.isArray(v)?v.join(", "):v??"")}"></label>${f.f||f.o?dl(f):""}`};
 $("#main").innerHTML=`<form id="fm" class="fm">${F.map(inp).join("")}${x.photos.map(p=>`<label><input type="checkbox" data-f="${esc(p.f)}"> ${xt("rm")} ${esc(p.f)}</label>`).join("")}<label>${xt("ph")}<input id="ph" type="file" accept="image/*" multiple></label><p><button type="submit">${xt("save")}</button> <button type="button" id="cn">${xt("cancel")}</button> <span id="er"></span></p></form>`;
 $("#cn").onclick=render;
 $("#fm").onclick=e=>{const t=e.target;if(t.classList.contains("x"))t.parentNode.remove();if(t.dataset.add){const f=F.find(f=>f.k===t.dataset.add);t.previousElementSibling.insertAdjacentHTML("beforeend",crow(f,{}))}};
 $("#fm").onsubmit=async e=>{e.preventDefault();const o={id:x.id};
 F.forEach(f=>{if(f.t==="counts"||f.t==="list"){const a=[...document.querySelectorAll(`#cr_${f.k} .bar`)].map(b=>({n:b.querySelector(".cn").value.trim(),c:+(b.querySelector(".cc")||{}).value||1})).filter(i=>i.n).map(i=>f.t==="list"?i.n:i);if(a.length)o[f.k]=a}
 else if(f.tr){const t={};cfg.langs.forEach(l=>{const v=$(`#f_${f.k}_${l}`).value.trim();if(v)t[l]=v});if(Object.keys(t).length)o[f.k]=t}
-else{const v=$("#f_"+f.k).value.trim();if(v!=="")o[f.k]=f.t==="tags"?v.split(",").map(s=>s.trim()).filter(Boolean):f.t==="number"?+v:v}});
+else if(f.t==="bool"){if($("#f_"+f.k).checked)o[f.k]=true}else{const v=$("#f_"+f.k).value.trim();if(v!=="")o[f.k]=f.t==="tags"?v.split(",").map(s=>s.trim()).filter(Boolean):f.t==="number"||f.t==="stars"?+v:v}});
 if(!o.brand||!o.model){$("#er").textContent=xt("req");return}
 if(nw){o.id=slug(o.brand+" "+o.model);if(D[sec].some(e=>e.id===o.id))o.id+="-"+Date.now().toString(36)}
-const gone=[...document.querySelectorAll("#fm input[type=checkbox]:checked")].map(i=>i.dataset.f);o.photos=x.photos.filter(p=>!gone.includes(p.f));
+const gone=[...document.querySelectorAll("#fm input[data-f]:checked")].map(i=>i.dataset.f);o.photos=x.photos.filter(p=>!gone.includes(p.f));
 for(const[i,fl]of[...$("#ph").files].entries()){const nm=`${Date.now().toString(36)}-${i}.webp`;P.a[`photos/${sec}/${o.id}/${nm}`]=await shrink(fl);o.photos.push({f:nm})}
 gone.forEach(f=>unph(`photos/${sec}/${o.id}/${f}`));
 D[sec]=nw?[...D[sec],o]:D[sec].map(e=>e.id===o.id?o:e);P.s.add(sec);mark(sec+"/"+o.id,nw?"+":"~");
@@ -64,3 +64,8 @@ for(const[i,fl]of[...$("#s_f").files].entries()){const nm=`${Date.now().toString
 const ic=$("#s_ic").files[0];let icon=ST.icon||"";if(ic){if(icon)unph("icons/"+icon);icon="ico-"+Date.now().toString(36)+".png";P.a["icons/"+icon]=await shrink(ic,64,"image/png")}
 let bg=$("#s_b").value;if(gone.includes(bg))bg="";ST={...ST,title:$("#s_ti").value.trim(),icon,theme:$("#s_t").value,bg,backgrounds:B2};P.st=1;mark("settings","~");look();render()}}
 Object.assign(X.it,{ti:"Titolo (finestra e scheda del browser)",ic:"Icona della scheda (favicon)"});Object.assign(X.en,{ti:"Title (window and browser tab)",ic:"Tab icon (favicon)"});
+Object.assign(X.it,{comp:"Completezza",secn:"Sezione",ent:"Voce",miss:"Mancano"});Object.assign(X.en,{comp:"Completeness",secn:"Section",ent:"Entry",miss:"Missing"});
+function compl(){const R=[];let ok=0,tot=0;
+for(const s of cfg.sections)for(const x of D[s]){const m=missing(s,x),n=sch[s].filter(f=>!f.opt).length+1;tot++;if(!m.length)ok++;R.push({s,x,m,p:Math.round(100*(n-m.length)/n)})}
+R.sort((a,b)=>a.p-b.p);
+$("#main").innerHTML=`<h3>${xt("comp")}: ${ok}/${tot}</h3><div class="tw"><table><thead><tr><th>${xt("secn")}</th><th>${xt("ent")}</th><th>%</th><th>${xt("miss")}</th></tr></thead><tbody>${R.map(r=>`<tr><td>${esc(t(r.s))}</td><td><a href="#/${r.s}/${encodeURIComponent(r.x.id)}">${esc(r.x.brand)} ${esc(r.x.model)}</a></td><td>${r.p}%</td><td>${r.m.length?esc(r.m.join(", ")):"✓"}</td></tr>`).join("")}</tbody></table></div><p><button id="bk">${xt("back")}</button></p>`;$("#bk").onclick=render}

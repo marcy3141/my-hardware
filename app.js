@@ -4,8 +4,8 @@ let cfg,sch,I={},D={},lang,S,ST={},LC;
 const t=k=>I[lang][k]||k;
 const tr=v=>{if(!v||typeof v!=="object"||Array.isArray(v))return{x:v??"",m:0};if(v[lang])return{x:v[lang],m:0};const o=cfg.langs.find(l=>v[l]);return{x:o?v[o]:"",m:!!o}};
 const cn=i=>typeof i==="string"?{n:i,c:1}:i;
-const val=(f,v)=>f.t==="counts"?(v||[]).map(cn).map(i=>i.c+"× "+i.n).join(", "):Array.isArray(v)?v.join(", "):f.tr?tr(v).x:v??"";
-const flat=(f,v)=>f.t==="counts"?(v||[]).map(i=>cn(i).n):f.t==="tags"||f.t==="list"?(v||[]):(v===undefined||v===""?[]:[String(v)]);
+const val=(f,v)=>f.t==="counts"?(v||[]).map(cn).map(i=>i.c+"× "+i.n).join(", "):f.t==="stars"?(v===undefined?"":"★".repeat(v)+"☆".repeat(5-v)):f.t==="bool"?(v?"♥":""):Array.isArray(v)?v.join(", "):f.tr?tr(v).x:v??"";
+const flat=(f,v)=>f.t==="counts"?(v||[]).map(i=>cn(i).n):f.t==="bool"?(v?["♥"]:[]):f.t==="tags"||f.t==="list"?(v||[]):(v===undefined||v===""?[]:[String(v)]);
 function route(){const[p,q]=(location.hash.slice(1)||"/boards").split("?"),[,s,id]=p.split("/");return{sec:cfg.sections.includes(s)?s:cfg.sections[0],id:id&&decodeURIComponent(id),qs:new URLSearchParams(q||"")}}
 function setLang(l){lang=l;try{localStorage.setItem("lang",l)}catch(e){}render()}
 function render(){const r=route();document.documentElement.lang=lang;
@@ -23,10 +23,10 @@ $("#rs").onclick=()=>{S.q="";Object.keys(S.f).forEach(k=>S.f[k]="");$("#q").valu
 function upd(){const F=sch[S.sec],C=F.filter(f=>f.c);let rows=D[S.sec].filter(x=>{
 if(S.q&&!JSON.stringify(x).toLowerCase().includes(S.q.toLowerCase()))return false;
 return F.every(f=>!S.f[f.k]||flat(f,x[f.k]).includes(S.f[f.k]))});
-const sf=C.find(f=>f.k===S.s);if(sf){const m=S.d==="a"?1:-1;rows=[...rows].sort((a,b)=>m*(sf.t==="number"?(a[sf.k]||0)-(b[sf.k]||0):String(val(sf,a[sf.k])).localeCompare(String(val(sf,b[sf.k])),undefined,{numeric:true})))}
+const sf=C.find(f=>f.k===S.s);if(sf){const m=S.d==="a"?1:-1;rows=[...rows].sort((a,b)=>m*(sf.t==="number"||sf.t==="stars"?(a[sf.k]??-1)-(b[sf.k]??-1):String(val(sf,a[sf.k])).localeCompare(String(val(sf,b[sf.k])),undefined,{numeric:true})))}
 $("thead").innerHTML="<tr>"+C.map(f=>`<th data-k="${f.k}">${esc(f[lang])}${S.s===f.k?(S.d==="a"?" ▲":" ▼"):""}</th>`).join("")+"</tr>";
 document.querySelectorAll("th").forEach(h=>h.onclick=()=>{S.d=S.s===h.dataset.k&&S.d==="a"?"d":"a";S.s=h.dataset.k;upd()});
-$("tbody").innerHTML=rows.length?rows.map(x=>"<tr>"+C.map(f=>{let v=esc(val(f,x[f.k]));if(f.k==="model")v=`<a href="#/${S.sec}/${encodeURIComponent(x.id)}">${v}</a>`+(tr(x.warning).x?`<span class="badge" title="${esc(tr(x.warning).x)}">!</span>`:"");return`<td>${v}</td>`}).join("")+"</tr>").join(""):`<tr><td colspan="${C.length}">${esc(t("empty"))}</td></tr>`;
+$("tbody").innerHTML=rows.length?rows.map(x=>"<tr>"+C.map(f=>{let v=esc(val(f,x[f.k]));if(f.k==="model")v=`<a href="#/${S.sec}/${encodeURIComponent(x.id)}">${v}</a>`+(x.fav?` <span class="fav">♥</span>`:"")+(done(S.sec,x)?` <span class="ok" title="${esc(t("complete"))}">✓</span>`:"")+(tr(x.warning).x?`<span class="badge" title="${esc(tr(x.warning).x)}">!</span>`:"");return`<td>${v}</td>`}).join("")+"</tr>").join(""):`<tr><td colspan="${C.length}">${esc(t("empty"))}</td></tr>`;
 $("#n").textContent=`${rows.length}/${D[S.sec].length}`;
 const p=new URLSearchParams();if(S.q)p.set("q",S.q);if(S.s){p.set("s",S.s);p.set("d",S.d)}Object.entries(S.f).forEach(([k,v])=>v&&p.set("f."+k,v));
 history.replaceState(null,"","#/"+S.sec+(p.toString()?"?"+p:""))}
@@ -34,7 +34,7 @@ const md=s=>esc(s).split(/\n{2,}/).map(p=>"<p>"+p.replace(/\*\*(.+?)\*\*/g,"<b>$
 function detail(r){const x=D[r.sec].find(e=>e.id===r.id),F=sch[r.sec];if(!x){location.hash="#/"+r.sec;return}
 const long=k=>{const f=F.find(f=>f.k===k),v=tr(x[k]);return v.x?{...v,l:f[lang]}:null},w=long("warning"),n=long("notes");
 const mk=m=>m?` <span class="dim">(${esc(t("missing"))})</span>`:"";
-$("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${esc(x.brand)} ${esc(x.model)}</h2>`+
+$("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${esc(x.brand)} ${esc(x.model)}${x.fav?` <span class="fav">♥</span>`:""}${done(r.sec,x)?` <span class="ok" title="${esc(t("complete"))}">✓</span>`:""}</h2>`+
 (w?`<div class="warn"><b>${esc(t("warning"))}:</b> ${esc(w.x)}${mk(w.m)}</div>`:"")+
 `<dl class="dl">${F.filter(f=>f.t!=="long"&&val(f,x[f.k])!=="").map(f=>`<dt>${esc(f[lang])}</dt><dd>${esc(val(f,x[f.k]))}</dd>`).join("")}</dl>`+
 (n?`<h3>${esc(t("notes"))}${mk(n.m)}</h3>${md(n.x)}`:"")+
@@ -57,3 +57,6 @@ function zoom(L,n){let b=$("#lb");if(!b){b=document.createElement("div");b.id="l
 b.innerHTML=`<img src="${esc(x.src)}" alt="${esc(x.alt)}"><div><button ${n?"":"disabled"} data-d="-1">‹</button> ${esc(x.alt)} <a href="${esc(x.src)}" target="_blank" rel="noopener">${esc(t("open"))}</a> ${n+1}/${L.length} <button ${n<L.length-1?"":"disabled"} data-d="1">›</button></div>`;
 b.onclick=e=>{const g=e.target;if(g.tagName==="BUTTON"){zoom(L,n+ +g.dataset.d);return}if(g.tagName!=="A")b.remove()};
 document.onkeydown=e=>{if(!$("#lb"))return;if(e.key==="Escape")b.remove();else if(e.key==="ArrowRight"&&n<L.length-1)zoom(L,n+1);else if(e.key==="ArrowLeft"&&n>0)zoom(L,n-1)}}
+const emp=v=>v===undefined||v===null||v===""||(Array.isArray(v)&&!v.length)||(typeof v==="object"&&!Array.isArray(v)&&!Object.values(v).some(Boolean));
+function missing(sec,x){const m=sch[sec].filter(f=>!f.opt&&emp(x[f.k])).map(f=>f[lang]);if(!(x.photos||[]).length)m.push(t("photos"));return m}
+const done=(sec,x)=>!missing(sec,x).length;
