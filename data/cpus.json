@@ -25,6 +25,8 @@
   "fsb": "100",
   "vcore": "1.75V",
   "sspec": "DHD1300AMT1B",
+  "value": 1,
+  "perf": 3,
   "notes": {
    "it": "Da fare ponticelli L1 per sbloccare il moltiplicatore.",
    "en": "To do: bridge L1 pins to unlock multiplier."
@@ -61,10 +63,13 @@
   "brand": "AMD",
   "model": "K6-2",
   "family": "K6",
+  "stepping": "--",
   "socket": "Socket 7",
   "fsb": "100",
   "vcore": "2.2V",
   "sspec": "?",
+  "value": 4,
+  "perf": 4,
   "warning": {
    "it": "De-liddato. Raffreddare adeguatamente.",
    "en": "Delidded. Cool adequately."
@@ -145,7 +150,7 @@
   "fsb": "133",
   "vcore": "1.7V",
   "sspec": "SL4CD",
-  "rarity": 0,
+  "value": 2,
   "perf": 4,
   "photos": [
    {
@@ -180,7 +185,7 @@
   "fsb": "133",
   "vcore": "1.65V",
   "sspec": "SL3VG",
-  "rarity": 1,
+  "value": 2,
   "perf": 2,
   "photos": [
    {
@@ -199,7 +204,7 @@
   "fsb": "10",
   "vcore": "1.75V",
   "sspec": "SL5XQ",
-  "rarity": 3,
+  "value": 3,
   "perf": 3,
   "photos": [
    {

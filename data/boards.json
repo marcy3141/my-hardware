@@ -149,7 +149,7 @@
   "chip": [
    "C-Media CMI9738"
   ],
-  "rarity": 2,
+  "value": 2,
   "perf": 4,
   "notes": {
    "it": "Questa scheda aveva tutte le porte USB rotte. ECS aveva utilizzato un piccolo nucleo di ferrite, rotto anche lui, al posto di un induttore per risparmiare sui costi. Due delle quattro porte sono state ripristinate. Manca il jack combo RJ45 + 2 USB.\nÈ stato aggiunto anche un vero polyfuse da 1.1A al posto del nucleo di ferrite.",
@@ -405,6 +405,8 @@
   "chip": [
    "Via VT1611A (AC'97)"
   ],
+  "value": 2,
+  "perf": 2,
   "warning": {
    "it": "Uno dei dentelli del socket era rotto. È stato riparato, ma usare con cautela.",
    "en": "One of the plastic overhangs of the socket was broken off. It's fixed now, but handle with care."
