@@ -145,7 +145,11 @@
   "fsb": "133",
   "vcore": "1.7V",
   "sspec": "SL4CD",
-  "photos": []
+  "photos": [
+   {
+    "f": "mw434xgy-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-2-quad-q9550",
@@ -171,7 +175,11 @@
   "fsb": "133",
   "vcore": "1.65V",
   "sspec": "SL3VG",
-  "photos": []
+  "photos": [
+   {
+    "f": "mw434nd6-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-celeron-1000",
@@ -184,6 +192,10 @@
   "fsb": "10",
   "vcore": "1.75V",
   "sspec": "SL5XQ",
-  "photos": []
+  "photos": [
+   {
+    "f": "mw434fds-0.webp"
+   }
+  ]
  }
 ]

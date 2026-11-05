@@ -287,7 +287,14 @@
    "it": "Una porta SATA integrata è rotta (SATA5).",
    "en": "Red SATA port n.5 is broken."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw4335hv-0.webp"
+   },
+   {
+    "f": "mw43360c-1.webp"
+   }
+  ]
  },
  {
   "id": "asus-a7v600-x",
@@ -327,7 +334,14 @@
    "it": "Porte SATA di prima generazione. Si rompono solo a guardarle. Utilizzare con cautela.",
    "en": "First-gen SATA ports. They break just by looking at them. Use with care."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw433idz-0.webp"
+   },
+   {
+    "f": "mw433iwb-1.webp"
+   }
+  ]
  },
  {
   "id": "dfi-ca64-ec",
@@ -377,7 +391,14 @@
    "it": "BIOS castrato per l'overclock. Ha uno slot ISA. L'audio integrato non funziona.",
    "en": "Bad BIOS for overclocking. Has an ISA slot. Integrated audio doesn't work."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw433w0l-0.webp"
+   },
+   {
+    "f": "mw433wh3-1.webp"
+   }
+  ]
  },
  {
   "id": "aopen-ax63",
