@@ -133,5 +133,57 @@
     "f": "mw2ootnl-0.webp"
    }
   ]
+ },
+ {
+  "id": "intel-pentium-iii-800eb",
+  "brand": "Intel",
+  "model": "Pentium III 800EB",
+  "family": "Coppermine",
+  "stepping": "C0",
+  "socket": "Socket 370",
+  "mhz": 800,
+  "fsb": "133",
+  "vcore": "1.7V",
+  "sspec": "SL4CD",
+  "photos": []
+ },
+ {
+  "id": "intel-core-2-quad-q9550",
+  "brand": "Intel",
+  "model": "Core 2 Quad Q9550",
+  "family": "Yorkfield",
+  "stepping": "E0",
+  "socket": "LGA 775",
+  "mhz": 2833,
+  "fsb": "1333",
+  "vcore": "0.85V - 1.36V",
+  "sspec": "SLB8V",
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-iii-600eb",
+  "brand": "Intel",
+  "model": "Pentium III 600EB",
+  "family": "Coppermine",
+  "stepping": "A2",
+  "socket": "Socket 370",
+  "mhz": 600,
+  "fsb": "133",
+  "vcore": "1.65V",
+  "sspec": "SL3VG",
+  "photos": []
+ },
+ {
+  "id": "intel-celeron-1000",
+  "brand": "Intel",
+  "model": "Celeron 1000",
+  "family": "Coppermine",
+  "stepping": "D0",
+  "socket": "Socket 370",
+  "mhz": 1000,
+  "fsb": "10",
+  "vcore": "1.75V",
+  "sspec": "SL5XQ",
+  "photos": []
  }
 ]

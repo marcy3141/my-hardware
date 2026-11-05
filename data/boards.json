@@ -241,5 +241,180 @@
     "f": "mw2oykms-1.webp"
    }
   ]
+ },
+ {
+  "id": "asus-p5q",
+  "brand": "ASUS",
+  "model": "P5Q",
+  "rev": "1.03G",
+  "ff": "ATX",
+  "socket": "LGA 775",
+  "chipset": "Intel P45",
+  "fsb": [
+   "800",
+   "1066",
+   "1333",
+   "1600"
+  ],
+  "ramslots": [
+   {
+    "n": "DDR2",
+    "c": 4
+   }
+  ],
+  "slots": [
+   {
+    "n": "PCIe x16",
+    "c": 1
+   },
+   {
+    "n": "PCIe x1",
+    "c": 2
+   },
+   {
+    "n": "PCI",
+    "c": 3
+   }
+  ],
+  "chip": [
+   "Silicon Image SIL5723 (SATA)",
+   "Realtek ALC1200 (7.1 Codec)",
+   "Atheros AR8121 (Gigabit Ethernet)",
+   "Marvell 88SE6111 (IDE)",
+   "LSI L-FW3227 (Firewire 400)"
+  ],
+  "notes": {
+   "it": "Una porta SATA integrata è rotta (SATA5).",
+   "en": "Red SATA port n.5 is broken."
+  },
+  "photos": []
+ },
+ {
+  "id": "asus-a7v600-x",
+  "brand": "ASUS",
+  "model": "A7V600-X",
+  "rev": "1.00",
+  "ff": "ATX",
+  "socket": "Socket 462",
+  "chipset": "Via KT600",
+  "fsb": [
+   "200",
+   "266",
+   "333",
+   "400"
+  ],
+  "ramslots": [
+   {
+    "n": "DDR",
+    "c": 3
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP 1.5v",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 6
+   }
+  ],
+  "chip": [
+   "Analog Devices AD1888 (AC'97)",
+   "IC IP101 (Fast Ethernet)"
+  ],
+  "warning": {
+   "it": "Porte SATA di prima generazione. Si rompono solo a guardarle. Utilizzare con cautela.",
+   "en": "First-gen SATA ports. They break just by looking at them. Use with care."
+  },
+  "photos": []
+ },
+ {
+  "id": "dfi-ca64-ec",
+  "brand": "DFI",
+  "model": "CA64-EC",
+  "rev": "A1",
+  "ff": "ATX",
+  "socket": "Socket 370",
+  "chipset": "Via Apollo Pro 133A",
+  "fsb": [
+   "66",
+   "100",
+   "133"
+  ],
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 3
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP Pro",
+    "c": 1
+   },
+   {
+    "n": "AMR",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "ISA 16-bit",
+    "c": 1
+   }
+  ],
+  "chip": [
+   "Via VT1611A (AC'97)"
+  ],
+  "warning": {
+   "it": "Uno dei dentelli del socket era rotto. È stato riparato, ma usare con cautela.",
+   "en": "One of the plastic overhangs of the socket was broken off. It's fixed now, but handle with care."
+  },
+  "notes": {
+   "it": "BIOS castrato per l'overclock. Ha uno slot ISA. L'audio integrato non funziona.",
+   "en": "Bad BIOS for overclocking. Has an ISA slot. Integrated audio doesn't work."
+  },
+  "photos": []
+ },
+ {
+  "id": "aopen-ax63",
+  "brand": "AOpen",
+  "model": "AX63",
+  "rev": "-",
+  "ff": "ATX",
+  "socket": "Slot 1",
+  "chipset": "Via Apollo Pro",
+  "fsb": [
+   "66",
+   "100"
+  ],
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 3
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP 3.3v",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "ISA 16-bit",
+    "c": 2
+   }
+  ],
+  "notes": {
+   "it": "Estremamente stabile. Altissima qualità costruttiva. Non tollera FSB133.",
+   "en": "Extremely stable. Extremely high build quality. Can't work with FSB133."
+  },
+  "photos": []
  }
 ]
