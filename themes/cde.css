@@ -1,6 +1,12 @@
-/* 1. Correzione Title bar e Pulsante */
+/* sfondi CDE: CC BY-SA 3.0, vedi themes/cde/LICENSE.txt */
+:root{--bg:#7f94ae}
+@font-face{font-family:"X11 Times 12";src:url(../fonts/times_r12.woff2) format("woff2")}
+body{font:14px/16px "X11 Times 12","Times New Roman",Times,serif;-webkit-font-smoothing:none;text-rendering:optimizeSpeed;color:#000}
+.win{background-color:#eda770;border:2px solid;border-color:#f6cfa8 #9c6330 #9c6330 #f6cfa8;padding:5px;background-image:linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8),linear-gradient(#9c6330,#9c6330),linear-gradient(#f6cfa8,#f6cfa8);background-position:left 24px top 0,left 26px top 0,right 26px top 0,right 24px top 0,left 24px bottom 0,left 26px bottom 0,right 26px bottom 0,right 24px bottom 0,left 0 top 24px,left 0 top 26px,left 0 bottom 26px,left 0 bottom 24px,right 0 top 24px,right 0 top 26px,right 0 bottom 26px,right 0 bottom 24px;background-size:2px 7px,2px 7px,2px 7px,2px 7px,2px 7px,2px 7px,2px 7px,2px 7px,7px 2px,7px 2px,7px 2px,7px 2px,7px 2px,7px 2px,7px 2px,7px 2px;background-repeat:no-repeat;background-origin:border-box}
+
+/* --- CORREZIONI TITLE BAR --- */
 .title {
-    display: flex; /* Necessario per l'allineamento dei figli */
+    display: flex;
     background: none;
     border: 0;
     padding: 0;
@@ -15,7 +21,7 @@
 .title::before {
     content: "";
     flex: none;
-    box-sizing: border-box; /* Costringe il bottone a restare esattamente di 19px, bordi inclusi */
+    box-sizing: border-box;
     width: 19px;
     height: 19px;
     margin: 0;
@@ -26,7 +32,7 @@
 
 .title > span:first-child {
     flex: 1;
-    box-sizing: border-box; /* Applica la stessa logica al testo della barra arancione */
+    box-sizing: border-box;
     text-align: center;
     padding: 0;
     height: 19px;
@@ -37,20 +43,50 @@
     border-color: #f6cfa8 #9c6330 #9c6330 #f6cfa8;
 }
 
-/* 2. Rimozione degli spazi verticali arancioni attorno alla menu bar */
+.title button {
+    box-sizing: border-box; /* Aggiunto box-sizing per coerenza con gli altri elementi della title bar */
+    height: 19px;
+    padding: 0 8px;
+    line-height: 15px;
+    color: #000;
+    background: #c3ada4;
+    border: 2px solid;
+    border-color: #e3d1ca #7a6c66 #7a6c66 #e3d1ca;
+}
+
+.title #tb {padding: 0; gap: 0;}
+
+/* --- CORREZIONI SPAZIATURE NAV E MAIN --- */
 nav {
     background: #4a90a5;
     border: 2px solid;
     border-color: #86bccb #2f6170 #2f6170 #86bccb;
     padding: 1px 6px;
     gap: 4px;
-    margin-top: 0; /* Rimuove lo spazio vuoto superiore */
+    margin-top: 0;
 }
+nav button {background: transparent; border: 0; box-shadow: none; color: #fff; padding: 2px 8px;}
+nav button:hover, nav button.on {background: #3b7a8d; border: 0;}
 
 main {
     background: #c3ada4;
     border: 2px solid;
     border-color: #7a6c66 #e3d1ca #e3d1ca #7a6c66;
     padding: 8px;
-    margin-top: 0; /* Rimuove lo spazio vuoto inferiore */
+    margin-top: 0;
 }
+
+/* --- RESTO DEL CSS ORIGINALE --- */
+button, select, input {border-radius: 0; font: inherit; color: #000;}
+button {background: #c3ada4; border: 2px solid; border-color: #e3d1ca #7a6c66 #7a6c66 #e3d1ca; padding: 2px 10px;}
+button:active, button.on {background: #b39f97; border-color: #7a6c66 #e3d1ca #e3d1ca #7a6c66;}
+input, select {background: #e3d6d0; border: 2px solid; border-color: #7a6c66 #e3d1ca #e3d1ca #7a6c66;}
+.tw {background: #a89a94; border: 2px solid; border-color: #7a6c66 #e3d1ca #e3d1ca #7a6c66;}
+table {border-collapse: separate; border-spacing: 0;}
+th {background: #c3ada4; border: 2px solid; border-color: #e3d1ca #7a6c66 #7a6c66 #e3d1ca; color: #000;}
+td {border-bottom: 1px solid #9a8c86;}
+tr:hover td {background: #4a90a5; color: #fff;}
+tr:hover a {color: #fff;}
+.dl {background: #a89a94;}
+.dim {color: #5a4f4a;}
+nav button::first-letter {text-decoration: underline;}
