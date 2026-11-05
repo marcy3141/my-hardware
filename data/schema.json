@@ -93,13 +93,14 @@
    "t": "list",
    "it": "Chip onboard",
    "en": "Onboard chips",
-   "f": 1
+   "f": 1,
+   "opt": 1
   },
   {
-   "k": "rarity",
+   "k": "value",
    "t": "stars",
-   "it": "Rarità/valore",
-   "en": "Rarity/value",
+   "it": "Valore",
+   "en": "Value",
    "f": 1,
    "c": 1
   },
@@ -215,10 +216,10 @@
    "f": 1
   },
   {
-   "k": "rarity",
+   "k": "value",
    "t": "stars",
-   "it": "Rarità/valore",
-   "en": "Rarity/value",
+   "it": "Valore",
+   "en": "Value",
    "f": 1,
    "c": 1
   },
@@ -320,10 +321,10 @@
    "en": "S-spec"
   },
   {
-   "k": "rarity",
+   "k": "value",
    "t": "stars",
-   "it": "Rarità/valore",
-   "en": "Rarity/value",
+   "it": "Valore",
+   "en": "Value",
    "f": 1,
    "c": 1
   },
@@ -423,10 +424,10 @@
    "en": "Features"
   },
   {
-   "k": "rarity",
+   "k": "value",
    "t": "stars",
-   "it": "Rarità/valore",
-   "en": "Rarity/value",
+   "it": "Valore",
+   "en": "Value",
    "f": 1,
    "c": 1
   },
