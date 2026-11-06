@@ -13,9 +13,11 @@
  {
   "id": "pny-geforce-6600le",
   "brand": "PNY",
-  "model": "Geforce 6600LE",
+  "model": "GeForce 6600LE",
   "chip": "NV43",
   "vram": "256MB",
+  "core": 300,
+  "mem": 250,
   "ramtype": "TSOP DDR",
   "bus": "128bit",
   "agpv": "AGP",
@@ -25,9 +27,11 @@
    "DVI",
    "S-VIDEO"
   ],
+  "value": 3,
+  "perf": 3,
   "notes": {
-   "it": "Variante con il bridge HSI. Forse ha 4 pipeline sbloccabili.\nVentola non originale (ovviamente).\nRicappata.",
-   "en": "HSI bridge variant. Maybe has 4 unlockable pipelines.\nNon-OEM fan (obviously)\nRecapped."
+   "it": "Variante con il bridge HSI. Niente pipeline sbloccabili via software, ha una maschera hardware.\nVentola non originale (ovviamente).\nRicappata.",
+   "en": "HSI bridge variant. No unlockable pipelines via software. Has an hardware mask.\nNon-OEM fan (obviously)\nRecapped."
   },
   "photos": [
    {
@@ -63,5 +67,90 @@
     "f": "mw4rsxi4-1.webp"
    }
   ]
+ },
+ {
+  "id": "matrox-g400-dualhead",
+  "brand": "Matrox",
+  "model": "G400 Dualhead",
+  "chip": "MGA-G400",
+  "vram": "32MB",
+  "mem": 183,
+  "ramtype": "SGRAM",
+  "bus": "128bit",
+  "agpv": "AGP Universal",
+  "agpx": "4x",
+  "out": [
+   "2x VGA"
+  ],
+  "value": 4,
+  "perf": 4,
+  "fav": true,
+  "photos": []
+ },
+ {
+  "id": "sapphire-radeon-9600",
+  "brand": "Sapphire",
+  "model": "Radeon 9600",
+  "chip": "RV350",
+  "vram": "256 MB",
+  "core": 324,
+  "mem": 202,
+  "ramtype": "TSOP DDR",
+  "bus": "128bit",
+  "agpv": "AGP Universal",
+  "agpx": "8x",
+  "out": [
+   "VGA",
+   "DVI",
+   "S-VIDEO"
+  ],
+  "value": 3,
+  "perf": 4,
+  "notes": {
+   "it": "Questa scheda specifica ha chip di memoria da 4ns (DDR500) ma ha una frequenza stock di 200MHz. Probabilmente può quasi pareggiare una 9600 PRO (RV350 400MHz, DDR600) se overcloccata e dissipata attivamente.",
+   "en": "This specific card has 4ns memory chips (DDR500) but it's running with a stock frequency of 200MHz. It can probably almost equal a 9600 PRO (RV350 400MHz, DDR600) if overclocked and actively cooled."
+  },
+  "photos": []
+ },
+ {
+  "id": "joytech-apollo-savage4-gt",
+  "brand": "Joytech",
+  "model": "Apollo Savage4 GT",
+  "chip": "S3 86C395",
+  "vram": "32MB",
+  "core": 110,
+  "mem": 115,
+  "ramtype": "SDR",
+  "bus": "64bit",
+  "agpv": "AGP Universal",
+  "agpx": "4x",
+  "out": [
+   "VGA"
+  ],
+  "value": 1,
+  "perf": 2,
+  "photos": []
+ },
+ {
+  "id": "generic-s3-virge-dx",
+  "brand": "(Generic)",
+  "model": "S3 ViRGE/DX",
+  "chip": "86C375",
+  "vram": "4MB",
+  "core": 45,
+  "mem": 45,
+  "ramtype": "EDO 50ns",
+  "bus": "64bit",
+  "agpv": "PCI",
+  "out": [
+   "VGA"
+  ],
+  "value": 0,
+  "perf": 0,
+  "notes": {
+   "it": "Questa scheda è in underclock tremendo. Le memorie a 50ns reggono tra i 66 e i 75MHz e il core regge fino a 70-80MHz. \nHa uno zoccolo custom per ospitare EEPROM da 32 pin. Questa ha un bios con Snake integrato e il pedestal bit corretto.",
+   "en": "This board is terribly underclocked. The memory chips can run to up to between 66 and 75MHz and the core can run to up to 70-80MHz. \nIt has a custom socket for 32 pin EEPROMs. This one hase Snake and the pedestal bit fixed."
+  },
+  "photos": []
  }
 ]

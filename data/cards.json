@@ -6,6 +6,8 @@
   "type": "USB",
   "chip": "Via VT6212L",
   "slot": "PCI",
+  "value": 0,
+  "perf": 4,
   "photos": [
    {
     "f": "mw2kspri-0.webp"
@@ -19,9 +21,14 @@
   "id": "labway-xwave-t20",
   "brand": "Labway",
   "model": "Xwave T20",
-  "type": "Sound",
+  "type": "Audio",
   "chip": "ESS ES1989S",
   "slot": "PCI",
+  "features": [
+   "DOS-friendly"
+  ],
+  "value": 4,
+  "perf": 4,
   "notes": {
    "it": "Ha molti header per feature mancanti. Probabilmente alcune possono essere riattivate",
    "en": "Has many headers for missing features. Probably can be re-enabled."
@@ -31,5 +38,41 @@
     "f": "mw2kt104-0.webp"
    }
   ]
+ },
+ {
+  "id": "labway-labsound-500",
+  "brand": "Labway",
+  "model": "LABSOUND #500",
+  "type": "Audio",
+  "chip": "ESS ES1688F",
+  "slot": "ISA 16bit",
+  "features": [
+   "IDE CD",
+   "SB Emulation",
+   "ESFM"
+  ],
+  "value": 4,
+  "perf": 5,
+  "fav": true,
+  "photos": []
+ },
+ {
+  "id": "creative-sound-blaster-audigy-sb0090",
+  "brand": "Creative",
+  "model": "Sound Blaster Audigy SB0090",
+  "type": "Audio",
+  "chip": "CAO100-IAF",
+  "slot": "PCI",
+  "features": [
+   "FireWire",
+   "EAX"
+  ],
+  "value": 5,
+  "perf": 5,
+  "notes": {
+   "it": "Driver orrendi.",
+   "en": "Terrible drivers."
+  },
+  "photos": []
  }
 ]
