@@ -54,7 +54,14 @@
   "value": 4,
   "perf": 5,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55gerc-0.webp"
+   },
+   {
+    "f": "mw55gf5h-1.webp"
+   }
+  ]
  },
  {
   "id": "creative-sound-blaster-audigy-sb0090",
@@ -73,6 +80,13 @@
    "it": "Driver orrendi.",
    "en": "Terrible drivers."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55gqh2-0.webp"
+   },
+   {
+    "f": "mw55gr80-1.webp"
+   }
+  ]
  }
 ]

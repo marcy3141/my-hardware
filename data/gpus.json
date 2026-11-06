@@ -85,7 +85,14 @@
   "value": 4,
   "perf": 4,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55do3m-0.webp"
+   },
+   {
+    "f": "mw55doj3-1.webp"
+   }
+  ]
  },
  {
   "id": "sapphire-radeon-9600",
@@ -110,7 +117,14 @@
    "it": "Questa scheda specifica ha chip di memoria da 4ns (DDR500) ma ha una frequenza stock di 200MHz. Probabilmente può quasi pareggiare una 9600 PRO (RV350 400MHz, DDR600) se overcloccata e dissipata attivamente.",
    "en": "This specific card has 4ns memory chips (DDR500) but it's running with a stock frequency of 200MHz. It can probably almost equal a 9600 PRO (RV350 400MHz, DDR600) if overclocked and actively cooled."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55e5pc-0.webp"
+   },
+   {
+    "f": "mw55e66v-1.webp"
+   }
+  ]
  },
  {
   "id": "joytech-apollo-savage4-gt",
@@ -129,7 +143,14 @@
   ],
   "value": 1,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55ekyg-0.webp"
+   },
+   {
+    "f": "mw55eleq-1.webp"
+   }
+  ]
  },
  {
   "id": "generic-s3-virge-dx",
@@ -151,6 +172,13 @@
    "it": "Questa scheda è in underclock tremendo. Le memorie a 50ns reggono tra i 66 e i 75MHz e il core regge fino a 70-80MHz. \nHa uno zoccolo custom per ospitare EEPROM da 32 pin. Questa ha un bios con Snake integrato e il pedestal bit corretto.",
    "en": "This board is terribly underclocked. The memory chips can run to up to between 66 and 75MHz and the core can run to up to 70-80MHz. \nIt has a custom socket for 32 pin EEPROMs. This one hase Snake and the pedestal bit fixed."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55f5vj-0.webp"
+   },
+   {
+    "f": "mw55f6dw-1.webp"
+   }
+  ]
  }
 ]

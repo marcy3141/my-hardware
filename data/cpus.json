@@ -174,10 +174,14 @@
   "fsb": "1333",
   "vcore": "0.85V - 1.36V",
   "sspec": "SLB8V",
-  "rarity": 1,
+  "value": 3,
   "perf": 5,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw55fswm-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-iii-600eb",
