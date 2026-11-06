@@ -17,8 +17,9 @@
   "chip": "NV43",
   "vram": "256MB",
   "ramtype": "TSOP DDR",
-  "bus": "AGP",
-  "agpv": "1.5V 3.3V",
+  "bus": "128bit",
+  "agpv": "AGP",
+  "agpx": "8x",
   "out": [
    "VGA",
    "DVI",
