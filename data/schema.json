@@ -196,17 +196,50 @@
   {
    "k": "bus",
    "t": "text",
-   "it": "Bus",
-   "en": "Bus",
+   "it": "Ampiezza bus",
+   "en": "Bus width",
    "f": 1,
-   "c": 1
+   "c": 1,
+   "o": [
+    "32bit",
+    "64bit",
+    "128bit",
+    "256bit"
+   ]
   },
   {
    "k": "agpv",
    "t": "text",
-   "it": "Tensione AGP",
-   "en": "AGP voltage",
-   "f": 1
+   "it": "Slot",
+   "en": "Slot",
+   "f": 1,
+   "o": [
+    "ISA",
+    "VLB",
+    "PCI",
+    "AGP 1.5V",
+    "AGP 3.3V",
+    "AGP Universal",
+    "PCIe x16",
+    "PCIe x1"
+   ]
+  },
+  {
+   "k": "agpx",
+   "t": "text",
+   "it": "Velocità AGP max",
+   "en": "Max AGP speed",
+   "f": 1,
+   "o": [
+    "1x",
+    "2x",
+    "4x",
+    "8x"
+   ],
+   "dep": {
+    "k": "agpv",
+    "re": "AGP"
+   }
   },
   {
    "k": "out",

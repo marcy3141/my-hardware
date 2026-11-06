@@ -58,7 +58,8 @@ b.innerHTML=`<img src="${esc(x.src)}" alt="${esc(x.alt)}"><div><button ${n?"":"d
 b.onclick=e=>{const g=e.target;if(g.tagName==="BUTTON"){zoom(L,n+ +g.dataset.d);return}if(g.tagName!=="A")b.remove()};
 document.onkeydown=e=>{if(!$("#lb"))return;if(e.key==="Escape")b.remove();else if(e.key==="ArrowRight"&&n<L.length-1)zoom(L,n+1);else if(e.key==="ArrowLeft"&&n>0)zoom(L,n-1)}}
 const emp=v=>v===undefined||v===null||v===""||(Array.isArray(v)&&!v.length)||(typeof v==="object"&&!Array.isArray(v)&&!Object.values(v).some(Boolean));
-function missing(sec,x){const m=sch[sec].filter(f=>!f.opt&&emp(x[f.k])).map(f=>f[lang]);if(!(x.photos||[]).length)m.push(t("photos"));return m}
+function missing(sec,x){const m=sch[sec].filter(f=>!f.opt&&depOk(f,x)&&emp(x[f.k])).map(f=>f[lang]);if(!(x.photos||[]).length)m.push(t("photos"));return m}
 const done=(sec,x)=>!missing(sec,x).length;
 const stars=v=>v===undefined?"":`<span class="stars" title="${v}/5">${[0,1,2,3,4].map(i=>`<i class="st ${i<v?"on":"off"}"></i>`).join("")}</span>`,HR='<i class="hr"></i>',CK=()=>`<i class="ck" title="${esc(t("complete"))}"></i>`;
 const fh=(f,v)=>f.t==="stars"?stars(v):f.t==="bool"?(v?HR:""):esc(val(f,v));
+const depOk=(f,x)=>!f.dep||new RegExp(f.dep.re,"i").test([].concat(x[f.dep.k]||"").join(" "));
