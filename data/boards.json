@@ -75,10 +75,22 @@
   "id": "asus-p2b-f",
   "brand": "ASUS",
   "model": "P2B-F",
+  "rev": "1.00",
   "ff": "ATX",
   "socket": "Slot 1",
   "chipset": "Intel i440BX",
+  "fsb": [
+   "66",
+   "100",
+   "133"
+  ],
   "bios": "1014 beta 003",
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 4
+   }
+  ],
   "slots": [
    {
     "n": "AGP 3.3v",
@@ -93,7 +105,7 @@
     "c": 1
    }
   ],
-  "rarity": 5,
+  "value": 5,
   "perf": 5,
   "fav": true,
   "notes": {
@@ -176,6 +188,7 @@
    "200",
    "266"
   ],
+  "bios": "1011",
   "ramslots": [
    {
     "n": "DDR",
@@ -203,7 +216,7 @@
   "chip": [
    "C-Media CMI8738"
   ],
-  "rarity": 2,
+  "value": 3,
   "perf": 2,
   "notes": {
    "it": "Ha avuto un po' di corrosione. Alcune saldature andrebbero rifatte.\nCon scatola originale.",
@@ -456,10 +469,64 @@
     "c": 2
    }
   ],
+  "value": 4,
+  "perf": 2,
   "notes": {
    "it": "Estremamente stabile. Altissima qualità costruttiva. Non tollera FSB133.",
    "en": "Extremely stable. Extremely high build quality. Can't work with FSB133."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw4r1tyd-0.webp"
+   },
+   {
+    "f": "mw4r1udq-1.webp"
+   }
+  ]
+ },
+ {
+  "id": "siemens-nixdorf-d1034",
+  "brand": "Siemens-Nixdorf",
+  "model": "D1034",
+  "rev": "-",
+  "ff": "ATX",
+  "socket": "Socket 7",
+  "chipset": "430TX",
+  "fsb": [
+   "60",
+   "66"
+  ],
+  "bios": "4.05",
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "PCI",
+    "c": 3
+   },
+   {
+    "n": "ISA 16-bit",
+    "c": 2
+   }
+  ],
+  "value": 3,
+  "perf": 3,
+  "warning": {
+   "it": "Non aggiornare il BIOS. L'ultima build su questa revisione specifica é difettosa.",
+   "en": "Do not update BIOS. Last build with this board revision is buggy."
+  },
+  "notes": {
+   "it": "Il componente blu é probabilmente stato aggiunto in fabbrica. Questa revisione di scheda é quella piú economica: niente audio e mancano alcuni slot. Molto solida a livello costruttivo. Ricappata.",
+   "en": "The blue component was probably added before the board got out of the factory. This is the budget revision of the board: no integrated audio and a few missing slots. Good build quality. Recapped."
+  },
+  "photos": [
+   {
+    "f": "mw4qvwyx-0.webp"
+   }
+  ]
  }
 ]

@@ -8,6 +8,9 @@
   "mhz": 1000,
   "fsb": "100",
   "vcore": "1.475",
+  "value": 2,
+  "perf": 5,
+  "fav": true,
   "notes": {
    "it": "Tollera FSB133 a voltaggi stock.",
    "en": "Tolerates FSB133 with stock voltage."
@@ -48,6 +51,8 @@
   "fsb": "100",
   "vcore": "1.475V",
   "sspec": "SL5VQ",
+  "value": 2,
+  "perf": 3,
   "notes": {
    "it": "Non tollera più FSB133.",
    "en": "Doesn't tolerate FSB133 anymore."

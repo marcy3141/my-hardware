@@ -36,5 +36,31 @@
     "f": "mw2ks7q4-1.webp"
    }
   ]
+ },
+ {
+  "id": "matrox-millennium",
+  "brand": "Matrox",
+  "model": "Millennium",
+  "chip": "MGA IS-STORM R2",
+  "vram": "2MB (espandibili a 8MB)",
+  "core": 50,
+  "mem": 50,
+  "ramtype": "WRAM",
+  "bus": "64bit",
+  "agpv": "PCI",
+  "out": [
+   "VGA",
+   "Matrox Media XL"
+  ],
+  "value": 5,
+  "perf": 4,
+  "photos": [
+   {
+    "f": "mw4rsx29-0.webp"
+   },
+   {
+    "f": "mw4rsxi4-1.webp"
+   }
+  ]
  }
 ]
