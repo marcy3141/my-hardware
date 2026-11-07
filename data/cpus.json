@@ -100,6 +100,8 @@
   "fsb": "333",
   "vcore": "1.6V",
   "sspec": "SDC2800DUT3D",
+  "value": 2,
+  "perf": 4,
   "notes": {
    "it": "Ponticellare L2 per sbloccare la cache sul die.",
    "en": "Bridge L2 pins to unlock hidden on-die cache."
@@ -121,6 +123,8 @@
   "fsb": "66",
   "vcore": "2.0V",
   "sspec": "SL3BA",
+  "value": 1,
+  "perf": 3,
   "photos": [
    {
     "f": "mw2on7ji-0.webp"
@@ -138,6 +142,8 @@
   "fsb": "66",
   "vcore": "2.0V",
   "sspec": "SL3FY",
+  "value": 1,
+  "perf": 4,
   "photos": [
    {
     "f": "mw2ootnl-0.webp"
@@ -220,5 +226,51 @@
     "f": "mw434fds-0.webp"
    }
   ]
+ },
+ {
+  "id": "amd-k6-2-mw71kbx2",
+  "brand": "AMD",
+  "model": "K6-2",
+  "family": "Chomper",
+  "socket": "Socket 7",
+  "mhz": 300,
+  "fsb": "100",
+  "vcore": "2.2V",
+  "value": 4,
+  "perf": 3,
+  "photos": []
+ },
+ {
+  "id": "amd-sempron-2400",
+  "brand": "AMD",
+  "model": "Sempron 2400+",
+  "family": "Thoroughbred",
+  "stepping": "1",
+  "socket": "Socket 462",
+  "mhz": 1666,
+  "fsb": "333",
+  "vcore": "1.6V",
+  "sspec": "SDA2400DUT3D",
+  "notes": {
+   "it": "Moltiplicatore sbloccato all'indietro.",
+   "en": "Backwards multiplier unlocked."
+  },
+  "photos": []
+ },
+ {
+  "id": "amd-athlon-64-x2",
+  "brand": "AMD",
+  "model": "Athlon 64 X2",
+  "family": "Windsor",
+  "stepping": "BH-F2",
+  "socket": "AM2",
+  "mhz": 2600,
+  "fsb": "HT 1000",
+  "vcore": "1.20V - 1.25V",
+  "sspec": "SDA2400DUT3D",
+  "value": 1,
+  "perf": 4,
+  "fav": true,
+  "photos": []
  }
 ]

@@ -531,5 +531,168 @@
     "f": "mw55mayj-1.webp"
    }
   ]
+ },
+ {
+  "id": "msi-ms-7312-k9mm-v",
+  "brand": "MSI",
+  "model": "MS-7312 (K9MM-V)",
+  "rev": "1.0",
+  "ff": "mATX",
+  "socket": "AM2",
+  "chipset": "Via K8M800",
+  "fsb": [
+   "HT 800"
+  ],
+  "bios": "1.5",
+  "ramslots": [
+   {
+    "n": "DDR2 (dual channel)",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP 1.5v",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 3
+   }
+  ],
+  "chip": [
+   "Realtek ALC655 (AC'97)",
+   "Realtek RTL8201CL (Fast Ethernet)"
+  ],
+  "value": 4,
+  "perf": 3,
+  "photos": []
+ },
+ {
+  "id": "asrock-k7s41",
+  "brand": "ASRock",
+  "model": "K7S41",
+  "rev": "1.03",
+  "ff": "mATX",
+  "socket": "Socket 462",
+  "chipset": "SiS 741",
+  "fsb": [
+   "200",
+   "266",
+   "333",
+   "400"
+  ],
+  "bios": "P2.60",
+  "ramslots": [
+   {
+    "n": "DDR",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP 1.5v",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 2
+   },
+   {
+    "n": "AMR",
+    "c": 1
+   }
+  ],
+  "chip": [
+   "C-Media CMI9739A (AC'97)",
+   "Realtek RTL8201BL (Fast Ethernet)"
+  ],
+  "value": 2,
+  "perf": 5,
+  "fav": true,
+  "photos": []
+ },
+ {
+  "id": "jamicon-mb-km-t5-2",
+  "brand": "Jamicon",
+  "model": "MB-KM-T5-2",
+  "rev": "1.1",
+  "ff": "Baby AT",
+  "socket": "Socket 7",
+  "chipset": "Intel 430FX",
+  "fsb": [
+   "50",
+   "60",
+   "66"
+  ],
+  "bios": "Spectra400",
+  "ramslots": [
+   {
+    "n": "SIMM-72",
+    "c": 4
+   },
+   {
+    "n": "COAST",
+    "c": 1
+   }
+  ],
+  "slots": [
+   {
+    "n": "PCI",
+    "c": 4
+   },
+   {
+    "n": "ISA 16-bit",
+    "c": 3
+   }
+  ],
+  "value": 1,
+  "perf": 2,
+  "notes": {
+   "it": "Il BIOS originale è lost media. Questa scheda monta un BIOS recuperato dallo Spectra400 con la (supposta) POST string corretta e pertanto riconosce anche i K6-2. La tensione minima supportata, però, è di 2.5V, ovvero 0.3V in più di quelli di targa dei K6-2. Procedere con cautela.",
+   "en": "The original BIOS for this board is lost media. This board runs a BIOS from the Spectra400 product with the supposed correct POST string and thus can run K6-2 processors. The VRM can only deliver at least 2.5V, causing an overvolt of 0.3V to the CPU. Handle with care."
+  },
+  "photos": []
+ },
+ {
+  "id": "chaintech-5tdm2-m101",
+  "brand": "Chaintech",
+  "model": "5TDM2 M101",
+  "ff": "Baby AT",
+  "socket": "Socket 7",
+  "chipset": "Intel i430TX",
+  "fsb": [
+   "50",
+   "60",
+   "66"
+  ],
+  "bios": "0720",
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 2
+   },
+   {
+    "n": "SIMM-72",
+    "c": 4
+   }
+  ],
+  "slots": [
+   {
+    "n": "PCI",
+    "c": 4
+   },
+   {
+    "n": "ISA 16-bit",
+    "c": 4
+   }
+  ],
+  "value": 4,
+  "perf": 4,
+  "notes": {
+   "it": "Scheda jumperless.",
+   "en": "Jumperless board."
+  },
+  "photos": []
  }
 ]
