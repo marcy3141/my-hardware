@@ -26,7 +26,7 @@ const inp=f=>{const id="f_"+f.k,v=x[f.k];
 if(f.t==="counts"||f.t==="list")return`<fieldset id="cr_${f.k}"><legend>${esc(f[lang])}</legend><div>${(v||[]).map(cn).map(r=>crow(f,r)).join("")}</div><button type="button" data-add="${f.k}">+</button>${dl(f)}</fieldset>`;
 if(f.tr)return cfg.langs.map(l=>`<label>${esc(f[lang])} (${l.toUpperCase()})<textarea id="${id}_${l}" rows="3">${esc((v&&v[l])||"")}</textarea></label>`).join("");
 if(f.t==="stars")return`<label>${esc(f[lang])}<select id="${id}"><option value="">—</option>${[0,1,2,3,4,5].map(n=>`<option${v===n?" selected":""}>${n}</option>`).join("")}</select></label>`;if(f.t==="bool")return`<label><input type="checkbox" id="${id}"${v?" checked":""}> ${esc(f[lang])}</label>`;return`<label>${esc(f[lang])}<input id="${id}" ${f.f||f.o?`list="dl_${f.k}"`:""} type="${f.t==="number"?"number":"text"}" value="${esc(Array.isArray(v)?v.join(", "):v??"")}"></label>${f.f||f.o?dl(f):""}`};
-$("#main").innerHTML=`<form id="fm" class="fm">${F.map(inp).join("")}${x.photos.map(p=>`<label><input type="checkbox" data-f="${esc(p.f)}"> ${xt("rm")} ${esc(p.f)}</label>`).join("")}<label>${xt("ph")}<input id="ph" type="file" accept="image/*" multiple></label><p><button type="submit">${xt("save")}</button> <button type="button" id="cn">${xt("cancel")}</button> <span id="er"></span></p></form>`;
+$("#main").innerHTML=`<form id="fm" class="fm">${F.map(inp).join("")}${x.photos.map(p=>`<label><input type="checkbox" data-f="${esc(p.f)}"> ${xt("rm")} ${esc(p.f)}</label>`).join("")}<label>${xt("ph")}<input id="ph" type="file" accept="image/*" multiple></label><details class="na"><summary>${xt("na")}${(x.na||[]).length?` (${x.na.length})`:""}</summary>${[...F.filter(f=>!f.opt).map(f=>[f.k,f[lang]]),["photos",t("photos")]].map(([k,l])=>`<label><input type="checkbox" data-na="${k}"${(x.na||[]).includes(k)?" checked":""}> ${esc(l)}</label>`).join("")}</details><details class="na"><summary>${xt("att")}${(x.files||[]).length?` (${x.files.length})`:""}</summary><label>${xt("attf")}<input id="att" type="file" multiple></label>${(x.files||[]).map(a=>`<label><input type="checkbox" data-af="${esc(a.f)}"> ${xt("rm")} ${esc(a.n)}</label>`).join("")}</details><p><button type="submit">${xt("save")}</button> <button type="button" id="cn">${xt("cancel")}</button> <span id="er"></span></p></form>`;
 $("#cn").onclick=render;
 $("#fm").onclick=e=>{const t=e.target;if(t.classList.contains("x"))t.parentNode.remove();if(t.dataset.add){const f=F.find(f=>f.k===t.dataset.add);t.previousElementSibling.insertAdjacentHTML("beforeend",crow(f,{}))}};
 const sync=()=>{F.filter(f=>f.dep).forEach(f=>{const s=$("#f_"+f.dep.k),el=$("#f_"+f.k);if(!el)return;const on=new RegExp(f.dep.re,"i").test(s?s.value:"");el.closest("label").style.display=on?"":"none";el.disabled=!on})};$("#fm").oninput=sync;sync();
@@ -35,13 +35,16 @@ F.forEach(f=>{if(f.dep&&$("#f_"+f.k)&&$("#f_"+f.k).disabled)return;if(f.t==="cou
 else if(f.tr){const t={};cfg.langs.forEach(l=>{const v=$(`#f_${f.k}_${l}`).value.trim();if(v)t[l]=v});if(Object.keys(t).length)o[f.k]=t}
 else if(f.t==="bool"){if($("#f_"+f.k).checked)o[f.k]=true}else{const v=$("#f_"+f.k).value.trim();if(v!=="")o[f.k]=f.t==="tags"?v.split(",").map(s=>s.trim()).filter(Boolean):f.t==="number"||f.t==="stars"?+v:v}});
 if(!o.brand||!o.model){$("#er").textContent=xt("req");return}
+if([...$("#att").files].some(fl=>fl.size>20e6)){$("#er").textContent="> 20 MB";return}
+const na=[...document.querySelectorAll("#fm input[data-na]:checked")].map(i=>i.dataset.na);if(na.length)o.na=na;
 if(nw){o.id=slug(o.brand+" "+o.model);if(D[sec].some(e=>e.id===o.id))o.id+="-"+Date.now().toString(36)}
 const gone=[...document.querySelectorAll("#fm input[data-f]:checked")].map(i=>i.dataset.f);o.photos=x.photos.filter(p=>!gone.includes(p.f));
 for(const[i,fl]of[...$("#ph").files].entries()){const nm=`${Date.now().toString(36)}-${i}.webp`;P.a[`photos/${sec}/${o.id}/${nm}`]=await shrink(fl);o.photos.push({f:nm})}
 gone.forEach(f=>unph(`photos/${sec}/${o.id}/${f}`));
+{const gf=[...document.querySelectorAll("#fm input[data-af]:checked")].map(i=>i.dataset.af);gf.forEach(f=>unph(`files/${sec}/${o.id}/${f}`));o.files=(x.files||[]).filter(a=>!gf.includes(a.f));for(const fl of[...$("#att").files]){const nm=fl.name.replace(/[^\w.\-]+/g,"_");P.a[`files/${sec}/${o.id}/${nm}`]=await b64(fl);o.files=o.files.filter(a=>a.f!==nm);o.files.push({f:nm,n:fl.name,s:fl.size})}if(!o.files.length)delete o.files}
 D[sec]=nw?[...D[sec],o]:D[sec].map(e=>e.id===o.id?o:e);P.s.add(sec);mark(sec+"/"+o.id,nw?"+":"~");
 location.hash=`#/${sec}/${o.id}`;render()}}
-function rm(sec,id){if(!confirm(xt("cd")))return;const x=D[sec].find(e=>e.id===id);(x.photos||[]).forEach(p=>unph(`photos/${sec}/${id}/${p.f}`));
+function rm(sec,id){if(!confirm(xt("cd")))return;const x=D[sec].find(e=>e.id===id);(x.photos||[]).forEach(p=>unph(`photos/${sec}/${id}/${p.f}`));(x.files||[]).forEach(a=>unph(`files/${sec}/${id}/${a.f}`));
 D[sec]=D[sec].filter(e=>e.id!==id);P.s.add(sec);mark(sec+"/"+id,"-");location.hash="#/"+sec;render()}
 function pend(){$("#main").innerHTML=`<h3>${xt("pend")}</h3><ul>${Object.entries(P.l).sort().map(([k,o])=>`<li>${o} ${esc(k)}</li>`).join("")}</ul><p class="dim">${Object.keys(P.a).length} ${xt("pa")}, ${P.d.size} ${xt("pd")}</p><p><button id="pub">${xt("pub")}</button> <button id="dis">${xt("dis")}</button> <button id="bk">${xt("back")}</button> <span id="er"></span></p>`;
 $("#bk").onclick=render;
@@ -67,6 +70,8 @@ let bg=$("#s_b").value;if(gone.includes(bg))bg="";ST={...ST,title:$("#s_ti").val
 Object.assign(X.it,{ti:"Titolo (finestra e scheda del browser)",ic:"Icona della scheda (favicon)"});Object.assign(X.en,{ti:"Title (window and browser tab)",ic:"Tab icon (favicon)"});
 Object.assign(X.it,{comp:"Completezza",secn:"Sezione",ent:"Voce",miss:"Mancano"});Object.assign(X.en,{comp:"Completeness",secn:"Section",ent:"Entry",miss:"Missing"});
 function compl(){const R=[];let ok=0,tot=0;
-for(const s of cfg.sections)for(const x of D[s]){const m=missing(s,x),n=sch[s].filter(f=>!f.opt&&depOk(f,x)).length+1;tot++;if(!m.length)ok++;R.push({s,x,m,p:Math.round(100*(n-m.length)/n)})}
+for(const s of cfg.sections)for(const x of D[s]){const m=missing(s,x),n=sch[s].filter(f=>!f.opt&&depOk(f,x)&&!(x.na||[]).includes(f.k)).length+((x.na||[]).includes("photos")?0:1);tot++;if(!m.length)ok++;R.push({s,x,m,p:Math.round(100*(n-m.length)/n)})}
 R.sort((a,b)=>a.p-b.p);
 $("#main").innerHTML=`<h3>${xt("comp")}: ${ok}/${tot}</h3><div class="tw"><table><thead><tr><th>${xt("secn")}</th><th>${xt("ent")}</th><th>%</th><th>${xt("miss")}</th></tr></thead><tbody>${R.map(r=>`<tr><td>${esc(t(r.s))}</td><td><a href="#/${r.s}/${encodeURIComponent(r.x.id)}">${esc(r.x.brand)} ${esc(r.x.model)}</a></td><td>${r.p}%</td><td>${r.m.length?esc(r.m.join(", ")):CK()}</td></tr>`).join("")}</tbody></table></div><p><button id="bk">${xt("back")}</button></p>`;$("#bk").onclick=render}
+Object.assign(X.it,{na:"Non applicabile (non conta per la completezza)",att:"Allegati scaricabili (pubblici)",attf:"Aggiungi file (max 20 MB)"});Object.assign(X.en,{na:"Not applicable (doesn't count towards completeness)",att:"Downloadable attachments (public)",attf:"Add files (max 20 MB)"});
+const b64=f=>new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result.split(",")[1]);fr.readAsDataURL(f)});

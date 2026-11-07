@@ -36,3 +36,4 @@ h2,h3{color:#fff}
 #ft{padding:0 1ch;font-size:inherit}
 main::after{height:0}
 .fav{color:#f55}.ok{color:#5f5}
+.fm details.na label{display:block;margin:0}.fm details.na{margin:0 0 1lh}

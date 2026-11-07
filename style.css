@@ -39,3 +39,4 @@ body{background-size:cover;background-attachment:fixed;background-position:cente
 [data-theme=dos] .st::before{content:"*"}[data-theme=dos] .st.off::before{content:"\00b7"}
 [data-theme=dos] .hr::before{content:"\2665"}[data-theme=dos] .ck::before{content:"\2713"}
 [data-theme=dos]{--star:#ff5;--off:#55f;--heart:#f55;--check:#5f5}
+.fm details.na{margin:0 0 8px}.fm details.na summary{cursor:pointer}.fm details.na label{display:inline-block;margin:2px 14px 2px 0}

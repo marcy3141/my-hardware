@@ -37,7 +37,7 @@ const mk=m=>m?` <span class="dim">(${esc(t("missing"))})</span>`:"";
 $("#main").innerHTML=`<p><a href="#/${r.sec}">« ${esc(t("back"))}</a></p><h2>${esc(x.brand)} ${esc(x.model)}${x.fav?" "+HR:""}${done(r.sec,x)?" "+CK():""}</h2>`+
 (w?`<div class="warn"><b>${esc(t("warning"))}:</b> ${esc(w.x)}${mk(w.m)}</div>`:"")+
 `<dl class="dl">${F.filter(f=>f.t!=="long"&&val(f,x[f.k])!=="").map(f=>`<dt>${esc(f[lang])}</dt><dd>${fh(f,x[f.k])}</dd>`).join("")}</dl>`+
-(n?`<h3>${esc(t("notes"))}${mk(n.m)}</h3>${md(n.x)}`:"")+
+(n?`<h3>${esc(t("notes"))}${mk(n.m)}</h3>${md(n.x)}`:"")+((x.files||[]).length?`<h3>${esc(t("files"))}</h3><ul>${x.files.map(a=>`<li><a href="files/${r.sec}/${encodeURIComponent(r.id)}/${encodeURIComponent(a.f)}" download>${esc(a.n)}</a> (${Math.max(1,Math.round((a.s||0)/1024))} KB)</li>`).join("")}</ul>`:"")+
 `<div class="ph">${(x.photos||[]).map(p=>`<figure><img class="zi" loading="lazy" src="photos/${r.sec}/${encodeURIComponent(x.id)}/${encodeURIComponent(p.f)}" alt="${esc(tr(p.c).x)}"><figcaption>${esc(tr(p.c).x)}</figcaption></figure>`).join("")}</div>`}
 (async()=>{cfg=await get("config.json");sch=await get("data/schema.json");
 for(const l of cfg.langs)I[l]=await get(`i18n/${l}.json`);for(const s of cfg.sections)D[s]=await get(`data/${s}.json`).catch(()=>[]);ST=await get("data/settings.json").catch(()=>({}));
@@ -58,7 +58,7 @@ b.innerHTML=`<img src="${esc(x.src)}" alt="${esc(x.alt)}"><div><button ${n?"":"d
 b.onclick=e=>{const g=e.target;if(g.tagName==="BUTTON"){zoom(L,n+ +g.dataset.d);return}if(g.tagName!=="A")b.remove()};
 document.onkeydown=e=>{if(!$("#lb"))return;if(e.key==="Escape")b.remove();else if(e.key==="ArrowRight"&&n<L.length-1)zoom(L,n+1);else if(e.key==="ArrowLeft"&&n>0)zoom(L,n-1)}}
 const emp=v=>v===undefined||v===null||v===""||(Array.isArray(v)&&!v.length)||(typeof v==="object"&&!Array.isArray(v)&&!Object.values(v).some(Boolean));
-function missing(sec,x){const m=sch[sec].filter(f=>!f.opt&&depOk(f,x)&&emp(x[f.k])).map(f=>f[lang]);if(!(x.photos||[]).length)m.push(t("photos"));return m}
+function missing(sec,x){const m=sch[sec].filter(f=>!f.opt&&depOk(f,x)&&!(x.na||[]).includes(f.k)&&emp(x[f.k])).map(f=>f[lang]);if(!(x.photos||[]).length&&!(x.na||[]).includes("photos"))m.push(t("photos"));return m}
 const done=(sec,x)=>!missing(sec,x).length;
 const stars=v=>v===undefined?"":`<span class="stars" title="${v}/5">${[0,1,2,3,4].map(i=>`<i class="st ${i<v?"on":"off"}"></i>`).join("")}</span>`,HR='<i class="hr"></i>',CK=()=>`<i class="ck" title="${esc(t("complete"))}"></i>`;
 const fh=(f,v)=>f.t==="stars"?stars(v):f.t==="bool"?(v?HR:""):esc(val(f,v));
