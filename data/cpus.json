@@ -279,7 +279,7 @@
   "mhz": 2600,
   "fsb": "HT 1000",
   "vcore": "1.20V - 1.25V",
-  "sspec": "SDA2400DUT3D",
+  "sspec": "ADA5000IAA5CU",
   "value": 1,
   "perf": 4,
   "fav": true,
