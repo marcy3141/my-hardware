@@ -566,7 +566,14 @@
   ],
   "value": 4,
   "perf": 3,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw72jsmp-0.webp"
+   },
+   {
+    "f": "mw72jt68-1.webp"
+   }
+  ]
  },
  {
   "id": "asrock-k7s41",
@@ -610,7 +617,14 @@
   "value": 2,
   "perf": 5,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw72jepb-0.webp"
+   },
+   {
+    "f": "mw72jf6m-1.webp"
+   }
+  ]
  },
  {
   "id": "jamicon-mb-km-t5-2",
@@ -652,12 +666,20 @@
    "it": "Il BIOS originale è lost media. Questa scheda monta un BIOS recuperato dallo Spectra400 con la (supposta) POST string corretta e pertanto riconosce anche i K6-2. La tensione minima supportata, però, è di 2.5V, ovvero 0.3V in più di quelli di targa dei K6-2. Procedere con cautela.",
    "en": "The original BIOS for this board is lost media. This board runs a BIOS from the Spectra400 product with the supposed correct POST string and thus can run K6-2 processors. The VRM can only deliver at least 2.5V, causing an overvolt of 0.3V to the CPU. Handle with care."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw72j3cy-0.webp"
+   },
+   {
+    "f": "mw72j3vb-1.webp"
+   }
+  ]
  },
  {
   "id": "chaintech-5tdm2-m101",
   "brand": "Chaintech",
   "model": "5TDM2 M101",
+  "rev": "150",
   "ff": "Baby AT",
   "socket": "Socket 7",
   "chipset": "Intel i430TX",
@@ -693,6 +715,13 @@
    "it": "Scheda jumperless.",
    "en": "Jumperless board."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mw72hgfb-0.webp"
+   },
+   {
+    "f": "mw72hh2v-1.webp"
+   }
+  ]
  }
 ]

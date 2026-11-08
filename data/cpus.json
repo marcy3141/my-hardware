@@ -67,12 +67,9 @@
   "id": "amd-k6-2",
   "brand": "AMD",
   "model": "K6-2",
-  "family": "K6",
-  "stepping": "--",
   "socket": "Socket 7",
   "fsb": "100",
   "vcore": "2.2V",
-  "sspec": "?",
   "value": 4,
   "perf": 4,
   "warning": {
@@ -83,6 +80,11 @@
    "it": "Moltiplicatore di fabbrica sconosciuto.",
    "en": "Unknown factory multiplier."
   },
+  "na": [
+   "stepping",
+   "mhz",
+   "sspec"
+  ],
   "photos": [
    {
     "f": "mw2b81mx-0.webp"
@@ -238,7 +240,15 @@
   "vcore": "2.2V",
   "value": 4,
   "perf": 3,
-  "photos": []
+  "na": [
+   "stepping",
+   "sspec"
+  ],
+  "photos": [
+   {
+    "f": "mw72n4nw-0.webp"
+   }
+  ]
  },
  {
   "id": "amd-sempron-2400",
@@ -251,11 +261,13 @@
   "fsb": "333",
   "vcore": "1.6V",
   "sspec": "SDA2400DUT3D",
-  "notes": {
-   "it": "Moltiplicatore sbloccato all'indietro.",
-   "en": "Backwards multiplier unlocked."
-  },
-  "photos": []
+  "value": 1,
+  "perf": 3,
+  "photos": [
+   {
+    "f": "mw72oen0-0.webp"
+   }
+  ]
  },
  {
   "id": "amd-athlon-64-x2",
@@ -271,6 +283,10 @@
   "value": 1,
   "perf": 4,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mw72ophl-0.webp"
+   }
+  ]
  }
 ]
