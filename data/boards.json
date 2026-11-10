@@ -302,6 +302,7 @@
    "1333",
    "1600"
   ],
+  "bios": "2209",
   "ramslots": [
    {
     "n": "DDR2",
@@ -358,6 +359,7 @@
    "333",
    "400"
   ],
+  "bios": "1009 beta 002",
   "ramslots": [
    {
     "n": "DDR",
@@ -406,6 +408,7 @@
    "100",
    "133"
   ],
+  "bios": "0326",
   "ramslots": [
    {
     "n": "SDRAM",
@@ -464,6 +467,7 @@
    "66",
    "100"
   ],
+  "bios": "R1.29",
   "ramslots": [
    {
     "n": "SDRAM",
@@ -778,6 +782,144 @@
    "it": "La banda delle memorie SDRAM azzera le prestazioni del core Willamette. Un disastro ingegneristico. Estremamente collezionabile!",
    "en": "The low bandwidth of SDRAM memory kills the performance of the Willamette core. An engineering disaster. Great collection piece!"
   },
+  "photos": []
+ },
+ {
+  "id": "asus-p5gc-mx-1333",
+  "brand": "ASUS",
+  "model": "P5GC-MX/1333",
+  "rev": "3.05G",
+  "ff": "mATX",
+  "socket": "LGA 775",
+  "chipset": "Intel 945GC",
+  "fsb": [
+   "533",
+   "800",
+   "1066",
+   "1333"
+  ],
+  "bios": "0312",
+  "ramslots": [
+   {
+    "n": "DDR2 (dual channel)",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "PCIe x1",
+    "c": 1
+   },
+   {
+    "n": "PCIe x16",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 2
+   }
+  ],
+  "chip": [
+   "Atheros Attansic L2 (Fast Ethernet)",
+   "Realtek ALC883 (HDA Codec)"
+  ],
+  "value": 2,
+  "perf": 2,
+  "notes": {
+   "it": "Il chipset 945GC non supporta nativamente il FSB1333. Per reggerlo, la scheda applica un overclock di fabbrica.",
+   "en": "The 945GC chipset doesn't natively support FSB1333 by default. This board runs FSB1333 by applying a factory overclock."
+  },
+  "photos": []
+ },
+ {
+  "id": "asrock-g41c-s",
+  "brand": "ASRock",
+  "model": "G41C-S",
+  "rev": "1.02",
+  "ff": "mATX",
+  "socket": "LGA 775",
+  "chipset": "Intel G41",
+  "fsb": [
+   "533",
+   "800",
+   "1066",
+   "1333"
+  ],
+  "bios": "P1.10",
+  "ramslots": [
+   {
+    "n": "DDR2 (dual channel)",
+    "c": 2
+   },
+   {
+    "n": "DDR3 (dual channel)",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "PCIe x16",
+    "c": 1
+   },
+   {
+    "n": "PCIe x1",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 2
+   }
+  ],
+  "chip": [
+   "VIA VT1705 (HDA Codec)",
+   "Realtek RTL8103EL (Fast Ethernet)"
+  ],
+  "value": 3,
+  "perf": 4,
+  "notes": {
+   "it": "Non compatibile con le memorie DDR3 a singolo lato.",
+   "en": "Not compatible with single-sided DDR3 memory."
+  },
+  "photos": []
+ },
+ {
+  "id": "ecs-p4s5a-dx",
+  "brand": "ECS",
+  "model": "P4S5A/DX+",
+  "ff": "ATX",
+  "socket": "Socket 478",
+  "chipset": "SIS 645DX",
+  "bios": "8/22/2002",
+  "ramslots": [
+   {
+    "n": "DDR",
+    "c": 2
+   },
+   {
+    "n": "SDRAM",
+    "c": 2
+   }
+  ],
+  "slots": [
+   {
+    "n": "Universal AGP",
+    "c": 1
+   },
+   {
+    "n": "AMR",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   }
+  ],
+  "chip": [
+   "C-Media CMI9738",
+   "Realtek RTL8201L (Fast Ethernet)"
+  ],
+  "value": 1,
+  "perf": 1,
   "photos": []
  }
 ]
