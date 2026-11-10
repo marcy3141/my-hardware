@@ -304,7 +304,11 @@
   "sspec": "SLGTK",
   "value": 0,
   "perf": 1,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbbwcy8-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-iii-1000eb",
@@ -320,7 +324,11 @@
   "value": 5,
   "perf": 5,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbbvzh6-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-2-duo-e6400",
@@ -335,7 +343,11 @@
   "sspec": "SL9T9",
   "value": 2,
   "perf": 3,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbbvs1r-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-1-4",
@@ -350,6 +362,10 @@
   "sspec": "SL4SC",
   "value": 4,
   "perf": 1,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbbvit6-0.webp"
+   }
+  ]
  }
 ]
