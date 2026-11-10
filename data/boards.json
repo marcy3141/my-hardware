@@ -785,7 +785,14 @@
    "it": "La banda delle memorie SDRAM azzera le prestazioni del core Willamette. Un disastro ingegneristico. Estremamente collezionabile!",
    "en": "The low bandwidth of SDRAM memory kills the performance of the Willamette core. An engineering disaster. Great collection piece!"
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbb8ypi-0.webp"
+   },
+   {
+    "f": "mwbb8za4-1.webp"
+   }
+  ]
  },
  {
   "id": "asus-p5gc-mx-1333",
@@ -832,7 +839,14 @@
    "it": "Il chipset 945GC non supporta nativamente il FSB1333. Per reggerlo, la scheda applica un overclock di fabbrica.",
    "en": "The 945GC chipset doesn't natively support FSB1333 by default. This board runs FSB1333 by applying a factory overclock."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbb9lji-0.webp"
+   },
+   {
+    "f": "mwbb9m3p-1.webp"
+   }
+  ]
  },
  {
   "id": "asrock-g41c-s",
@@ -883,7 +897,14 @@
    "it": "Non compatibile con le memorie DDR3 a singolo lato.",
    "en": "Not compatible with single-sided DDR3 memory."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbb991y-0.webp"
+   },
+   {
+    "f": "mwbb99l4-1.webp"
+   }
+  ]
  },
  {
   "id": "ecs-p4s5a-dx",
@@ -930,6 +951,13 @@
   "na": [
    "rev"
   ],
-  "photos": []
+  "photos": [
+   {
+    "f": "mwbb9vt8-0.webp"
+   },
+   {
+    "f": "mwbb9wdd-1.webp"
+   }
+  ]
  }
 ]
