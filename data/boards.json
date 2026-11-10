@@ -775,6 +775,9 @@
     "c": 1
    }
   ],
+  "chip": [
+   "ALC201A (Audio)"
+  ],
   "value": 5,
   "perf": 1,
   "fav": true,
@@ -889,6 +892,10 @@
   "ff": "ATX",
   "socket": "Socket 478",
   "chipset": "SIS 645DX",
+  "fsb": [
+   "400",
+   "533"
+  ],
   "bios": "8/22/2002",
   "ramslots": [
    {
@@ -920,6 +927,9 @@
   ],
   "value": 1,
   "perf": 1,
+  "na": [
+   "rev"
+  ],
   "photos": []
  }
 ]
