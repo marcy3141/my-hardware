@@ -18,7 +18,20 @@
     "c": 2
    }
   ],
-  "rarity": 0,
+  "slots": [
+   {
+    "n": "ADD1",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 2
+   }
+  ],
+  "chip": [
+   "C-Media CMI8738 (Audio)"
+  ],
+  "value": 1,
   "perf": 1,
   "warning": {
    "it": "Non ha un vero slot AGP: l'add-in slot ha la stessa forma ma è elettricamente incompatibile. Inserire una scheda AGP la danneggia.",
@@ -66,7 +79,7 @@
     "c": 1
    }
   ],
-  "rarity": 4,
+  "value": 5,
   "perf": 4,
   "fav": true,
   "photos": []
@@ -264,7 +277,7 @@
     "c": 1
    }
   ],
-  "rarity": 1,
+  "value": 2,
   "perf": 4,
   "photos": [
    {
@@ -316,7 +329,7 @@
    "Marvell 88SE6111 (IDE)",
    "LSI L-FW3227 (Firewire 400)"
   ],
-  "rarity": 4,
+  "value": 5,
   "perf": 5,
   "notes": {
    "it": "Una porta SATA integrata è rotta (SATA5).",
@@ -365,6 +378,8 @@
    "Analog Devices AD1888 (AC'97)",
    "IC IP101 (Fast Ethernet)"
   ],
+  "value": 3,
+  "perf": 4,
   "warning": {
    "it": "Porte SATA di prima generazione. Si rompono solo a guardarle. Utilizzare con cautela.",
    "en": "First-gen SATA ports. They break just by looking at them. Use with care."
@@ -723,5 +738,46 @@
     "f": "mw72hh2v-1.webp"
    }
   ]
+ },
+ {
+  "id": "ecs-p4vxas",
+  "brand": "ECS",
+  "model": "P4VXAS",
+  "rev": "1.1",
+  "ff": "ATX",
+  "socket": "Socket 423",
+  "chipset": "Via P4X266",
+  "fsb": [
+   "400"
+  ],
+  "bios": "1.1F",
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 3
+   }
+  ],
+  "slots": [
+   {
+    "n": "Universal AGP",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "AMR",
+    "c": 1
+   }
+  ],
+  "value": 5,
+  "perf": 1,
+  "fav": true,
+  "notes": {
+   "it": "La banda delle memorie SDRAM azzera le prestazioni del core Willamette. Un disastro ingegneristico. Estremamente collezionabile!",
+   "en": "The low bandwidth of SDRAM memory kills the performance of the Willamette core. An engineering disaster. Great collection piece!"
+  },
+  "photos": []
  }
 ]

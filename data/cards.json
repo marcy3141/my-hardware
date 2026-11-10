@@ -8,6 +8,9 @@
   "slot": "PCI",
   "value": 0,
   "perf": 4,
+  "na": [
+   "features"
+  ],
   "photos": [
    {
     "f": "mw2kspri-0.webp"
