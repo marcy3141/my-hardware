@@ -290,5 +290,66 @@
     "f": "mw72ophl-0.webp"
    }
   ]
+ },
+ {
+  "id": "intel-pentium-dual-core-e5400",
+  "brand": "Intel",
+  "model": "Pentium Dual-Core E5400",
+  "family": "Wolfdale",
+  "stepping": "0A",
+  "socket": "LGA 775",
+  "mhz": 2700,
+  "fsb": "800",
+  "vcore": "1.20V - 1.25V",
+  "sspec": "SLGTK",
+  "value": 0,
+  "perf": 1,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-iii-1000eb",
+  "brand": "Intel",
+  "model": "Pentium III 1000EB",
+  "family": "Coppermine",
+  "stepping": "C0",
+  "socket": "Socket 370",
+  "mhz": 1000,
+  "fsb": "133",
+  "vcore": "1.7V",
+  "sspec": "SL4C8",
+  "value": 5,
+  "perf": 5,
+  "fav": true,
+  "photos": []
+ },
+ {
+  "id": "intel-core-2-duo-e6400",
+  "brand": "Intel",
+  "model": "Core 2 Duo E6400",
+  "family": "Allendale",
+  "stepping": "L2",
+  "socket": "LGA 775",
+  "mhz": 2133,
+  "fsb": "1066",
+  "vcore": "0.85V - 1.5V",
+  "sspec": "SL9T9",
+  "value": 2,
+  "perf": 3,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-4-1-4",
+  "brand": "Intel",
+  "model": "Pentium 4 1.4",
+  "family": "Willamette",
+  "stepping": "B2",
+  "socket": "Socket 423",
+  "mhz": 1400,
+  "fsb": "400",
+  "vcore": "1.7V",
+  "sspec": "SL4SC",
+  "value": 4,
+  "perf": 1,
+  "photos": []
  }
 ]
