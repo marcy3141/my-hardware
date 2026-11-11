@@ -381,7 +381,14 @@
   "sspec": "SLAEM",
   "value": 1,
   "perf": 0,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcj78fy-0.webp"
+   },
+   {
+    "f": "mwcj78vn-1.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-dual-core-e2140",
@@ -396,7 +403,14 @@
   "sspec": "SLA93",
   "value": 0,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcj8cok-0.webp"
+   },
+   {
+    "f": "mwcj8d1a-1.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-dual-core-e5700",
@@ -411,7 +425,11 @@
   "sspec": "SLGTH",
   "value": 1,
   "perf": 3,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcj9xyp-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-dual-core-e5500",
@@ -426,7 +444,11 @@
   "sspec": "SLGTJ",
   "value": 1,
   "perf": 3,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcj9npt-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-dual-core-e2160",
@@ -441,7 +463,11 @@
   "sspec": "SLA8Z",
   "value": 0,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcj8wzx-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-dual-core-e2180",
@@ -456,6 +482,10 @@
   "sspec": "SLA8Y",
   "value": 0,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcj9a7k-0.webp"
+   }
+  ]
  }
 ]
