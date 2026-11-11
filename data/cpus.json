@@ -333,7 +333,7 @@
  {
   "id": "intel-core-2-duo-e6400",
   "brand": "Intel",
-  "model": "Core 2 Duo E6400",
+  "model": "Core 2 Duo 6400",
   "family": "Allendale",
   "stepping": "L2",
   "socket": "LGA 775",
@@ -501,7 +501,11 @@
   "sspec": "SL9XN",
   "value": 0,
   "perf": 0,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcosfn1-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-2-quad-q6600",
@@ -520,7 +524,11 @@
    "it": "Regge bene l'overclock a 3GHz.",
    "en": "Handles well overclocking to 3GHz."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcoszmm-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-2-quad-q8200",
@@ -535,7 +543,11 @@
   "sspec": "SLB5M",
   "value": 1,
   "perf": 3,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcotfg2-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-530j",
@@ -550,7 +562,11 @@
   "sspec": "SL7PU",
   "value": 0,
   "perf": 1,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcoulu3-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-630",
@@ -565,7 +581,11 @@
   "sspec": "SL7Z9",
   "value": 1,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcouwu4-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-517",
@@ -580,7 +600,11 @@
   "sspec": "SL8ZY",
   "value": 0,
   "perf": 0,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcov82q-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-2-duo-e7400",
@@ -595,6 +619,22 @@
   "sspec": "SLGQ8, SL9BY",
   "value": 1,
   "perf": 4,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwcovp60-0.webp"
+   },
+   {
+    "f": "mwcovphf-1.webp"
+   },
+   {
+    "f": "mwcovpsl-2.webp"
+   },
+   {
+    "f": "mwcovq3m-3.webp"
+   },
+   {
+    "f": "mwcovqf9-4.webp"
+   }
+  ]
  }
 ]
