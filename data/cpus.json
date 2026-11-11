@@ -302,8 +302,8 @@
   "fsb": "800",
   "vcore": "1.20V - 1.25V",
   "sspec": "SLGTK",
-  "value": 0,
-  "perf": 1,
+  "value": 1,
+  "perf": 3,
   "photos": [
    {
     "f": "mwbbwcy8-0.webp"
@@ -367,5 +367,95 @@
     "f": "mwbbvit6-0.webp"
    }
   ]
+ },
+ {
+  "id": "intel-xeon-e5310",
+  "brand": "Intel",
+  "model": "Xeon E5310",
+  "family": "Cloverdale",
+  "stepping": "G0",
+  "socket": "LGA 771",
+  "mhz": 1600,
+  "fsb": "1066",
+  "vcore": "1.187V - 1.325V",
+  "sspec": "SLAEM",
+  "value": 1,
+  "perf": 0,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-dual-core-e2140",
+  "brand": "Intel",
+  "model": "Pentium Dual Core E2140",
+  "family": "Allendale",
+  "stepping": "M0",
+  "socket": "LGA 775",
+  "mhz": 1600,
+  "fsb": "800",
+  "vcore": "1.162V - 1.312V",
+  "sspec": "SLA93",
+  "value": 0,
+  "perf": 2,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-dual-core-e5700",
+  "brand": "Intel",
+  "model": "Pentium Dual-Core E5700",
+  "family": "Wolfdale",
+  "stepping": "RO",
+  "socket": "LGA 775",
+  "mhz": 3000,
+  "fsb": "800",
+  "vcore": "0.85V - 1.3625V",
+  "sspec": "SLGTH",
+  "value": 1,
+  "perf": 3,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-dual-core-e5500",
+  "brand": "Intel",
+  "model": "Pentium Dual-Core E5500",
+  "family": "Wolfdale",
+  "stepping": "R0",
+  "socket": "LGA 775",
+  "mhz": 2800,
+  "fsb": "800",
+  "vcore": "0.85V - 1.3625V",
+  "sspec": "SLGTJ",
+  "value": 1,
+  "perf": 3,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-dual-core-e2160",
+  "brand": "Intel",
+  "model": "Pentium Dual Core E2160",
+  "family": "Allendale",
+  "stepping": "M0",
+  "socket": "LGA 775",
+  "mhz": 1800,
+  "fsb": "800",
+  "vcore": "1.162V - 1.312V",
+  "sspec": "SLA8Z",
+  "value": 0,
+  "perf": 2,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-dual-core-e2180",
+  "brand": "Intel",
+  "model": "Pentium Dual Core E2180",
+  "family": "Allendale",
+  "stepping": "M0",
+  "socket": "LGA 775",
+  "mhz": 2000,
+  "fsb": "800",
+  "vcore": "1.162V - 1.312V",
+  "sspec": "SLA8Y",
+  "value": 0,
+  "perf": 2,
+  "photos": []
  }
 ]
