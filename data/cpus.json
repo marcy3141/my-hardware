@@ -650,7 +650,11 @@
   "sspec": "SL6WT",
   "value": 2,
   "perf": 4,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwdpamti-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-2666",
@@ -665,7 +669,11 @@
   "sspec": "SL6QA",
   "value": 2,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwdpawlr-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-2800",
@@ -680,7 +688,11 @@
   "sspec": "SL6PF",
   "value": 2,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwdpb5qj-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-4-2400",
@@ -695,7 +707,11 @@
   "sspec": "SL6RZ",
   "value": 2,
   "perf": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwdpbqt2-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-celeron",
@@ -710,6 +726,10 @@
   "sspec": "SL68C",
   "value": 0,
   "perf": 0,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwdpby5g-0.webp"
+   }
+  ]
  }
 ]
