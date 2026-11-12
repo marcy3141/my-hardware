@@ -14,12 +14,12 @@ const o=cfg.langs.find(l=>l!==lang);$("#lang").textContent=o.toUpperCase();$("#l
 r.id?detail(r):list(r);window.ed&&ed(r)}
 function list(r){const F=sch[r.sec],rows=D[r.sec];S={sec:r.sec,q:r.qs.get("q")||"",s:r.qs.get("s")||"",d:r.qs.get("d")||"a",f:{}};
 F.filter(f=>f.f).forEach(f=>S.f[f.k]=r.qs.get("f."+f.k)||"");
-const sel=F.filter(f=>f.f).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+const FK=F.filter(f=>f.fold).sort((a,b)=>a.fold-b.fold);S.v=r.qs.get("v")||"";S.g=r.qs.get("g")||(FK[0]||{}).k;if(FK.length&&S.v==="f")return folders(r,FK);const sel=F.filter(f=>f.f&&!f.fold).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 return`<select data-k="${f.k}" aria-label="${esc(f[lang])}"><option value="">${esc(f[lang])}: ${esc(t("all"))}</option>${vs.map(v=>`<option${S.f[f.k]===v?" selected":""}>${esc(v)}</option>`).join("")}</select>`}).join("");
-$("#main").innerHTML=`<div class="bar"><input id="q" type="search" placeholder="${esc(t("search"))}" value="${esc(S.q)}">${sel}<button id="rs">${esc(t("reset"))}</button><span class="dim" id="n"></span></div><div class="tw"><table><thead></thead><tbody></tbody></table></div>`;
-$("#q").oninput=e=>{S.q=e.target.value;upd()};
-document.querySelectorAll("select").forEach(e=>e.onchange=()=>{S.f[e.dataset.k]=e.value;upd()});
-$("#rs").onclick=()=>{S.q="";Object.keys(S.f).forEach(k=>S.f[k]="");$("#q").value="";document.querySelectorAll("select").forEach(e=>e.value="");upd()};upd()}
+$("#main").innerHTML=`<div class="bar">${vbar(FK)}<input id="q" type="search" placeholder="${esc(t("search"))}" value="${esc(S.q)}">${sel}<button id="rs">${esc(t("reset"))}</button><span class="dim" id="n"></span></div><div class="tw"><table><thead></thead><tbody></tbody></table></div>`;
+$("#q").oninput=e=>{S.q=e.target.value;upd()};vwire(FK);
+document.querySelectorAll("select[data-k]").forEach(e=>e.onchange=()=>{S.f[e.dataset.k]=e.value;upd()});
+$("#rs").onclick=()=>{S.q="";Object.keys(S.f).forEach(k=>S.f[k]="");$("#q").value="";document.querySelectorAll("select[data-k]").forEach(e=>e.value="");{const u=$("#up");if(u)u.remove()};upd()};upd()}
 function upd(){const F=sch[S.sec],C=F.filter(f=>f.c);let rows=D[S.sec].filter(x=>{
 if(S.q&&!JSON.stringify(x).toLowerCase().includes(S.q.toLowerCase()))return false;
 return F.every(f=>!S.f[f.k]||flat(f,x[f.k]).includes(S.f[f.k]))});
@@ -63,3 +63,16 @@ const done=(sec,x)=>!missing(sec,x).length;
 const stars=v=>v===undefined?"":`<span class="stars" title="${v}/5">${[0,1,2,3,4].map(i=>`<i class="st ${i<v?"on":"off"}"></i>`).join("")}</span>`,HR='<i class="hr"></i>',CK=()=>`<i class="ck" title="${esc(t("complete"))}"></i>`;
 const fh=(f,v)=>f.t==="stars"?stars(v):f.t==="bool"?(v?HR:""):esc(val(f,v));
 const depOk=(f,x)=>!f.dep||new RegExp(f.dep.re,"i").test([].concat(x[f.dep.k]||"").join(" "));
+
+const vbar=FK=>{if(!FK.length)return"";const a=S.v==="f"?null:FK.find(f=>S.f[f.k]);
+return`<button id="vd"${S.v!=="f"&&!a?' class="on"':""}>${esc(t("vdef"))}</button><button id="vf"${S.v==="f"?' class="on"':""}>${esc(t("vfold"))}</button><select id="gs"${S.v==="f"?"":" disabled"}>${FK.map(f=>`<option value="${f.k}"${S.g===f.k?" selected":""}>${esc(f[lang])}</option>`).join("")}</select>${a?`<button id="up" data-g="${a.k}">${esc(t("up"))} (${esc(a[lang])}: ${esc(S.f[a.k])})</button>`:""}`};
+function vwire(FK){if(!FK.length)return;const go=h=>location.hash="#/"+S.sec+h;
+$("#vd").onclick=()=>go("");$("#vf").onclick=()=>go("?v=f&g="+(S.g||FK[0].k));$("#gs").onchange=e=>go("?v=f&g="+e.target.value);
+const u=$("#up");if(u)u.onclick=()=>go("?v=f&g="+u.dataset.g)}
+function folders(r,FK){const g=FK.find(f=>f.k===S.g)||FK[0],G={};S.g=g.k;
+D[r.sec].forEach(x=>{const vs=flat(g,x[g.k]);(vs.length?vs:[""]).forEach(v=>(G[v]=G[v]||[]).push(x))});
+const ks=Object.keys(G).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+$("#main").innerHTML=`<div class="bar">${vbar(FK)}</div><div class="fds">${ks.map(k=>`<div class="fd" tabindex="0" data-v="${esc(k)}"><i class="fi"></i><span>${esc(k||t("none2"))}</span><small>${G[k].length}</small></div>`).join("")}</div>`;
+vwire(FK);
+const open=el=>{if(el.dataset.v)location.hash=`#/${r.sec}?f.${g.k}=${encodeURIComponent(el.dataset.v)}`};let last=0;
+document.querySelectorAll(".fd").forEach(el=>{el.onclick=()=>{const was=el.classList.contains("sel"),n=Date.now();document.querySelectorAll(".fd.sel").forEach(e=>e.classList.remove("sel"));el.classList.add("sel");if(was&&n-last<700)open(el);last=n};el.ondblclick=()=>open(el);el.onkeydown=e=>{if(e.key==="Enter")open(el);if(e.key===" "){e.preventDefault();el.click()}}})}

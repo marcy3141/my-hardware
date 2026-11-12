@@ -6,7 +6,8 @@
    "it": "Marca",
    "en": "Brand",
    "f": 1,
-   "c": 1
+   "c": 1,
+   "fold": 1
   },
   {
    "k": "model",
@@ -34,7 +35,8 @@
    "it": "Socket/Slot",
    "en": "Socket/Slot",
    "f": 1,
-   "c": 1
+   "c": 1,
+   "fold": 2
   },
   {
    "k": "chipset",
@@ -42,7 +44,8 @@
    "it": "Chipset",
    "en": "Chipset",
    "f": 1,
-   "c": 1
+   "c": 1,
+   "fold": 3
   },
   {
    "k": "fsb",
@@ -296,7 +299,8 @@
    "it": "Marca",
    "en": "Brand",
    "f": 1,
-   "c": 1
+   "c": 1,
+   "fold": 2
   },
   {
    "k": "model",
@@ -326,7 +330,8 @@
    "it": "Socket/Slot",
    "en": "Socket/Slot",
    "f": 1,
-   "c": 1
+   "c": 1,
+   "fold": 1
   },
   {
    "k": "mhz",
@@ -424,7 +429,8 @@
     "Modem",
     "SCSI",
     "I/O"
-   ]
+   ],
+   "fold": 1
   },
   {
    "k": "chip",
