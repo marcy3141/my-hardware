@@ -10,13 +10,13 @@ function route(){const[p,q]=(location.hash.slice(1)||"/boards").split("?"),[,s,i
 function setLang(l){lang=l;try{localStorage.setItem("lang",l)}catch(e){}render()}
 function render(){const r=route();document.documentElement.lang=lang;
 $("#nav").innerHTML=cfg.sections.map(s=>`<button class="${s===r.sec?"on":""}" onclick="location.hash='#/${s}'">${esc(t(s))}</button>`).join("");
-const o=cfg.langs.find(l=>l!==lang);$("#lang").textContent=o.toUpperCase();$("#lang").onclick=()=>setLang(o);$("#lk").textContent=t("look");$("#lk").onclick=appear;foot();
+const o=cfg.langs.find(l=>l!==lang);$("#lang").className="ib ib-lg";$("#lang").title=o.toUpperCase();$("#lang").innerHTML=`<span class="tx">${o.toUpperCase()}</span>`;$("#lang").onclick=()=>setLang(o);$("#lk").className="ib ib-lk";$("#lk").title=t("look");$("#lk").innerHTML=`<span class="tx">${esc(t("look"))}</span>`;$("#lk").onclick=appear;foot();
 r.id?detail(r):list(r);window.ed&&ed(r)}
 function list(r){const F=sch[r.sec],rows=D[r.sec];S={sec:r.sec,q:r.qs.get("q")||"",s:r.qs.get("s")||"",d:r.qs.get("d")||"a",f:{}};
 F.filter(f=>f.f).forEach(f=>S.f[f.k]=r.qs.get("f."+f.k)||"");
 const FK=F.filter(f=>f.fold).sort((a,b)=>a.fold-b.fold);S.v=r.qs.get("v")||"";S.g=r.qs.get("g")||(FK[0]||{}).k;if(FK.length&&S.v==="f")return folders(r,FK);const sel=F.filter(f=>f.f&&!f.fold).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 return`<select data-k="${f.k}" aria-label="${esc(f[lang])}"><option value="">${esc(f[lang])}: ${esc(t("all"))}</option>${vs.map(v=>`<option${S.f[f.k]===v?" selected":""}>${esc(v)}</option>`).join("")}</select>`}).join("");
-$("#main").innerHTML=`<div class="bar">${vbar(FK)}<input id="q" type="search" placeholder="${esc(t("search"))}" value="${esc(S.q)}">${sel}<button id="rs">${esc(t("reset"))}</button><span class="dim" id="n"></span></div><div class="tw"><table><thead></thead><tbody></tbody></table></div>`;
+$("#main").innerHTML=`<div class="bar">${vbar(FK)}<input id="q" type="search" placeholder="${esc(t("search"))}" value="${esc(S.q)}">${sel}${ib("rs","rs",t("reset"),0)}<span class="dim" id="n"></span></div><div class="tw"><table><thead></thead><tbody></tbody></table></div>`;
 $("#q").oninput=e=>{S.q=e.target.value;upd()};vwire(FK);
 document.querySelectorAll("select[data-k]").forEach(e=>e.onchange=()=>{S.f[e.dataset.k]=e.value;upd()});
 $("#rs").onclick=()=>{S.q="";Object.keys(S.f).forEach(k=>S.f[k]="");$("#q").value="";document.querySelectorAll("select[data-k]").forEach(e=>e.value="");{const u=$("#up");if(u)u.remove()};upd()};upd()}
@@ -46,7 +46,7 @@ lang=[q,st,navigator.language.slice(0,2)].find(l=>cfg.langs.includes(l))||cfg.la
 
 const lu=()=>{try{return JSON.parse(localStorage.getItem("look")||"{}")}catch(e){return{}}};
 function look(){document.title=ST.title||"my-hardware";document.querySelector(".title>span").textContent=ST.title||"my-hardware";{let i=$("#ic");if(!i){i=document.createElement("link");i.id="ic";i.rel="icon";document.head.appendChild(i)}ST.icon?i.setAttribute("href","icons/"+ST.icon):i.removeAttribute("href")}const u=lu(),th=u.t||ST.theme||"win98",T=cfg.themes.find(x=>x.id===th)||{},bg=u.b===undefined||u.b==="def"?(ST.bg||(T.wall?"w:"+T.wall:"")):u.b,c=T.css,l=$("#th");
-c?l.setAttribute("href",c):l.removeAttribute("href");document.documentElement.dataset.theme=th;{const s=document.body.style,w=(cfg.walls||[]).find(x=>"w:"+x.id===bg);s.background="";s.backgroundImage=w?"":bg?`url("backgrounds/${encodeURIComponent(bg)}")`:"none";if(w)s.background=w.v}}
+c?l.setAttribute("href",c):l.removeAttribute("href");document.documentElement.dataset.theme=th;cur();{const s=document.body.style,w=(cfg.walls||[]).find(x=>"w:"+x.id===bg);s.background="";s.backgroundImage=w?"":bg?`url("backgrounds/${encodeURIComponent(bg)}")`:"none";if(w)s.background=w.v}}
 function appear(){const u=lu(),B=ST.backgrounds||[],W=(cfg.walls||[]).map(w=>`<option value="w:${w.id}"${u.b==="w:"+w.id?" selected":""}>${esc(w.n)}</option>`).join("");
 $("#main").innerHTML=`<div class="bar"><label>${esc(t("theme"))} <select id="sa">${cfg.themes.map(x=>`<option value="${x.id}"${(u.t||ST.theme||"win98")===x.id?" selected":""}>${esc(x.name)}</option>`).join("")}</select></label> <label>${esc(t("bgl"))} <select id="sb"><option value="def">${esc(t("def"))}</option><option value=""${u.b===""?" selected":""}>${esc(t("none"))}</option>${W}${B.map(b=>`<option value="${esc(b.f)}"${u.b===b.f?" selected":""}>${esc(b.n||b.f)}</option>`).join("")}</select></label></div><p><button id="bk">${esc(t("back"))}</button></p>`;
 $("#sa").onchange=$("#sb").onchange=()=>{try{localStorage.setItem("look",JSON.stringify({t:$("#sa").value,b:$("#sb").value}))}catch(e){}look()};$("#bk").onclick=render}
@@ -64,15 +64,36 @@ const stars=v=>v===undefined?"":`<span class="stars" title="${v}/5">${[0,1,2,3,4
 const fh=(f,v)=>f.t==="stars"?stars(v):f.t==="bool"?(v?HR:""):esc(val(f,v));
 const depOk=(f,x)=>!f.dep||new RegExp(f.dep.re,"i").test([].concat(x[f.dep.k]||"").join(" "));
 
-const vbar=FK=>{if(!FK.length)return"";const a=S.v==="f"?null:FK.find(f=>S.f[f.k]);
-return`<button id="vd"${S.v!=="f"&&!a?' class="on"':""}>${esc(t("vdef"))}</button><button id="vf"${S.v==="f"?' class="on"':""}>${esc(t("vfold"))}</button><select id="gs"${S.v==="f"?"":" disabled"}>${FK.map(f=>`<option value="${f.k}"${S.g===f.k?" selected":""}>${esc(f[lang])}</option>`).join("")}</select>${a?`<button id="up" data-g="${a.k}">${esc(t("up"))} (${esc(a[lang])}: ${esc(S.f[a.k])})</button>`:""}`};
 function vwire(FK){if(!FK.length)return;const go=h=>location.hash="#/"+S.sec+h;
 $("#vd").onclick=()=>go("");$("#vf").onclick=()=>go("?v=f&g="+(S.g||FK[0].k));$("#gs").onchange=e=>go("?v=f&g="+e.target.value);
 const u=$("#up");if(u)u.onclick=()=>go("?v=f&g="+u.dataset.g)}
-function folders(r,FK){const g=FK.find(f=>f.k===S.g)||FK[0],G={};S.g=g.k;
+function folders(r,FK){const g=FK.find(f=>f.k===S.g)||FK[0],G={};S.g=g.k;if(tcOn())return tcFolders(r,FK,g);
 D[r.sec].forEach(x=>{const vs=flat(g,x[g.k]);(vs.length?vs:[""]).forEach(v=>(G[v]=G[v]||[]).push(x))});
 const ks=Object.keys(G).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 $("#main").innerHTML=`<div class="bar">${vbar(FK)}</div><div class="fds">${ks.map(k=>`<div class="fd" tabindex="0" data-v="${esc(k)}"><i class="fi"></i><span>${esc(k||t("none2"))}</span><small>${G[k].length}</small></div>`).join("")}</div>`;
 vwire(FK);
 const open=el=>{if(el.dataset.v)location.hash=`#/${r.sec}?f.${g.k}=${encodeURIComponent(el.dataset.v)}`};let last=0;
 document.querySelectorAll(".fd").forEach(el=>{el.onclick=()=>{const was=el.classList.contains("sel"),n=Date.now();document.querySelectorAll(".fd.sel").forEach(e=>e.classList.remove("sel"));el.classList.add("sel");if(was&&n-last<700)open(el);last=n};el.ondblclick=()=>open(el);el.onkeydown=e=>{if(e.key==="Enter")open(el);if(e.key===" "){e.preventDefault();el.click()}}})}
+
+const ib=(id,c,txt,on)=>`<button id="${id}" class="ib ib-${c}${on?" on":""}" title="${esc(txt)}"><span class="tx">${esc(txt)}</span></button>`;
+const vbar=FK=>{if(!FK.length)return"";const a=S.v==="f"?null:FK.find(f=>S.f[f.k]);
+return ib("vd","vd",t("vdef"),S.v!=="f"&&!a)+ib("vf","vf",t("vfold"),S.v==="f")+`<select id="gs"${S.v==="f"?"":" disabled"}>${FK.map(f=>`<option value="${f.k}"${S.g===f.k?" selected":""}>${esc(f[lang])}</option>`).join("")}</select>`+(a?ib("up","up",t("up"),0).replace('<button id="up"','<button id="up" data-g="'+a.k+'"')+`<span class="crumb">${esc(a[lang])}: ${esc(S.f[a.k])}</span>`:"")};
+let TC=null,cc={w:8,h:16};
+const tcOn=()=>document.documentElement.dataset.theme==="dos"&&!matchMedia("(pointer:coarse)").matches;
+function tcFolders(r,FK,g){const G={};D[r.sec].forEach(x=>{const vs=flat(g,x[g.k]);(vs.length?vs:[""]).forEach(v=>G[v]=(G[v]||0)+1)});
+const ks=Object.keys(G).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+$("#main").innerHTML=`<div class="bar">${vbar(FK)}</div><div class="tcl">${ks.map((k,i)=>`<div class="tr${i?"":" sel"}" data-v="${esc(k)}"><span class="n">[${esc(k||t("none2"))}]</span><span>${G[k]}</span><span>${esc(t("tcdir"))}</span></div>`).join("")}</div><p class="dim">${esc(t("tchelp"))}</p>`;vwire(FK);TC={r,FK,g}}
+addEventListener("keydown",e=>{if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const L=[...document.querySelectorAll(".tcl .tr")],k=e.key;
+if(L.length&&TC){let i=L.findIndex(x=>x.classList.contains("sel"));const go=n=>{e.preventDefault();i=Math.max(0,Math.min(L.length-1,n));L.forEach(x=>x.classList.remove("sel"));L[i].classList.add("sel");L[i].scrollIntoView({block:"nearest"})};
+if(k==="ArrowDown")go(i+1);else if(k==="ArrowUp")go(i-1);else if(k==="Home")go(0);else if(k==="End")go(L.length-1);else if(k==="PageDown")go(i+10);else if(k==="PageUp")go(i-10);
+else if(k==="Enter"){const v=L[i].dataset.v;if(v)location.hash=`#/${TC.r.sec}?f.${TC.g.k}=${encodeURIComponent(v)}`}
+else if(k==="Tab"){e.preventDefault();location.hash=`#/${TC.r.sec}?v=f&g=${TC.FK[(TC.FK.indexOf(TC.g)+1)%TC.FK.length].k}`}
+else if(k==="Escape"||k==="Backspace"){e.preventDefault();location.hash="#/"+TC.r.sec}
+else if(k.length===1){const j=L.findIndex(x=>x.dataset.v.toLowerCase().startsWith(k.toLowerCase()));if(j>=0)go(j)}}
+else if((k==="Escape"||k==="Backspace")&&document.documentElement.dataset.theme==="dos"){const u=$("#up");if(u){e.preventDefault();u.click()}}});
+function cur(){const on=tcOn();document.body.classList.toggle("tcm",on);let m=$("#mc");if(!on){if(m)m.remove();return}
+if(!m){m=document.createElement("div");m.id="mc";document.body.appendChild(m)}
+const p=document.createElement("i");p.style.cssText="position:absolute;visibility:hidden;width:1ch;height:1lh";$(".win").appendChild(p);cc={w:p.offsetWidth||8,h:p.offsetHeight||16};p.remove();m.style.width=cc.w+"px";m.style.height=cc.h+"px"}
+addEventListener("mousemove",e=>{const m=$("#mc");if(!m)return;const w=$(".win").getBoundingClientRect();m.style.display="block";m.style.left=w.left+Math.floor((e.clientX-w.left)/cc.w)*cc.w+"px";m.style.top=w.top+Math.floor((e.clientY-w.top)/cc.h)*cc.h+"px"});
+document.addEventListener("mouseleave",()=>{const m=$("#mc");if(m)m.style.display="none"});
+addEventListener("resize",cur);if(document.fonts)document.fonts.ready.then(cur);

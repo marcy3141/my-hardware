@@ -80,7 +80,6 @@
    "t": "counts",
    "it": "Slot",
    "en": "Slots",
-   "f": 1,
    "o": [
     "AGP",
     "PCI",
@@ -96,7 +95,6 @@
    "t": "list",
    "it": "Chip onboard",
    "en": "Onboard chips",
-   "f": 1,
    "opt": 1
   },
   {
@@ -104,7 +102,6 @@
    "t": "stars",
    "it": "Valore",
    "en": "Value",
-   "f": 1,
    "c": 1
   },
   {
@@ -112,7 +109,6 @@
    "t": "stars",
    "it": "Prestazioni",
    "en": "Performance",
-   "f": 1,
    "c": 1
   },
   {
@@ -215,7 +211,6 @@
    "t": "text",
    "it": "Slot",
    "en": "Slot",
-   "f": 1,
    "o": [
     "ISA",
     "VLB",
@@ -256,7 +251,6 @@
    "t": "stars",
    "it": "Valore",
    "en": "Value",
-   "f": 1,
    "c": 1
   },
   {
@@ -264,7 +258,6 @@
    "t": "stars",
    "it": "Prestazioni",
    "en": "Performance",
-   "f": 1,
    "c": 1
   },
   {
@@ -363,7 +356,6 @@
    "t": "stars",
    "it": "Valore",
    "en": "Value",
-   "f": 1,
    "c": 1
   },
   {
@@ -371,7 +363,6 @@
    "t": "stars",
    "it": "Prestazioni",
    "en": "Performance",
-   "f": 1,
    "c": 1
   },
   {
@@ -445,7 +436,6 @@
    "t": "text",
    "it": "Slot",
    "en": "Slot",
-   "f": 1,
    "c": 1,
    "o": [
     "ISA 8",
@@ -467,7 +457,6 @@
    "t": "stars",
    "it": "Valore",
    "en": "Value",
-   "f": 1,
    "c": 1
   },
   {
@@ -475,7 +464,6 @@
    "t": "stars",
    "it": "Prestazioni",
    "en": "Performance",
-   "f": 1,
    "c": 1
   },
   {

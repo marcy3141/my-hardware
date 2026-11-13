@@ -1,0 +1,9 @@
+Icone dei pulsanti (segnaposto con lettera)
+A vd  Vista predefinita   22x22   (versione premuta = quando la vista e' attiva)
+B vf  Cartelle            22x22   (premuta = vista a cartelle attiva)
+C up  Su                  22x22
+D lk  Aspetto             18x18   (nella barra del titolo)
+E lg  Lingua              18x18   (nella barra del titolo)
+F rs  Azzera filtri       22x22
+Per ogni icona: <nome>.png (normale) e <nome>-on.png (premuta). Le misure sono quelle dei pulsanti attuali (cambiano un po' per tema: titolo 16 in 3.1, 17 in XP, 19 in CDE; XP barra 21).
+Le icone per tema andranno in icons/<tema>/ (win98, xp, win31, dos, cde); nel DOS i pulsanti restano di testo.
