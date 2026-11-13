@@ -14,7 +14,7 @@ const o=cfg.langs.find(l=>l!==lang);$("#lang").className="ib ib-lg";$("#lang").t
 r.id?detail(r):list(r);window.ed&&ed(r)}
 function list(r){const F=sch[r.sec],rows=D[r.sec];S={sec:r.sec,q:r.qs.get("q")||"",s:r.qs.get("s")||"",d:r.qs.get("d")||"a",f:{}};
 F.filter(f=>f.f).forEach(f=>S.f[f.k]=r.qs.get("f."+f.k)||"");
-const FK=F.filter(f=>f.fold).sort((a,b)=>a.fold-b.fold);S.v=r.qs.get("v")||"";S.g=r.qs.get("g")||(FK[0]||{}).k;if(FK.length&&S.v==="f")return folders(r,FK);const sel=F.filter(f=>f.f&&!f.fold).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+const FK=F.filter(f=>f.fold).sort((a,b)=>a.fold-b.fold);S.v=r.qs.get("v")||"";S.g=r.qs.get("g")||(FK[0]||{}).k;if(FK.length&&S.v==="f")return folders(r,FK);{const ac=FK.find(f=>S.f[f.k]);if(isW31()&&ac)return w31List(r,FK,ac,S.f[ac.k])}const sel=F.filter(f=>f.f&&!f.fold).map(f=>{const vs=[...new Set(rows.flatMap(x=>flat(f,x[f.k])))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 return`<select data-k="${f.k}" aria-label="${esc(f[lang])}"><option value="">${esc(f[lang])}: ${esc(t("all"))}</option>${vs.map(v=>`<option${S.f[f.k]===v?" selected":""}>${esc(v)}</option>`).join("")}</select>`}).join("");
 $("#main").innerHTML=`<div class="bar">${vbar(FK)}<input id="q" type="search" placeholder="${esc(t("search"))}" value="${esc(S.q)}">${sel}${ib("rs","rs",t("reset"),0)}<span class="dim" id="n"></span></div><div class="tw"><table><thead></thead><tbody></tbody></table></div>`;
 $("#q").oninput=e=>{S.q=e.target.value;upd()};vwire(FK);
@@ -67,7 +67,7 @@ const depOk=(f,x)=>!f.dep||new RegExp(f.dep.re,"i").test([].concat(x[f.dep.k]||"
 function vwire(FK){if(!FK.length)return;const go=h=>location.hash="#/"+S.sec+h;
 $("#vd").onclick=()=>go("");$("#vf").onclick=()=>go("?v=f&g="+(S.g||FK[0].k));$("#gs").onchange=e=>go("?v=f&g="+e.target.value);
 const u=$("#up");if(u)u.onclick=()=>go("?v=f&g="+u.dataset.g)}
-function folders(r,FK){const g=FK.find(f=>f.k===S.g)||FK[0],G={};S.g=g.k;if(tcOn())return tcFolders(r,FK,g);
+function folders(r,FK){const g=FK.find(f=>f.k===S.g)||FK[0],G={};S.g=g.k;if(tcOn())return tcFolders(r,FK,g);if(isW31())return w31List(r,FK,g,null);
 D[r.sec].forEach(x=>{const vs=flat(g,x[g.k]);(vs.length?vs:[""]).forEach(v=>(G[v]=G[v]||[]).push(x))});
 const ks=Object.keys(G).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 $("#main").innerHTML=`<div class="bar">${vbar(FK)}</div><div class="fds">${ks.map(k=>`<div class="fd" tabindex="0" data-v="${esc(k)}"><i class="fi"></i><span>${esc(k||t("none2"))}</span><small>${G[k].length}</small></div>`).join("")}</div>`;
@@ -97,3 +97,12 @@ const p=document.createElement("i");p.style.cssText="position:absolute;visibilit
 addEventListener("mousemove",e=>{const m=$("#mc");if(!m)return;const w=$(".win").getBoundingClientRect();m.style.display="block";m.style.left=w.left+Math.floor((e.clientX-w.left)/cc.w)*cc.w+"px";m.style.top=w.top+Math.floor((e.clientY-w.top)/cc.h)*cc.h+"px"});
 document.addEventListener("mouseleave",()=>{const m=$("#mc");if(m)m.style.display="none"});
 addEventListener("resize",cur);if(document.fonts)document.fonts.ready.then(cur);
+
+const isW31=()=>document.documentElement.dataset.theme==="win31";
+function w31List(r,FK,g,val){S.g=g.k;const col=(a,b)=>a.localeCompare(b,undefined,{numeric:true});let it;
+if(val===null){const G={};D[r.sec].forEach(x=>flat(g,x[g.k]).forEach(v=>G[v]=1));it=Object.keys(G).sort(col).map(k=>`<div class="fi31" data-d="${esc(k)}"><i class="i31 d"></i><span>${esc(k)}</span></div>`)}
+else it=D[r.sec].filter(x=>flat(g,x[g.k]).includes(val)).sort((a,b)=>col(a.brand+a.model,b.brand+b.model)).map(x=>`<div class="fi31" data-id="${esc(x.id)}"><i class="i31 f"></i><span>${esc(x.brand)} ${esc(x.model)}</span></div>`);
+const path="C:\\"+g[lang].toUpperCase()+(val===null?"":"\\"+val.toUpperCase())+"\\*.*";
+$("#main").innerHTML=`<div class="bar">${vbar(FK)}</div><div class="w31"><div class="w31h">${esc(path)}</div><div class="w31l"><div class="fi31" data-a="1"><i class="i31 up"></i><span>..</span></div>${it.join("")}</div></div>`;vwire(FK);
+const open=el=>{if(el.dataset.a)location.hash="#/"+r.sec+(val===null?"":"?v=f&g="+g.k);else if(el.dataset.d)location.hash=`#/${r.sec}?f.${g.k}=${encodeURIComponent(el.dataset.d)}`;else location.hash=`#/${r.sec}/${encodeURIComponent(el.dataset.id)}`};let last=0;
+document.querySelectorAll(".fi31").forEach(el=>{el.onclick=()=>{const was=el.classList.contains("sel"),n=Date.now();document.querySelectorAll(".fi31.sel").forEach(e=>e.classList.remove("sel"));el.classList.add("sel");if(was&&n-last<700)open(el);last=n};el.ondblclick=()=>open(el)})}

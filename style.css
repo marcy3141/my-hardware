@@ -57,17 +57,8 @@ select:disabled{opacity:.5}
 [data-theme=dos] .fd .fi::before{content:"\2584\2584\2584\A\2588\2588\2588\2588\2588\A\2588\2588\2588\2588\2588";white-space:pre;display:block;color:#ff5;line-height:1}
 [data-theme=dos] .fd small{opacity:1;color:#88f}
 :root{--ib:22px;--ibt:18px}[data-theme=win31]{--ibt:16px}[data-theme=xp]{--ib:21px;--ibt:17px}[data-theme=cde]{--ibt:19px}
-:root{--i-vd:url(icons/default/vd.png);--i-vd-on:url(icons/default/vd-on.png);--i-vf:url(icons/default/vf.png);--i-vf-on:url(icons/default/vf-on.png);--i-up:url(icons/default/up.png);--i-up-on:url(icons/default/up-on.png);--i-lk:url(icons/default/lk.png);--i-lk-on:url(icons/default/lk-on.png);--i-lg:url(icons/default/lg.png);--i-lg-on:url(icons/default/lg-on.png);--i-rs:url(icons/default/rs.png);--i-rs-on:url(icons/default/rs-on.png);}
-html button.ib{width:var(--ib);height:var(--ib);padding:0;border:0;border-radius:0;box-shadow:none;background-color:transparent;background-repeat:no-repeat;background-position:center;background-size:100% 100%;image-rendering:pixelated}
-html .title button.ib{width:var(--ibt);height:var(--ibt)}
 .ib .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .crumb{margin-left:6px}
-html button.ib-vd{background-image:var(--i-vd)}html button.ib-vd:active,html button.ib-vd.on{background-image:var(--i-vd-on)}
-html button.ib-vf{background-image:var(--i-vf)}html button.ib-vf:active,html button.ib-vf.on{background-image:var(--i-vf-on)}
-html button.ib-up{background-image:var(--i-up)}html button.ib-up:active,html button.ib-up.on{background-image:var(--i-up-on)}
-html button.ib-lk{background-image:var(--i-lk)}html button.ib-lk:active,html button.ib-lk.on{background-image:var(--i-lk-on)}
-html button.ib-lg{background-image:var(--i-lg)}html button.ib-lg:active,html button.ib-lg.on{background-image:var(--i-lg-on)}
-html button.ib-rs{background-image:var(--i-rs)}html button.ib-rs:active,html button.ib-rs.on{background-image:var(--i-rs-on)}
 html[data-theme=dos] button.ib,html[data-theme=dos] .title button.ib{width:auto;height:1lh;padding:0 1ch;background-image:none;background-color:#aaa;color:#000}
 html[data-theme=dos] .title button.ib{background-color:#000;color:#aaa}
 html[data-theme=dos] button.ib:hover{background-color:#fff;color:#000}
@@ -77,3 +68,28 @@ html[data-theme=dos] .ib .tx{position:static;width:auto;height:auto;overflow:vis
 body.tcm,body.tcm *{cursor:none}body.tcm input,body.tcm textarea{cursor:text}
 [data-theme=dos] .tcl{margin:0 0 1lh}[data-theme=dos] .tr{display:flex;gap:2ch;height:1lh;padding:0 1ch}[data-theme=dos] .tr .n{flex:1;color:#fff}
 [data-theme=dos] .tr.sel{background:#0aa;color:#000}[data-theme=dos] .tr.sel .n{color:#000}
+:root{--i-vd:url(icons/default/vd.png);--i-vf:url(icons/default/vf.png);--i-up:url(icons/default/up.png);--i-lk:url(icons/default/lk.png);--i-lg:url(icons/default/lg.png);--i-rs:url(icons/default/rs.png);}
+[data-theme=win98],[data-theme=cde]{--i-vd:url(icons/win98/vd.png);--i-vf:url(icons/win98/vf.png);--i-up:url(icons/win98/up.png);--i-lk:url(icons/win98/lk.png);--i-lg:url(icons/win98/lg.png);--i-rs:url(icons/win98/rs.png);--fold:url(icons/win98/folder.png);}
+[data-theme=win31]{--i-vd:url(icons/win31/vd.png);--i-vf:url(icons/win31/vf.png);--i-up:url(icons/win31/up.png);--i-lk:url(icons/win31/lk.png);--i-lg:url(icons/win31/lg.png);--i-rs:url(icons/win31/rs.png);}
+html button.ib{width:var(--ib);height:var(--ib);padding:0;background-repeat:no-repeat;background-position:center;background-size:auto;image-rendering:pixelated}
+html .title button.ib{width:var(--ibt);height:var(--ibt)}
+html button.ib:active,html button.ib.on{background-position:calc(50% + 1px) calc(50% + 1px)}
+html[data-theme=xp] button.ib{background-color:#ece9d8}
+html button.ib-vd{background-image:var(--i-vd)}
+html button.ib-vf{background-image:var(--i-vf)}
+html button.ib-up{background-image:var(--i-up)}
+html button.ib-lk{background-image:var(--i-lk)}
+html button.ib-lg{background-image:var(--i-lg)}
+html button.ib-rs{background-image:var(--i-rs)}
+html[data-theme=dos] button.ib{background-image:none}
+.fd .fi{height:48px}
+.fds{background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;padding:8px;min-height:80px}
+[data-theme=cde] .fds,[data-theme=dos] .fds{background:none;border:0;padding:0}
+.w31{background:#fff;border:1px solid #000;padding:2px;color:#000}
+.w31h{text-align:center;font-weight:bold;border-bottom:1px solid #000;padding:2px 0;margin:-2px -2px 4px}
+.w31l{column-width:200px;column-gap:8px}
+.fi31{display:flex;align-items:center;gap:4px;height:18px;break-inside:avoid;cursor:default}
+.i31{flex:none;width:16px;height:16px;background-position:center;background-repeat:no-repeat;image-rendering:pixelated}
+.fi31 span{padding:0 2px;white-space:nowrap}
+.fi31.sel span{background:#000080;color:#fff}
+.i31.up{background-image:url(icons/win31/up.png)}.i31.d{background-image:url(icons/win31/vf.png)}.i31.f{background-image:url(icons/win31/doc.png)}
