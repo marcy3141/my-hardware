@@ -1,0 +1,1 @@
+Icone del Common Desktop Environment (CDE), https://github.com/cdesktopenv/cde (cde/programs/icons, file .pm convertiti in PNG). Licenza del progetto: GNU LGPL 2.1 (cde/COPYING). Usate: Dtsprds.t, DtdirB.t, Dtdirup.t, Dtstyle.t, DtFlag.t (ritagliata), Dttrsh.t, DtdirB.m.

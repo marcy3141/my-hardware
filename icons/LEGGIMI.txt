@@ -2,4 +2,5 @@ Icone: icons/<tema>/<nome>.png (tema: win98, win31, xp, cde; il DOS resta di tes
 vd (A) Vista predefinita 16x16 | vf (B) Cartelle 16x16 | up (C) Su 16x16 | rs (F) Azzera filtri 16x16 | lk (D) Aspetto 12x12 | lg (E) Lingua 12x12
 folder  Cartella della vista a cartelle 24x24 (mostrata a 48x48)
 win31/doc.png  icona del "file" (scheda) nella vista File Manager del 3.1, 16x16 (fatta da me, sostituibile)
-CDE usa per ora le icone di win98.
+CDE usa le icone reali del CDE (icons/cde, vedi LICENSE.txt).
+XP (segnaposto piu' grandi, immagini normali anche sfumate, non per forza a pixel): vd/vf/up/rs 24x24, lk/lg 16x16, folder 48x48 (mostrata 1:1). Pulsanti XP: 32 px nella barra, 22 nel titolo.

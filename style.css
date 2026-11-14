@@ -69,7 +69,7 @@ body.tcm,body.tcm *{cursor:none}body.tcm input,body.tcm textarea{cursor:text}
 [data-theme=dos] .tcl{margin:0 0 1lh}[data-theme=dos] .tr{display:flex;gap:2ch;height:1lh;padding:0 1ch}[data-theme=dos] .tr .n{flex:1;color:#fff}
 [data-theme=dos] .tr.sel{background:#0aa;color:#000}[data-theme=dos] .tr.sel .n{color:#000}
 :root{--i-vd:url(icons/default/vd.png);--i-vf:url(icons/default/vf.png);--i-up:url(icons/default/up.png);--i-lk:url(icons/default/lk.png);--i-lg:url(icons/default/lg.png);--i-rs:url(icons/default/rs.png);}
-[data-theme=win98],[data-theme=cde]{--i-vd:url(icons/win98/vd.png);--i-vf:url(icons/win98/vf.png);--i-up:url(icons/win98/up.png);--i-lk:url(icons/win98/lk.png);--i-lg:url(icons/win98/lg.png);--i-rs:url(icons/win98/rs.png);--fold:url(icons/win98/folder.png);}
+[data-theme=win98]{--i-vd:url(icons/win98/vd.png);--i-vf:url(icons/win98/vf.png);--i-up:url(icons/win98/up.png);--i-lk:url(icons/win98/lk.png);--i-lg:url(icons/win98/lg.png);--i-rs:url(icons/win98/rs.png);--fold:url(icons/win98/folder.png);}
 [data-theme=win31]{--i-vd:url(icons/win31/vd.png);--i-vf:url(icons/win31/vf.png);--i-up:url(icons/win31/up.png);--i-lk:url(icons/win31/lk.png);--i-lg:url(icons/win31/lg.png);--i-rs:url(icons/win31/rs.png);}
 html button.ib{width:var(--ib);height:var(--ib);padding:0;background-repeat:no-repeat;background-position:center;background-size:auto;image-rendering:pixelated}
 html .title button.ib{width:var(--ibt);height:var(--ibt)}
@@ -93,3 +93,7 @@ html[data-theme=dos] button.ib{background-image:none}
 .fi31 span{padding:0 2px;white-space:nowrap}
 .fi31.sel span{background:#000080;color:#fff}
 .i31.up{background-image:url(icons/win31/up.png)}.i31.d{background-image:url(icons/win31/vf.png)}.i31.f{background-image:url(icons/win31/doc.png)}
+[data-theme=cde]{--i-vd:url(icons/cde/vd.png);--i-vf:url(icons/cde/vf.png);--i-up:url(icons/cde/up.png);--i-lk:url(icons/cde/lk.png);--i-lg:url(icons/cde/lg.png);--i-rs:url(icons/cde/rs.png);--fold:url(icons/cde/folder.png)}
+[data-theme=cde] .fd .fi{background-size:auto}
+[data-theme=xp]{--ib:32px;--ibt:22px;--i-vd:url(icons/xp/vd.png);--i-vf:url(icons/xp/vf.png);--i-up:url(icons/xp/up.png);--i-lk:url(icons/xp/lk.png);--i-lg:url(icons/xp/lg.png);--i-rs:url(icons/xp/rs.png);}
+html[data-theme=xp] button.ib{image-rendering:auto}
