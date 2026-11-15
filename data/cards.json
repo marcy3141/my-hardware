@@ -69,7 +69,7 @@
  {
   "id": "creative-sound-blaster-audigy-sb0090",
   "brand": "Creative",
-  "model": "Sound Blaster Audigy SB0090",
+  "model": "Sound Blaster Audigy (SB0090)",
   "type": "Audio",
   "chip": "CAO100-IAF",
   "slot": "PCI",
@@ -105,7 +105,17 @@
    "it": "Nuova.",
    "en": "Brand new."
   },
-  "photos": []
+  "na": [
+   "features"
+  ],
+  "photos": [
+   {
+    "f": "mwihjjii-0.webp"
+   },
+   {
+    "f": "mwihjk3s-1.webp"
+   }
+  ]
  },
  {
   "id": "creative-soundblaster-live-value-ct4830",
@@ -123,7 +133,14 @@
    "it": "Ottima scheda. Driver orrendi. Usare le versioni VDM se possibile.",
    "en": "Great card. Awful drivers. Use VDM if available."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihjrec-0.webp"
+   },
+   {
+    "f": "mwihjrvp-1.webp"
+   }
+  ]
  },
  {
   "id": "smc-ez-connect-g",
@@ -132,6 +149,13 @@
   "type": "Wi-Fi",
   "slot": "PCI",
   "value": 2,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihk2d5-0.webp"
+   },
+   {
+    "f": "mwihk2tw-1.webp"
+   }
+  ]
  }
 ]

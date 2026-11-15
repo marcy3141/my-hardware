@@ -83,7 +83,14 @@
   "value": 5,
   "perf": 4,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihe0mr-0.webp"
+   },
+   {
+    "f": "mwihe13z-1.webp"
+   }
+  ]
  },
  {
   "id": "asus-p2b-f",

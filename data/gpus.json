@@ -19,7 +19,14 @@
    "it": "Con scatola originale.",
    "en": "Boxed."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihef14-0.webp"
+   },
+   {
+    "f": "mwihefjj-1.webp"
+   }
+  ]
  },
  {
   "id": "pny-geforce-6600le",
@@ -211,6 +218,13 @@
   "value": 5,
   "perf": 5,
   "fav": true,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihf3jl-0.webp"
+   },
+   {
+    "f": "mwihf41q-1.webp"
+   }
+  ]
  }
 ]

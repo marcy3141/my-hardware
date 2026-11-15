@@ -17,7 +17,11 @@
    "it": "Tollera FSB133 a voltaggi stock.",
    "en": "Tolerates FSB133 with stock voltage."
   },
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihfhlw-0.webp"
+   }
+  ]
  },
  {
   "id": "amd-1300",
@@ -691,6 +695,9 @@
   "photos": [
    {
     "f": "mwdpb5qj-0.webp"
+   },
+   {
+    "f": "mwihh88j-0.webp"
    }
   ]
  },
@@ -710,6 +717,9 @@
   "photos": [
    {
     "f": "mwdpbqt2-0.webp"
+   },
+   {
+    "f": "mwihglgv-0.webp"
    }
   ]
  },
@@ -745,7 +755,15 @@
   "sspec": "SL6FH",
   "value": 1,
   "perf": 3,
-  "photos": []
+  "notes": {
+   "it": "Funziona anche su schede desktop.",
+   "en": "Also works on desktop boards."
+  },
+  "photos": [
+   {
+    "f": "mwihhifq-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-pentium-m",
@@ -760,7 +778,11 @@
   "sspec": "SL6FA",
   "value": 1,
   "perf": 4,
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihhsm2-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-i3-2120",
@@ -777,7 +799,11 @@
    "fsb",
    "vcore"
   ],
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihiybm-0.webp"
+   }
+  ]
  },
  {
   "id": "intel-core-i3-7100",
@@ -794,6 +820,10 @@
    "fsb",
    "vcore"
   ],
-  "photos": []
+  "photos": [
+   {
+    "f": "mwihj8s0-0.webp"
+   }
+  ]
  }
 ]
