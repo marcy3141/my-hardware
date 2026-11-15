@@ -716,7 +716,7 @@
  {
   "id": "intel-celeron",
   "brand": "Intel",
-  "model": "Celeron",
+  "model": "Celeron 1700",
   "family": "Willamette",
   "stepping": "E0",
   "socket": "Socket 478",
@@ -731,5 +731,69 @@
     "f": "mwdpby5g-0.webp"
    }
   ]
+ },
+ {
+  "id": "intel-pentium-4-m",
+  "brand": "Intel",
+  "model": "Pentium 4-M",
+  "family": "Northwood",
+  "stepping": "C1",
+  "socket": "Socket 478",
+  "mhz": 1800,
+  "fsb": "400",
+  "vcore": "1.2V - 1.3V",
+  "sspec": "SL6FH",
+  "value": 1,
+  "perf": 3,
+  "photos": []
+ },
+ {
+  "id": "intel-pentium-m",
+  "brand": "Intel",
+  "model": "Pentium M",
+  "family": "Banias",
+  "stepping": "B1",
+  "socket": "Socket 479",
+  "mhz": 1600,
+  "fsb": "400",
+  "vcore": "1.484",
+  "sspec": "SL6FA",
+  "value": 1,
+  "perf": 4,
+  "photos": []
+ },
+ {
+  "id": "intel-core-i3-2120",
+  "brand": "Intel",
+  "model": "Core i3 2120",
+  "family": "Sandy Bridge",
+  "stepping": "Q0",
+  "socket": "LGA 1155",
+  "mhz": 3300,
+  "sspec": "SR05Y",
+  "value": 1,
+  "perf": 1,
+  "na": [
+   "fsb",
+   "vcore"
+  ],
+  "photos": []
+ },
+ {
+  "id": "intel-core-i3-7100",
+  "brand": "Intel",
+  "model": "Core i3 7100",
+  "family": "Kaby Lake",
+  "stepping": "S0",
+  "socket": "LGA 1151",
+  "mhz": 3900,
+  "sspec": "SR35C",
+  "value": 1,
+  "perf": 2,
+  "na": [
+   "fsb",
+   "vcore"
+  ],
+  "photos": []
  }
 ]

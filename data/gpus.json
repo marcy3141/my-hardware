@@ -4,10 +4,21 @@
   "brand": "Point of View",
   "model": "GeForce FX 5500",
   "chip": "NV34",
-  "vram": "256 MB",
+  "vram": "256MB",
   "ramtype": "TSOP DDR",
-  "bus": "AGP",
+  "bus": "128bit",
   "agpv": "1.5V 3.3V",
+  "out": [
+   "VGA",
+   "DVI",
+   "S-VIDEO"
+  ],
+  "value": 2,
+  "perf": 3,
+  "notes": {
+   "it": "Con scatola originale.",
+   "en": "Boxed."
+  },
   "photos": []
  },
  {
@@ -100,7 +111,7 @@
   "brand": "Sapphire",
   "model": "Radeon 9600",
   "chip": "RV350",
-  "vram": "256 MB",
+  "vram": "256MB",
   "core": 324,
   "mem": 202,
   "ramtype": "TSOP DDR",
@@ -155,7 +166,7 @@
  },
  {
   "id": "generic-s3-virge-dx",
-  "brand": "(Generic)",
+  "brand": "[generic]",
   "model": "S3 ViRGE/DX",
   "chip": "86C375",
   "vram": "4MB",
@@ -181,5 +192,25 @@
     "f": "mw55f6dw-1.webp"
    }
   ]
+ },
+ {
+  "id": "msi-ms-8394",
+  "brand": "MSI",
+  "model": "MS-8394",
+  "chip": "ATI R350",
+  "vram": "128MB",
+  "ramtype": "BGA DDR",
+  "bus": "256bit",
+  "agpv": "AGP Universal",
+  "agpx": "8x",
+  "out": [
+   "VGA",
+   "VGA",
+   "S-VIDEO"
+  ],
+  "value": 5,
+  "perf": 5,
+  "fav": true,
+  "photos": []
  }
 ]

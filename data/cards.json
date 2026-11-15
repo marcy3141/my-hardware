@@ -91,5 +91,47 @@
     "f": "mw55gr80-1.webp"
    }
   ]
+ },
+ {
+  "id": "generic-usb-2-0-mwih0q68",
+  "brand": "[generic]",
+  "model": "USB 2.0",
+  "type": "USB",
+  "chip": "Via VT6212L",
+  "slot": "PCI",
+  "value": 1,
+  "perf": 4,
+  "notes": {
+   "it": "Nuova.",
+   "en": "Brand new."
+  },
+  "photos": []
+ },
+ {
+  "id": "creative-soundblaster-live-value-ct4830",
+  "brand": "Creative",
+  "model": "SoundBlaster Live! Value (CT4830)",
+  "type": "Sound",
+  "chip": "Creative EMU10K1-NDF",
+  "slot": "PCI",
+  "features": [
+   "EAX"
+  ],
+  "value": 3,
+  "perf": 5,
+  "notes": {
+   "it": "Ottima scheda. Driver orrendi. Usare le versioni VDM se possibile.",
+   "en": "Great card. Awful drivers. Use VDM if available."
+  },
+  "photos": []
+ },
+ {
+  "id": "smc-ez-connect-g",
+  "brand": "SMC",
+  "model": "EZ Connect g",
+  "type": "Wi-Fi",
+  "slot": "PCI",
+  "value": 2,
+  "photos": []
  }
 ]
