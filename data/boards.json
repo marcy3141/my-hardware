@@ -395,6 +395,10 @@
    "it": "Porte SATA di prima generazione. Si rompono solo a guardarle. Utilizzare con cautela.",
    "en": "First-gen SATA ports. They break just by looking at them. Use with care."
   },
+  "notes": {
+   "it": "Con scatola.",
+   "en": "Boxed."
+  },
   "photos": [
    {
     "f": "mw433idz-0.webp"
@@ -968,5 +972,48 @@
     "f": "mwbb9wdd-1.webp"
    }
   ]
+ },
+ {
+  "id": "soyo-sy-6ba",
+  "brand": "Soyo",
+  "model": "SY-6BA+",
+  "ff": "ATX",
+  "socket": "Slot 1",
+  "chipset": "Intel 440BX",
+  "fsb": [
+   "66",
+   "100"
+  ],
+  "bios": "2DA2",
+  "ramslots": [
+   {
+    "n": "SDRAM",
+    "c": 4
+   }
+  ],
+  "slots": [
+   {
+    "n": "AGP 3.3v",
+    "c": 1
+   },
+   {
+    "n": "PCI",
+    "c": 5
+   },
+   {
+    "n": "ISA",
+    "c": 2
+   }
+  ],
+  "value": 4,
+  "perf": 3,
+  "notes": {
+   "it": "Non ha il divisore 1/4 per il PCI. Inutilizzabile a FSB133",
+   "en": "Doesn't have 1/4 divider for PCI. Unusable at FSB133"
+  },
+  "na": [
+   "rev"
+  ],
+  "photos": []
  }
 ]
